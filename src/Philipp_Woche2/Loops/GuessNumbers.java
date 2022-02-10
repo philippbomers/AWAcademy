@@ -16,7 +16,7 @@ public class GuessNumbers {
                 "Um das Programm zu beenden, schreibe 0 oder eine Zahl über 100.");
 
         // generate random number between 1 and 100
-        int randomNumber = (int) (Math.random() * 100);
+        byte randomNumber = (byte) (Math.random() * 100);
 
         Scanner scanNumberInput = new Scanner(System.in);
         int attempt = 0;
@@ -25,7 +25,7 @@ public class GuessNumbers {
         while (true) {
             attempt++;
             System.out.println("Versuch " + attempt + " - Rate eine Zahl: ");
-            int guessedNumber = scanNumberInput.nextInt();
+            byte guessedNumber = scanNumberInput.nextByte();
             String result = compareNumbers(randomNumber, guessedNumber);
             System.out.println(result);
             if (result.equals("Korrekt!") || result.equals("Exit"))
