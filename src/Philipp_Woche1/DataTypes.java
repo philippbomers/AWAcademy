@@ -98,7 +98,7 @@ public class DataTypes {
                     marker = !marker;
                     returnMarker = true;
                 } else if (marker) {
-                    switch (i){
+                    switch (i) {
                         case 0:
                             newString.append(Character.toUpperCase(ch));
                             returnMarker = true;

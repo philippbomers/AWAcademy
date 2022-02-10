@@ -1,4 +1,4 @@
-package Philipp_Woche1; /**
+/**
  * Aufgaben:
  * <p>
  * Schreibe ein Programm, welches einen vom Benutzer eingegebenen Text, z.B. seinen
@@ -11,6 +11,8 @@ package Philipp_Woche1; /**
  * ● Die Fläche und den Umfang eines Rechtecks.
  * ● Die Fläche und den Umfang eines rechtwinkligen Dreiecks.
  */
+
+package Philipp_Woche1;
 
 import java.util.Scanner;
 
@@ -40,7 +42,7 @@ public class InputAndOutput {
                 "         |  | SSt       |  |\n" +
                 "https://www.asciiart.eu/television/futurama";
 
-        System.out.println(escape(asciiPicture)+ "\n");
+        System.out.println(escape(asciiPicture) + "\n");
 
         double varA = Double.parseDouble(inputDialog("Wähle eine Größe für A"));
         double varB = Double.parseDouble(inputDialog("Wähle eine Größe für B"));
