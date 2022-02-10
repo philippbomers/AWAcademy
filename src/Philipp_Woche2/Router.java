@@ -18,7 +18,7 @@ public class Router {
     public static void main(String[] args) {
 
         while (true) {
-            int inputValue = Integer.parseInt(JOptionPane.showInputDialog("\n\nBitte wähle eine Zahl:" +
+            int inputValue = Integer.parseInt(JOptionPane.showInputDialog("\n\nBitte wähle eine Zahl." +
                     "\n\n" +
                     "Operatoren\n" +
                     "1. Zeiteinheiten\n" +
