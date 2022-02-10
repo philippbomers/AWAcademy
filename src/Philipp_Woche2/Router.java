@@ -12,29 +12,29 @@ import Philipp_Woche2.Operators.Metropolises;
 import Philipp_Woche2.Operators.OneCodeLine;
 import Philipp_Woche2.Operators.TimeUnits;
 
-import java.util.Scanner;
+import javax.swing.*;
 
 public class Router {
     public static void main(String[] args) {
-        Scanner scanInput = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n\nBitte wähle eine Zahl:" +
-                    "\n__________\n" +
-                    "0: Beenden" +
-                    "\n__________\n" +
+            int inputValue = Integer.parseInt(JOptionPane.showInputDialog("\n\nBitte wähle eine Zahl:" +
+                    "\n\n" +
                     "Operatoren\n" +
                     "1. Zeiteinheiten\n" +
                     "2. Zylinder\n" +
                     "3. Eine Zeile Code\n" +
                     "4. Metropolen (Bonusaufgabe)" +
-                    "\n__________\n" +
+                    "\n\n" +
                     "Schleifen\n" +
                     "5. Zahlenraten\n" +
                     "6. Dreiecke\n" +
-                    "7. Weihnachtsbaum (Bonusaufgabe)\n");
+                    "7. Weihnachtsbaum (Bonusaufgabe)" +
+                    "\n\n" +
+                    "Sonstiges\n" +
+                    "0: Beenden"));
 
-            switch (scanInput.nextInt()) {
+            switch (inputValue) {
                 case 0:
                     return;
                 case 1:
