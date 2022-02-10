@@ -29,13 +29,13 @@ public class GuessNumbers {
             String result = compareNumbers(randomNumber, guessedNumber);
             System.out.println(result);
             if (result.equals("Korrekt!") || result.equals("Exit"))
-                return;
+                break;
         }
     }
 
     /**
      * checks if two numbers are greater, smaller, equal
-     *  or if user wants to exit
+     * or if user wants to exit
      *
      * @return String result
      */
