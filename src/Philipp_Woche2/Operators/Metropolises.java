@@ -41,6 +41,13 @@ public class Metropolises {
         System.out.println(checkMetropolises(name, capitalCity, inhabitants, inhabitantTaxes));
     }
 
+    /**
+     * The method checks if a city is a metropolis.
+     * If a specific amount of taxes is missing, it calculates and outputs the value.
+     * The if-statements should be self-explanatory (for the German target group)
+     *
+     * @return String answer
+     */
     public static String checkMetropolises(String name, boolean istHauptstadt, int anzahlEinwohner, double steuerEinnahmenProEinwohner) {
 
         long steuereinnahmen = (long) (anzahlEinwohner * steuerEinnahmenProEinwohner);

@@ -22,6 +22,7 @@ public class ChristmasTree {
 
     public static String drawChristmasTree(int heightOfChristmasTree) {
 
+        // We only need every odd count of '*', therefore, we have to double the height
         heightOfChristmasTree = heightOfChristmasTree * 2;
         StringBuilder drawChristmasTree = new StringBuilder();
         StringBuilder addBackground;
@@ -30,23 +31,28 @@ public class ChristmasTree {
         int n;
         int t;
 
+        // iterate through every line
         for (i = 0; i < heightOfChristmasTree; i++) {
 
             currentLine = new StringBuilder();
             addBackground = new StringBuilder();
 
+            // count and draw '*'
             for (t = i; t >= 0; t--) {
                 currentLine.append("*");
             }
 
+            // count and draw spaces on the left and right side of '*'
             for (n = 0; n < heightOfChristmasTree - currentLine.length(); n += 2) {
                 addBackground.append(" ");
             }
 
+            // only draw the line at odd count of '*'
             if (i % 2 == 0) {
                 drawChristmasTree.append(addBackground).append(currentLine).append(addBackground).append("\n");
             }
 
+            // draw the trunk in the end
             if (i + 1 == heightOfChristmasTree) {
                 for (n = 0; n < heightOfChristmasTree; n += 2) {
                     addBackground.append(" ");

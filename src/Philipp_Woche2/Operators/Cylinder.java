@@ -26,12 +26,14 @@ public class Cylinder {
 
         Scanner scanCylinderInput = new Scanner(System.in);
 
+        // I do not use nextDouble to make the program more user-friendly.
         System.out.println("Umfang:");
         String scope = scanCylinderInput.nextLine();
 
         System.out.println("Höhe:");
         String height = scanCylinderInput.nextLine();
 
+        // make calculations ti receive total area and volume
         double diameter = Double.parseDouble(scope) / Math.PI;
         double floorSurface = Math.PI * (diameter / 2) * (diameter / 2);
         double lateralSurface = Double.parseDouble(scope) * Double.parseDouble(height);
