@@ -1,4 +1,4 @@
-package Philipp_Woche1; /**
+/**
  * Aufgabe:
  * <p>
  * Verschiedene Datentypen
@@ -24,6 +24,8 @@ package Philipp_Woche1; /**
  * Ein Wort ohne Formatierungszeichen bleibt wie es eingegeben wurde.
  * Das Formatierungszeichen wird bei der Ausgabe vernachlässigt.
  */
+
+package Philipp_Woche1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
