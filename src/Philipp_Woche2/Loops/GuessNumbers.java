@@ -15,21 +15,30 @@ public class GuessNumbers {
                 "Bitte wähle eine Zahl zwischen 1 und 100.\n" +
                 "Um das Programm zu beenden, schreibe 0 oder eine Zahl über 100.");
 
+        // generate random number between 1 and 100
         int randomNumber = (int) (Math.random() * 100);
+
         Scanner scanNumberInput = new Scanner(System.in);
         int attempt = 0;
 
+        // repeat until result is correct or user exits the program
         while (true) {
             attempt++;
             System.out.println("Versuch " + attempt + " - Rate eine Zahl: ");
-            String guessedNumber = scanNumberInput.nextLine();
-            String result = compareNumbers(randomNumber, Integer.parseInt(guessedNumber));
+            int guessedNumber = scanNumberInput.nextInt();
+            String result = compareNumbers(randomNumber, guessedNumber);
             System.out.println(result);
             if (result.equals("Korrekt!") || result.equals("Exit"))
                 return;
         }
     }
 
+    /**
+     * checks if two numbers are greater, smaller, equal
+     *  or if user wants to exit
+     *
+     * @return String result
+     */
     public static String compareNumbers(int randomNumber, int guessedNumber) {
         if (guessedNumber > 100 || guessedNumber == 0)
             return "Exit";
