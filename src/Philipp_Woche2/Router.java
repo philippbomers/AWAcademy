@@ -1,3 +1,7 @@
+/**
+ * Choose a number to start a java class with the tasks solution
+ */
+
 package Philipp_Woche2;
 
 import Philipp_Woche2.Loops.ChristmasTree;
@@ -34,33 +38,25 @@ public class Router {
                 case 0:
                     return;
                 case 1:
-                    TimeUnits timeUnits = new TimeUnits();
-                    timeUnits.main();
+                    TimeUnits.main();
                     continue;
                 case 2:
-                    Cylinder cylinder = new Cylinder();
-                    cylinder.main();
+                    Cylinder.main();
                     continue;
                 case 3:
-                    OneCodeLine oneCodeLine = new OneCodeLine();
-                    oneCodeLine.main();
+                    OneCodeLine.main();
                     continue;
                 case 4:
-                    Metropolises metropolises = new Metropolises();
-                    metropolises.main();
+                    Metropolises.main();
                     continue;
                 case 5:
-                    GuessNumbers guessNumbers = new GuessNumbers();
-                    guessNumbers.main();
+                    GuessNumbers.main();
                     continue;
                 case 6:
-                    Triangles triangles = new Triangles();
-                    triangles.main();
+                    Triangles.main();
                     continue;
                 case 7:
-                    ChristmasTree christmastree = new ChristmasTree();
-                    christmastree.main();
-                    continue;
+                    ChristmasTree.main();
             }
         }
 
