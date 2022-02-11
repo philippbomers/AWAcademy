@@ -13,8 +13,9 @@ import Philipp_Woche2.Operators.OneCodeLine;
 import Philipp_Woche2.Operators.TimeUnits;
 
 import javax.swing.*;
+import java.util.Scanner;
 
-public class Router {
+public class OperatorsRouter {
     public static void main(String[] args) {
 
         while (true) {
@@ -39,25 +40,38 @@ public class Router {
                     return;
                 case 1:
                     TimeUnits.main();
+                    pressReturnToContinue();
                     continue;
                 case 2:
                     Cylinder.main();
+                    pressReturnToContinue();
                     continue;
                 case 3:
                     OneCodeLine.main();
+                    pressReturnToContinue();
                     continue;
                 case 4:
                     Metropolises.main();
+                    pressReturnToContinue();
                     continue;
                 case 5:
                     GuessNumbers.main();
+                    pressReturnToContinue();
                     continue;
                 case 6:
                     Triangles.main();
+                    pressReturnToContinue();
                     continue;
                 case 7:
                     ChristmasTree.main();
+                    pressReturnToContinue();
             }
         }
+    }
+
+    public static void pressReturnToContinue(){
+        Scanner pressReturn = new Scanner(System.in);
+        System.out.println("\nDrücke Return, um zum Menü zurückzukehren.");
+        pressReturn.nextLine();
     }
 }
