@@ -1,6 +1,6 @@
-package Pia_Training.Pia_Woche2;
+package Pia_Training.Pia_Woche2.Loops;
 
-public class ChristmasTreeTest {
+public class ChristmasTree {
     public static void main(String[] args) {
         for (int i = 1; i <= 5; i++) {
             for (int leertaste = 1; leertaste <= 5 - i; leertaste++) {
