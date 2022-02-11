@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class GuessNumbers {
     public static void main(String[] args) {
-        System.out.println("Willkommen beim Zahlenraten.\n" +
-                "Bitte wähle eine Zahl zwischen 1 und 100.\n" +
-                "Um das Programm zu beenden, schreibe 0 oder eine Zahl über 100.");
+        System.out.println("""
+                Willkommen beim Zahlenraten.
+                Bitte wähle eine Zahl zwischen 1 und 100.
+                Um das Programm zu beenden, schreibe 0 oder eine Zahl über 100.""");
 
         // generate random number between 1 and 100
         byte randomNumber = (byte) (Math.random() * 100);

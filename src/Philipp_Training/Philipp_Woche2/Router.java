@@ -19,21 +19,24 @@ public class Router {
     public static void main(String[] args) {
 
         while (true) {
-            int inputValue = Integer.parseInt(JOptionPane.showInputDialog("\n\nBitte wähle eine Zahl." +
-                    "\n\n" +
-                    "Operatoren\n" +
-                    "1. Zeiteinheiten\n" +
-                    "2. Zylinder\n" +
-                    "3. Eine Zeile Code\n" +
-                    "4. Metropolen (Bonusaufgabe)" +
-                    "\n\n" +
-                    "Schleifen\n" +
-                    "5. Zahlenraten\n" +
-                    "6. Dreiecke\n" +
-                    "7. Weihnachtsbaum (Bonusaufgabe)" +
-                    "\n\n" +
-                    "Sonstiges\n" +
-                    "0: Beenden"));
+            int inputValue = Integer.parseInt(JOptionPane.showInputDialog("""
+
+
+                    Bitte wähle eine Zahl.
+
+                    Operatoren
+                    1. Zeiteinheiten
+                    2. Zylinder
+                    3. Eine Zeile Code
+                    4. Metropolen (Bonusaufgabe)
+
+                    Schleifen
+                    5. Zahlenraten
+                    6. Dreiecke
+                    7. Weihnachtsbaum (Bonusaufgabe)
+
+                    Sonstiges
+                    0: Beenden"""));
 
             switch (inputValue) {
                 case 0:
