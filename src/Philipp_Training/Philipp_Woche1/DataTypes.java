@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class DataTypes {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Hallo Welt");
+
+        System.out.println("Neuer Test");
 
         float gomezGoals = 0.4F;
         byte courseDuration = (byte) 16;
