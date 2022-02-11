@@ -39,31 +39,31 @@ public class Router {
                 case 0:
                     return;
                 case 1:
-                    TimeUnits.main();
+                    TimeUnits.main(null);
                     pressReturnToContinue();
                     continue;
                 case 2:
-                    Cylinder.main();
+                    Cylinder.main(null);
                     pressReturnToContinue();
                     continue;
                 case 3:
-                    OneCodeLine.main();
+                    OneCodeLine.main(null);
                     pressReturnToContinue();
                     continue;
                 case 4:
-                    Metropolises.main();
+                    Metropolises.main(null);
                     pressReturnToContinue();
                     continue;
                 case 5:
-                    GuessNumbers.main();
+                    GuessNumbers.main(null);
                     pressReturnToContinue();
                     continue;
                 case 6:
-                    Triangles.main();
+                    Triangles.main(null);
                     pressReturnToContinue();
                     continue;
                 case 7:
-                    ChristmasTree.main();
+                    ChristmasTree.main(null);
                     pressReturnToContinue();
             }
         }

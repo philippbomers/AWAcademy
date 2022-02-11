@@ -3,7 +3,7 @@ package Philipp_Training.Philipp_Woche2.Loops;
 import java.util.Scanner;
 
 public class Triangles {
-    public static void main() {
+    public static void main(String[] args) {
         Scanner scanTriangleInput = new Scanner(System.in);
 
         System.out.println("Wie groß sollen deine Dreiecke sein?");

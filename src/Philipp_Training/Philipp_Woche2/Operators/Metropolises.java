@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Metropolises {
 
-    public static void main() {
+    public static void main(String[] args) {
 
         Scanner metropolisesScanner = new Scanner(System.in);
 

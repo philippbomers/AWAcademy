@@ -3,7 +3,7 @@ package Philipp_Training.Philipp_Woche2.Loops;
 import java.util.Scanner;
 
 public class GuessNumbers {
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("Willkommen beim Zahlenraten.\n" +
                 "Bitte wähle eine Zahl zwischen 1 und 100.\n" +
                 "Um das Programm zu beenden, schreibe 0 oder eine Zahl über 100.");

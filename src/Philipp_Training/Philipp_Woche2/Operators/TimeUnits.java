@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TimeUnits {
 
-    public static void main() {
+    public static void main(String[] args) {
 
         Scanner scanSeconds = new Scanner(System.in);
         System.out.println("Wie viele Sekunden hast du zur Verfügung:");
