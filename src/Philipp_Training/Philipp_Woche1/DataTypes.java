@@ -15,8 +15,6 @@ public class DataTypes {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Neuer Test");
-
         float gomezGoals = 0.4F;
         byte courseDuration = (byte) 16;
         String bonusTask = "Alle _sagten_, das geht nicht. Dann kam einer, der #WUSSTE# das nicht und hat es einfach gemacht.";
