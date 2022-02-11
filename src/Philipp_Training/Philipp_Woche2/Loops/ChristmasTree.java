@@ -1,4 +1,4 @@
-package Philipp_Woche2.Loops;
+package Philipp_Training.Philipp_Woche2.Loops;
 
 import java.util.Scanner;
 

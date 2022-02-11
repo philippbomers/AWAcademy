@@ -1,4 +1,4 @@
-package Pia_Woche2;
+package Pia_Training.Pia_Woche2;
 
 public class ChristmasTreeTest {
     public static void main(String[] args) {

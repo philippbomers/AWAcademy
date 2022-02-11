@@ -2,15 +2,15 @@
  * Choose a number to start a java class with the tasks solution
  */
 
-package Philipp_Woche2;
+package Philipp_Training.Philipp_Woche2;
 
-import Philipp_Woche2.Loops.ChristmasTree;
-import Philipp_Woche2.Loops.GuessNumbers;
-import Philipp_Woche2.Loops.Triangles;
-import Philipp_Woche2.Operators.Cylinder;
-import Philipp_Woche2.Operators.Metropolises;
-import Philipp_Woche2.Operators.OneCodeLine;
-import Philipp_Woche2.Operators.TimeUnits;
+import Philipp_Training.Philipp_Woche2.Loops.ChristmasTree;
+import Philipp_Training.Philipp_Woche2.Loops.GuessNumbers;
+import Philipp_Training.Philipp_Woche2.Loops.Triangles;
+import Philipp_Training.Philipp_Woche2.Operators.Cylinder;
+import Philipp_Training.Philipp_Woche2.Operators.Metropolises;
+import Philipp_Training.Philipp_Woche2.Operators.OneCodeLine;
+import Philipp_Training.Philipp_Woche2.Operators.TimeUnits;
 
 import javax.swing.*;
 import java.util.Scanner;

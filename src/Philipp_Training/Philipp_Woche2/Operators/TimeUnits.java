@@ -1,4 +1,4 @@
-package Philipp_Woche2.Operators;
+package Philipp_Training.Philipp_Woche2.Operators;
 
 import java.util.Scanner;
 
