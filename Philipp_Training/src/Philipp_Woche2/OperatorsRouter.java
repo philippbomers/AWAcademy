@@ -69,7 +69,7 @@ public class OperatorsRouter {
         }
     }
 
-    public static void pressReturnToContinue(){
+    public static void pressReturnToContinue() {
         Scanner pressReturn = new Scanner(System.in);
         System.out.println("\nDrücke Return, um zum Menü zurückzukehren.");
         pressReturn.nextLine();

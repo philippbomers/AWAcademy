@@ -22,9 +22,7 @@ public class Triangles {
      */
     public static String drawTriangle(Double heightOfTriangle, Double numberOfTriangles) {
         StringBuilder drawTriangles = new StringBuilder();
-        int v;
-        int i;
-        int n;
+        int v, i, n;
 
         // iterate through every triangle
         for (v = 0; v < numberOfTriangles; v++) {
