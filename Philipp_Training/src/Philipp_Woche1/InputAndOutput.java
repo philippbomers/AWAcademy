@@ -1,17 +1,3 @@
-/**
- * Aufgaben:
- * <p>
- * Schreibe ein Programm, welches einen vom Benutzer eingegebenen Text, z.B. seinen
- * Namen, mit einer Begrüßung ausgibt.
- * <p>
- * Wähle ein einfaches Ascii-Art von der Webseite https://www.asciiart.eu/. Gib dieses über ein
- * kleines Programm auf der Konsole aus.
- * <p>
- * Berechne zu zwei eingegebenen Werten “a” und “b” ein paar geometrische Kennzahlen.
- * ● Die Fläche und den Umfang eines Rechtecks.
- * ● Die Fläche und den Umfang eines rechtwinkligen Dreiecks.
- */
-
 package Philipp_Woche1;
 
 import java.util.Scanner;

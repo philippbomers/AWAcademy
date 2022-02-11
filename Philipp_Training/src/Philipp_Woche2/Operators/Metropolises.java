@@ -1,21 +1,3 @@
-/**
- * Metropolen (Bonusaufgabe)
- * Schreibe ein Programm, welches prüft, ob eine Stadt eine Metropole ist. Folgendes sind die
- * Eigenschaften einer Metropole:
- * Name:
- * Hauptstadt Ja oder Nein:
- * Anzahl Einwohner:
- * Steuereinnahmen pro Einwohner:
- * String name
- * boolean istHauptstadt
- * int anzahlEinwohner
- * double steuerEinnahmenProEinwohner
- * Regeln: Eine Stadt ist ein Metropole, wenn sie eine Hauptstadt ist und zudem mehr als
- * 100.000 Einwohner hat. Oder wenn sie mehr als 200.000 Einwohner hat und ein jährliches
- * Steuereinkommen von mindestens 1.000.000.000 Euro hat.
- * Hinweis: Beachte die Ausdrücke “mehr als” und “mindestens”.
- */
-
 package Philipp_Woche2.Operators;
 
 import java.util.Scanner;

@@ -1,7 +1,3 @@
-/**
- * Zeichne mehrere gleiche Dreiecke, für die der Benutzer die Größe angeben kann.
- */
-
 package Philipp_Woche2.Loops;
 
 import java.util.Scanner;

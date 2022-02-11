@@ -1,30 +1,3 @@
-/**
- * Aufgabe:
- * <p>
- * Verschiedene Datentypen
- * Deklariere für die Speicherung folgender Aussagen die minimal notwendigen Datentypen
- * und weise die Werte zu.
- * Deine Initialien
- * Einwohnerzahl in Deutschland
- * Einwohnerzahl auf der Erde
- * Ist gerade Tag?
- * Trefferquote von Mario Gomez (statistische Tore pro Spiel) bei Bayern München
- * Dauer in Wochen des Javakurses
- * Die mathematische Zahl PI
- * Verkette die Werte mit einem beschreibenden String und gib die Zeilen auf der Konsole aus.
- * <p>
- * Text formatieren (Bonusaufgabe)
- * Schreibe ein Java-Programm, welches einen eingelesenen String nach folgenden Regeln
- * formatiert.
- * Wird einem Wort ein “_” vorangestellt und angehängt, so wird es komplett in
- * Großbuchstaben dargestellt (z.B. “_Academy_”).
- * Wird ein Wort in zwei “#” eingefasst, so wird es komplett klein geschrieben (z.B.
- * “#Academy#”).
- * Es wird jeweils genau ein Wort mit “_” und genau eins mit “#” formatiert.
- * Ein Wort ohne Formatierungszeichen bleibt wie es eingegeben wurde.
- * Das Formatierungszeichen wird bei der Ausgabe vernachlässigt.
- */
-
 package Philipp_Woche1;
 
 import java.io.BufferedReader;

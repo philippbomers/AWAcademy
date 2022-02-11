@@ -1,10 +1,3 @@
-/**
- * Zahlenraten
- * Zufällig soll eine Zahl von 1 bis 100 erzeugt werden, die vom Benutzer erraten wird. Das
- * Programm gibt zu einer eingegebenen Zahl aus, ob sie größer, kleiner oder gleich der
- * Zufallszahl ist. So nähert sich der Spieler dem Ergebnis schrittweise an.
- */
-
 package Philipp_Woche2.Loops;
 
 import java.util.Scanner;

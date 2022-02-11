@@ -1,11 +1,3 @@
-/**
- * Dreiecke
- * Weihnachtsbaum (Bonusaufgabe)
- * “Weihnachten kommt immer so plötzlich”. Zeichne bereits jetzt schon einen
- * Weihnachtsbaum mit der Höhe von 5 Zeilen plus eine Zeile für den Stamm auf der Konsole.
- * Diese Aufgabe hat einen erhöhten Schwierigkeitsgrad und dient als echte Herausforderung.
- */
-
 package Philipp_Woche2.Loops;
 
 import java.util.Scanner;
