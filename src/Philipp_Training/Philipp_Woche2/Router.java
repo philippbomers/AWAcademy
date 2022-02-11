@@ -15,7 +15,7 @@ import Philipp_Training.Philipp_Woche2.Operators.TimeUnits;
 import javax.swing.*;
 import java.util.Scanner;
 
-public class OperatorsRouter {
+public class Router {
     public static void main(String[] args) {
 
         while (true) {
