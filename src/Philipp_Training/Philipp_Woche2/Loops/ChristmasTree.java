@@ -3,7 +3,7 @@ package Philipp_Training.Philipp_Woche2.Loops;
 import java.util.Scanner;
 
 public class ChristmasTree {
-    public static void main() {
+    public static void main(String[] args) {
         Scanner scanChristmasTreeInput = new Scanner(System.in);
 
         System.out.println("Wie hoch soll der Weihnachtsbaum sein?");

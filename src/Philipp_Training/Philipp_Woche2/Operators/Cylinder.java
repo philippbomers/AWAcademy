@@ -3,7 +3,7 @@ package Philipp_Training.Philipp_Woche2.Operators;
 import java.util.Scanner;
 
 public class Cylinder {
-    public static void main() {
+    public static void main(String[] args) {
 
         Scanner scanCylinderInput = new Scanner(System.in);
 
