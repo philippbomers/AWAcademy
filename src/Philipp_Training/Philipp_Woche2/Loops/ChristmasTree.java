@@ -17,15 +17,15 @@ public class ChristmasTree {
         // We only need every odd count of '*', therefore, we have to double the height
         int doubleHeightOfChristmasTree = heightOfChristmasTree * 2;
         StringBuilder drawChristmasTree = new StringBuilder();
-        StringBuilder addBackground;
-        StringBuilder currentLine;
+        StringBuilder addBackground = new StringBuilder();
+        StringBuilder currentLine = new StringBuilder();
         int i;
 
         // iterate through every line
         for (i = 0; i < doubleHeightOfChristmasTree; i++) {
 
-            currentLine = new StringBuilder(); // "**"
-            addBackground = new StringBuilder(); // "___"
+            addBackground.delete(0, addBackground.length());
+            currentLine.delete(0, currentLine.length());
 
             // count and draw '*'
             currentLine.append("*".repeat(Math.max(0, i+1)));
