@@ -39,7 +39,7 @@ public class GuessNumbers {
         else if (guessedNumber < randomNumber)
             return "Deine Zahl ist zu klein.";
         else if (guessedNumber > randomNumber)
-            return "Deine Zahl ist zu groß";
+            return "Deine Zahl ist zu groß.";
         else
             return "Korrekt!";
     }

@@ -15,29 +15,23 @@ public class ChristmasTree {
     public static String drawChristmasTree(int heightOfChristmasTree) {
 
         // We only need every odd count of '*', therefore, we have to double the height
-        heightOfChristmasTree = heightOfChristmasTree * 2;
+        int doubleHeightOfChristmasTree = heightOfChristmasTree * 2;
         StringBuilder drawChristmasTree = new StringBuilder();
         StringBuilder addBackground;
         StringBuilder currentLine;
-        int i;
-        int n;
-        int t;
+        int i, n;
 
         // iterate through every line
-        for (i = 0; i < heightOfChristmasTree; i++) {
+        for (i = 0; i < doubleHeightOfChristmasTree; i++) {
 
-            currentLine = new StringBuilder();
-            addBackground = new StringBuilder();
+            currentLine = new StringBuilder(); // "**"
+            addBackground = new StringBuilder(); // "___"
 
             // count and draw '*'
-            for (t = i; t >= 0; t--) {
-                currentLine.append("*");
-            }
+            currentLine.append("*".repeat(Math.max(0, i+1)));
 
             // count and draw spaces on the left and right side of '*'
-            for (n = 0; n < heightOfChristmasTree - currentLine.length(); n += 2) {
-                addBackground.append(" ");
-            }
+            addBackground.append(" ".repeat(Math.max(0, (doubleHeightOfChristmasTree - currentLine.length())/2)));
 
             // only draw the line at odd count of '*'
             if (i % 2 == 0) {
@@ -45,10 +39,8 @@ public class ChristmasTree {
             }
 
             // draw the trunk in the end
-            if (i + 1 == heightOfChristmasTree) {
-                for (n = 0; n < heightOfChristmasTree; n += 2) {
-                    addBackground.append(" ");
-                }
+            if (i + 1 == doubleHeightOfChristmasTree) {
+                addBackground.append(" ".repeat(heightOfChristmasTree-1));
                 drawChristmasTree.append(addBackground).append("I").append(addBackground);
             }
 
