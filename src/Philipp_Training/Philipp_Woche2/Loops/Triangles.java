@@ -31,7 +31,7 @@ public class Triangles {
             for (int i = 0; i < heightOfTriangle; i++) {
 
                 // iterate through the points to draw
-                drawTriangles.append(".".repeat(Math.max(0, i + 1))).append("\n");
+                drawTriangles.append(".".repeat(i + 1)).append("\n");
             }
             drawTriangles.append("\n");
         }
