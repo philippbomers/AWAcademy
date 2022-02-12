@@ -19,7 +19,7 @@ public class ChristmasTree {
         StringBuilder drawChristmasTree = new StringBuilder();
         StringBuilder addBackground;
         StringBuilder currentLine;
-        int i, n;
+        int i;
 
         // iterate through every line
         for (i = 0; i < doubleHeightOfChristmasTree; i++) {
