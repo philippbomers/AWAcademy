@@ -67,6 +67,10 @@ public class Router {
                 case 7:
                     ChristmasTree.main(null);
                     pressReturnToContinue();
+                    continue;
+                default:
+                    System.out.println("Unerwarteter Wert: " + inputValue);
+                    pressReturnToContinue();
             }
         }
     }

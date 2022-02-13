@@ -21,7 +21,6 @@ public class Triangles {
      * @return String
      */
     public static String drawTriangle(Double heightOfTriangle, Double numberOfTriangles) {
-
         StringBuilder drawTriangles = new StringBuilder();
 
         // iterate through every triangle
@@ -30,7 +29,7 @@ public class Triangles {
             // iterate through every line in one triangle
             for (int i = 0; i < heightOfTriangle; i++) {
 
-                // iterate through the points to draw
+                // draw points
                 drawTriangles.append(".".repeat(i + 1)).append("\n");
             }
             drawTriangles.append("\n");

@@ -3,6 +3,7 @@ package Philipp_Training.Philipp_Woche2.Loops;
 import java.util.Scanner;
 
 public class GuessNumbers {
+
     public static void main(String[] args) {
         System.out.println("""
                 Willkommen beim Zahlenraten.
@@ -12,12 +13,9 @@ public class GuessNumbers {
         // generate random number between 1 and 100
         byte randomNumber = (byte) (Math.random() * 100);
 
-        Scanner scanNumberInput = new Scanner(System.in);
-        int attempt = 0;
-
         // repeat until result is correct or user exits the program
-        while (true) {
-            attempt++;
+        Scanner scanNumberInput = new Scanner(System.in);
+        for (int attempt=1; true; attempt++) {
             System.out.println("Versuch " + attempt + " - Rate eine Zahl: ");
             byte guessedNumber = scanNumberInput.nextByte();
             String result = compareNumbers(randomNumber, guessedNumber);
@@ -33,7 +31,7 @@ public class GuessNumbers {
      *
      * @return String result
      */
-    public static String compareNumbers(int randomNumber, int guessedNumber) {
+    public static String compareNumbers(byte randomNumber, byte guessedNumber) {
         if (guessedNumber > 100 || guessedNumber == 0)
             return "Exit";
         else if (guessedNumber < randomNumber)
