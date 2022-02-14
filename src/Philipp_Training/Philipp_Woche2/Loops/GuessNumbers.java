@@ -15,7 +15,7 @@ public class GuessNumbers {
 
         // repeat until result is correct or user exits the program
         Scanner scanNumberInput = new Scanner(System.in);
-        for (int attempt=1; true; attempt++) {
+        for (int attempt = 1; true; attempt++) {
             System.out.println("Versuch " + attempt + " - Rate eine Zahl: ");
             byte guessedNumber = scanNumberInput.nextByte();
             String result = compareNumbers(randomNumber, guessedNumber);
