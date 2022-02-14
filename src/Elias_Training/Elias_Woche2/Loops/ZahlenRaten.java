@@ -1,6 +1,5 @@
 package Elias_Training.Elias_Woche2.Loops;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class ZahlenRaten {
@@ -9,8 +8,8 @@ public class ZahlenRaten {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ich habe eine zufällige Zahl zwsichen 1 - 100,  rate mal welche...");
         System.out.println("Oder wenn du keine Lust hast, dann gib \"Exit\" ein :(");
-        int zufallsZahl = (new Random()).nextInt(100) + 1;
-        //byte zufallsZahl = (byte) (Math.random()*100);
+        //int zufallsZahl = (new Random()).nextInt(100) + 1;
+        byte zufallsZahl = (byte) (Math.random()*100);
 
         while (true) {
             String eingabe = scanner.nextLine();
@@ -25,12 +24,12 @@ public class ZahlenRaten {
                 } else if (Integer.parseInt(eingabe) > zufallsZahl) {
                     System.out.println("die eingegebee Zahl ist zu hoch");
 
-                } else if (eingabe.toLowerCase().contentEquals("exit")) {
-                    System.out.println("Schade... bye bye!\nAch warte kurz, die richtige Zahl war übrigens " + zufallsZahl + " ;)");
-                    break;
-                } else {
-                    System.out.println("Deine Eingabe muss NUR aus Zahlen bestehen!\nVersuch nochmal ;)");
                 }
+            }  else if (eingabe.toLowerCase().contentEquals("exit")) {
+                System.out.println("Schade... bye bye!\nAch warte kurz, die richtige Zahl war übrigens " + zufallsZahl + " ;)");
+                break;
+            }else {
+                System.out.println("Deine Eingabe muss NUR aus Zahlen bestehen!\nVersuch nochmal ;)");
             }
         }
     }
