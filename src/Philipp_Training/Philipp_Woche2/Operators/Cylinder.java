@@ -8,6 +8,7 @@ public class Cylinder {
         Scanner scanCylinderInput = new Scanner(System.in);
 
         // I do not use nextDouble to make the program more user-friendly.
+        // Alternatively, I could use nextInt and parse to double
         System.out.println("Umfang:");
         String scope = scanCylinderInput.nextLine();
 

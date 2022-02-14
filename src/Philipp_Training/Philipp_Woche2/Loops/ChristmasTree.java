@@ -3,56 +3,51 @@ package Philipp_Training.Philipp_Woche2.Loops;
 import java.util.Scanner;
 
 public class ChristmasTree {
+
     public static void main(String[] args) {
         Scanner scanChristmasTreeInput = new Scanner(System.in);
-
         System.out.println("Wie hoch soll der Weihnachtsbaum sein?");
-        int heightOfChristmasTree = scanChristmasTreeInput.nextInt();
-
-        System.out.println(drawChristmasTree(heightOfChristmasTree));
+        System.out.println(drawChristmasTree(scanChristmasTreeInput.nextInt()));
     }
 
     public static String drawChristmasTree(int heightOfChristmasTree) {
 
         // We only need every odd count of '*', therefore, we have to double the height
-        heightOfChristmasTree = heightOfChristmasTree * 2;
-        StringBuilder drawChristmasTree = new StringBuilder();
-        StringBuilder addBackground;
-        StringBuilder currentLine;
-        int i;
-        int n;
-        int t;
+        int doubleHeightOfChristmasTree = heightOfChristmasTree * 2;
+
+        // initialization of StringBuilders
+        StringBuilder drawChristmasTree = new StringBuilder(),
+                addBackground = new StringBuilder(),
+                currentLine = new StringBuilder();
 
         // iterate through every line
-        for (i = 0; i < heightOfChristmasTree; i++) {
+        for (int i = 0; i < doubleHeightOfChristmasTree; i += 2) {
 
-            currentLine = new StringBuilder();
-            addBackground = new StringBuilder();
+            // count and draw '*' for actual line
+            currentLine.
+                    delete(0, currentLine.length()).
+                    append("*".repeat(i + 1));
 
-            // count and draw '*'
-            for (t = i; t >= 0; t--) {
-                currentLine.append("*");
-            }
+            // count and draw spaces for the left and right side next to '*' for actual line
+            addBackground.
+                    delete(0, addBackground.length()).
+                    append(" ".repeat((doubleHeightOfChristmasTree - currentLine.length()) / 2));
 
-            // count and draw spaces on the left and right side of '*'
-            for (n = 0; n < heightOfChristmasTree - currentLine.length(); n += 2) {
-                addBackground.append(" ");
-            }
-
-            // only draw the line at odd count of '*'
-            if (i % 2 == 0) {
-                drawChristmasTree.append(addBackground).append(currentLine).append(addBackground).append("\n");
-            }
-
-            // draw the trunk in the end
-            if (i + 1 == heightOfChristmasTree) {
-                for (n = 0; n < heightOfChristmasTree; n += 2) {
-                    addBackground.append(" ");
-                }
-                drawChristmasTree.append(addBackground).append("I").append(addBackground);
-            }
-
+            // draw the tree line
+            drawChristmasTree.
+                    append(addBackground).
+                    append(currentLine).
+                    append(addBackground).
+                    append("\n");
         }
-        return drawChristmasTree.toString();
+
+        // return tree with trunk as string
+        addBackground.append(" ".repeat(heightOfChristmasTree - 1));
+
+        return drawChristmasTree.
+                append(addBackground).
+                append("I").
+                append(addBackground).
+                toString();
     }
 }

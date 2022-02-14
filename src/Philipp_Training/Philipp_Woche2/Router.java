@@ -20,8 +20,6 @@ public class Router {
 
         while (true) {
             int inputValue = Integer.parseInt(JOptionPane.showInputDialog("""
-
-
                     Bitte wähle eine Zahl.
 
                     Operatoren
@@ -36,7 +34,8 @@ public class Router {
                     7. Weihnachtsbaum (Bonusaufgabe)
 
                     Sonstiges
-                    0: Beenden"""));
+                    0: Beenden
+                    """));
 
             switch (inputValue) {
                 case 0:
@@ -67,6 +66,10 @@ public class Router {
                     continue;
                 case 7:
                     ChristmasTree.main(null);
+                    pressReturnToContinue();
+                    continue;
+                default:
+                    System.out.println("Unerwarteter Wert: " + inputValue);
                     pressReturnToContinue();
             }
         }
