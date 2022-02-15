@@ -2,7 +2,13 @@ package Philipp_Training.Philipp_Woche3.Arrays;
 
 public class PassThrough {
     public static void main(String[] args) {
-        Integer[] numbers = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        // create Array with counting down
+        int startNumber = 9;
+        Integer[] numbers = new Integer[startNumber];
+        for(int i=0; i<startNumber; i++){
+            numbers[i] = startNumber-i;
+        }
 
         // Print out array
         for (int i : numbers) {
