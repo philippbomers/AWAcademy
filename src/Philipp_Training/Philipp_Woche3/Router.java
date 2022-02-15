@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.util.Scanner;
 
 public class Router {
-    public static void main(String[] args) throws NoSuchMethodException {
+    public static void main(String[] args) {
 
         while (true) {
             int inputValue = Integer.parseInt(JOptionPane.showInputDialog("""
