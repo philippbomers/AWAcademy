@@ -4,8 +4,8 @@ public class CompareStrings {
     public static void main(String[] args) {
         String str1 = "Vergleich",
                 str2 = "Vergleich",
-                str3 = new String("Vergleich"),
-                str4 = new String("Vergleich");
+                str3 = "Vergleich",
+                str4 = "Vergleich";
 
         System.out.println("String 1 und 2 wurden mit = 'text' erstellt,\n" +
                 "während String 3 und 4 mit einer neuen String-Instanz erstellt wurden:\n" +
@@ -16,8 +16,8 @@ public class CompareStrings {
                 "\nString 2 equals String 3: " + (str2.equals(str3)) +
                 "\nString 3 equals String 4: " + (str3.equals(str4)) +
                 "\n\nErgebnis:\n" +
-                        "Der ==-Operator prüft, ob es sich um den selben String (eine Objektinstanz) handelt,\n" +
-                        "während der equals-Operator lediglich den Inhalt vergleicht."
-                );
+                "Der ==-Operator prüft, ob es sich um den selben String (eine Objektinstanz) handelt,\n" +
+                "während der equals-Operator lediglich den Inhalt vergleicht."
+        );
     }
 }
