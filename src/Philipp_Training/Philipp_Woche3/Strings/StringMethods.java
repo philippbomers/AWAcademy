@@ -13,7 +13,7 @@ public class StringMethods {
         System.out.println(
                 "1. Großbuchstaben:" + findUppercaseLetters(myString) +
                         "\n2. Vergleiche mit Namen: Mein Name hat " +
-                        compareWithName(firstName + " " + lastName, myString) + " Wörter weniger als der String." +
+                        (myString.compareTo(firstName + " " + lastName) * (-1)) + " Wörter weniger als der String." +
                         "\n3. Vor- und Nachname verketten: " + firstName.concat(lastName) +
                         "\n4.1 Suche nach 'gemacht': " + myString.contains("gemacht") +
                         "\n4.2 und 'Java': " + myString.contains("Java") +
@@ -22,23 +22,14 @@ public class StringMethods {
                         "\n7. Prüfe auf Leerstring: " + myString.isEmpty() +
                         "\n8. Prüfe auf null: " + (myString == null) +
                         "\n9. Länge des Textes: " + myString.length() +
-                        "\n10. Lese die Wörter 'sagten' und 'gemacht' aus: " + myString.substring(5, 11) + "\n" +
+                        "\n10. Lese die Wörter 'sagten' und 'gemacht' aus: " + myString.substring(5, 11) + "," +
                         myString.substring(myString.length() - 9, myString.length() - 1)
         );
     }
 
-    private static int compareWithName(String name, String myString) {
-        int numberOfWords = myString.compareTo(name);
-        return numberOfWords * (-1);
-    }
-
     public static String findUppercaseLetters(String myString) {
         StringBuilder letters = new StringBuilder();
-        for (char c : myString.toCharArray()) {
-            if (Character.isUpperCase(c)) {
-                letters.append(c);
-            }
-        }
+        for (char c : myString.toCharArray()) if (Character.isUpperCase(c)) letters.append(c);
         return letters.toString();
     }
 }

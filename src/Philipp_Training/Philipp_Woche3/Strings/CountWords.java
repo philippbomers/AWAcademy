@@ -13,6 +13,7 @@ public class CountWords {
 
     public static int countWords(String text) {
         if (text == null || text.isEmpty()) return 0;
+
         String[] words = text.split("\\s+");
         return words.length;
     }
