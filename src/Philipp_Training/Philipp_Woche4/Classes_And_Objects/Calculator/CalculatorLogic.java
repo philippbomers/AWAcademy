@@ -9,19 +9,19 @@ public class CalculatorLogic {
     }
 
     public void plus(int summand) {
-        this.ergebnis = this.ergebnis + summand;
+        this.ergebnis += summand;
     }
 
     public void minus(int minuend) {
-        this.ergebnis = this.ergebnis - minuend;
+        this.ergebnis -= minuend;
     }
 
     public void mal(int multiplier) {
-        this.ergebnis = this.ergebnis * multiplier;
+        this.ergebnis *= multiplier;
     }
 
     public void geteilt(int divisor) {
-        this.ergebnis = this.ergebnis / divisor;
+        this.ergebnis /= divisor;
     }
 
     public String getErgebnis() {
