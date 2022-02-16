@@ -5,6 +5,7 @@ import Philipp_Training.Philipp_Woche3.Arrays.*;
 import Philipp_Training.Philipp_Woche3.Strings.*;
 
 import javax.swing.*;
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Router {
