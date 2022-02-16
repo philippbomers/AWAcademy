@@ -7,4 +7,5 @@ public class ComputerShopMain {
         PhilippsPC.setSellingPrice(455.59);
         System.out.println(PhilippsPC.getProfit());
     }
+
 }
