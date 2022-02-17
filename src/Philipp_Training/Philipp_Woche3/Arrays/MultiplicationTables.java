@@ -12,8 +12,8 @@ public class MultiplicationTables {
         }
 
         // print out table
-        for (int[] i : multiplicationTable) {
-            for (int n : i) System.out.printf("%4s", n);
+        for (int[] row : multiplicationTable) {
+            for (int value : row) System.out.printf("%4s", value);
             System.out.printf("%n");
         }
     }
