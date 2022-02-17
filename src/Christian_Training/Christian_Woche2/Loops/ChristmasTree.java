@@ -24,6 +24,7 @@ public class ChristmasTree {
             for (int k = 0; k <= i; k++){
                 rechteSeite += "*";
             }
+
             String zeile = linkeSeite + rechteSeite ;
             System.out.println(zeile);
         }

@@ -29,7 +29,7 @@ public class Cylinder {
         double flaecheBodens = Math.PI * (durchmesseBodens/2) * (durchmesseBodens/2);
         double flaecheMantels = umfang * hoehe;
         double gesamtFlaeche = 2 * flaecheBodens + flaecheMantels;
-        double volumen = Math.PI * (durchmesseBodens/2 ) * (durchmesseBodens/2 ) * hoehe;
+        double volumen = flaecheBodens * hoehe;
 
         System.out.println(flaecheMantels);
         System.out.println("Gesamtfläche: " + gesamtFlaeche);
