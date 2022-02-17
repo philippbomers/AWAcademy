@@ -25,8 +25,8 @@ public class TimeUnits {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Wieviele Sekunden hast du zur Verfügung:");
-        int sekunden = scanner.nextInt();
-        // int sekunden = 244568879; Nur zum testen da
+        //int sekunden = scanner.nextInt();
+        int sekunden = 244568879; //Nur zum testen da
 
         int sekundenDuHast = sekunden % 60;
 
