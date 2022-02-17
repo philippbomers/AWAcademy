@@ -12,8 +12,7 @@ public class PassThrough {
 
         // Print out array
         for (int i : numbers) {
-            if (i != numbers[0]) System.out.print(", ");
-            System.out.print(i);
+            System.out.println(i);
         }
     }
 }
