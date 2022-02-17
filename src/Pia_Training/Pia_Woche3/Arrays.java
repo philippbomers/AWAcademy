@@ -1,3 +1,5 @@
+package Pia_Training.Pia_Woche3;
+
 public class Arrays {
     public static void main(String[] args) {
         // DURCHLAUF
@@ -18,16 +20,20 @@ public class Arrays {
         }
         System.out.println("Summe: " + result);
 
-        for (int i = 0; i < sum.length; i++) {
-            if (sum[i] > largest) largest = sum[i];
-            if (sum[i] < smallest) smallest = sum[i];
+        for (int value : sum) {
+            if (value > largest) largest = value;
+            if (value < smallest) smallest = value;
         }
         System.out.println("Minimum: " + smallest);
         System.out.println("Maximum: " + largest);
         System.out.println("\n");
 
         // EIN-MAL-EINS (BONUSAUFGABE)
+
+        // written, but never read
         int [] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+        // never used (but you are on the right way)
         int [][] multiply = new int[10][10];
 
         for (int j = 1; j < numbers.length; j++) {
