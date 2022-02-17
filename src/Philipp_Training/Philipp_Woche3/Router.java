@@ -1,13 +1,11 @@
-/**
- * Choose a number to start a java class with the tasks solution
- */
+package Philipp_Training.Philipp_Woche3;
 
-package Philipp_Training.Philipp_Woche2;
 
-import Philipp_Training.Philipp_Woche2.Loops.*;
-import Philipp_Training.Philipp_Woche2.Operators.*;
+import Philipp_Training.Philipp_Woche3.Arrays.*;
+import Philipp_Training.Philipp_Woche3.Strings.*;
 
 import javax.swing.*;
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Router {
@@ -17,16 +15,16 @@ public class Router {
             int inputValue = Integer.parseInt(JOptionPane.showInputDialog("""
                     Bitte wähle eine Zahl.
 
-                    Operatoren
-                    1. Zeiteinheiten
-                    2. Zylinder
-                    3. Eine Zeile Code
-                    4. Metropolen (Bonusaufgabe)
+                    Arrays
+                    1. Minimum und Maximum
+                    2. Multiplikationstabelle (Bonusaufgabe)
+                    3. Durchlauf
+                    4. Summen
 
-                    Schleifen
-                    5. Zahlenraten
-                    6. Dreiecke
-                    7. Weihnachtsbaum (Bonusaufgabe)
+                    Strings
+                    5. Vergleichen
+                    6. Wörter zählen (Bonusaufgabe)
+                    7. Methoden
 
                     Sonstiges
                     0: Beenden
@@ -36,31 +34,31 @@ public class Router {
                 case 0:
                     return;
                 case 1:
-                    TimeUnits.main(null);
+                    MinimumAndMaximum.main(null);
                     pressReturnToContinue();
                     continue;
                 case 2:
-                    Cylinder.main(null);
+                    MultiplicationTables.main(null);
                     pressReturnToContinue();
                     continue;
                 case 3:
-                    OneCodeLine.main(null);
+                    PassThrough.main(null);
                     pressReturnToContinue();
                     continue;
                 case 4:
-                    Metropolises.main(null);
+                    Sum.main(null);
                     pressReturnToContinue();
                     continue;
                 case 5:
-                    GuessNumbers.main(null);
+                    CompareStrings.main(null);
                     pressReturnToContinue();
                     continue;
                 case 6:
-                    Triangles.main(null);
+                    CountWords.main(null);
                     pressReturnToContinue();
                     continue;
                 case 7:
-                    ChristmasTree.main(null);
+                    StringMethods.main(null);
                     pressReturnToContinue();
                     continue;
                 default:
