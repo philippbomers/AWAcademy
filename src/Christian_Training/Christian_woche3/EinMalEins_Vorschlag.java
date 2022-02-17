@@ -2,13 +2,15 @@ package Christian_Training.Christian_woche3;
 
 public class EinMalEins_Vorschlag {
     public static void main(String[] args) {
-        byte[] zahlen = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-        byte[][] mult = new byte[8][8];
+        // Möglichkeit: kann noch entfernt werden. Stattdessen in der ersten For-Schleife iterieren.
+        byte[] zahlen = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        byte[][] mult = new byte[10][10];
 
         for (byte i : zahlen){
-            for (byte n = 0; n<zahlen.length; n++) {
-                mult[i][n] = (byte) ((i)*(n));
+            for (byte n : zahlen) {
+                mult[i-1][n-1] = (byte) ((i)*(n));
             }
         }
 
