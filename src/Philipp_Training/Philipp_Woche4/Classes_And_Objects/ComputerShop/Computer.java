@@ -151,7 +151,6 @@ public class Computer {
                 "\nArbeitsspeicher: " + this.getRamGb() + " Gigabyte" +
                 "\nFestplattenspeicher: " + this.getHddGb() + " Gigabyte" +
                 "\nAnzahl der USB-Ports: " + this.getNumberOfUsbPorts() +
-                "\nBetriebssystem: " + this.isPreInstalledOs()
-                ;
+                "\nBetriebssystem: " + this.isPreInstalledOs();
     }
 }
