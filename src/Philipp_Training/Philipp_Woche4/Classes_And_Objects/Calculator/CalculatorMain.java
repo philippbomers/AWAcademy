@@ -2,7 +2,7 @@ package Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator;
 
 import javax.swing.*;
 
-public class Main {
+public class CalculatorMain {
     public static void main(String[] args) {
         JFrame frame = new CalculatorGui("Calculators");
         frame.setVisible(true);

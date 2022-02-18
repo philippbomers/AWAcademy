@@ -1,5 +1,8 @@
 package Philipp_Training.Philipp_Woche4.Classes_And_Objects;
 
+import Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator.CalculatorMain;
+import Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop.ComputerMain;
+
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -23,11 +26,11 @@ public class Router {
                     case 0:
                         return;
                     case 1:
-                        Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator.Main.main(null);
+                        CalculatorMain.main(null);
                         pressReturnToContinue();
                         continue;
                     case 2:
-                        Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop.Main.main(null);
+                        ComputerMain.main(null);
                         pressReturnToContinue();
                         continue;
                     default:

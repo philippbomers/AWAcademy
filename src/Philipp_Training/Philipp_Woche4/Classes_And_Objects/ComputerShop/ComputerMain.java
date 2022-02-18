@@ -2,7 +2,7 @@ package Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop;
 
 import java.util.Scanner;
 
-public class Main {
+public class ComputerMain {
     public static void main(String[] args) {
 
         Scanner placeHolder = new Scanner(System.in);
