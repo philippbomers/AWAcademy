@@ -3,7 +3,8 @@ package Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop;
 public class Computer {
     private String manufacturerName,
             type,
-            graphicCard;
+            graphicCard,
+            operatingSystem;
     private int cpuMhz,
             screenSizeInches,
             ramGb,
@@ -75,8 +76,16 @@ public class Computer {
         this.numberOfUsbPorts = numberOfUsbPorts;
     }
 
-    public boolean isPreInstalledOs() {
-        return preInstalledOs;
+    public String isPreInstalledOs() {
+        String installedOs;
+        if (preInstalledOs) {
+            installedOs = "Vorinstalliert";
+            if (getOperatingSystem() != null)
+                installedOs+=" ("+getOperatingSystem()+")";
+        }else
+            installedOs = "Nicht vorhanden";
+
+        return installedOs;
     }
 
     public void setPreInstalledOs(boolean preInstalledOs) {
@@ -92,7 +101,7 @@ public class Computer {
     }
 
     public double getPurchasingPrice() {
-        return purchasingPrice;
+        return reduceDecimals(purchasingPrice);
     }
 
     public void setPurchasingPrice(double purchasingPrice) {
@@ -100,7 +109,7 @@ public class Computer {
     }
 
     public double getSellingPrice() {
-        return sellingPrice;
+        return reduceDecimals(sellingPrice);
     }
 
     public void setSellingPrice(double sellingPrice) {
@@ -111,7 +120,31 @@ public class Computer {
         return reduceDecimals(this.purchasingPrice-this.sellingPrice);
     }
 
+    public String getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(String operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
+
     public double reduceDecimals(double value) {
         return Math.round(Math.pow(10.0, 2) * value) / Math.pow(10.0, 2);
+    }
+
+    public String toString(){
+        return  "Kaufpreis: "+this.getPurchasingPrice()+" Euro"+
+                "\nVerkaufspreis: "+this.getSellingPrice()+ "Euro"+
+                "\nGewinn: "+this.getProfit() +" Euro"+
+                "\nHersteller: "+this.getManufacturerName()+
+                "\nComputertyp: "+this.getType()+
+                "\nGrafikkarte: "+this.getGraphicCard()+
+                "\nProzessorgeschwindigkeit: "+this.getCpuMhz()+ " MHZ"+
+                "\nBildschirndiagonale: "+this.getScreenSizeInches()+ " Zoll"+
+                "\nArbeitsspeicher: "+this.getRamGb()+ " Gigabyte"+
+                "\nFestplattenspeicher: "+this.getHddGb()+ " Gigabyte"+
+                "\nAnzahl der USB-Ports: "+this.getNumberOfUsbPorts()+
+                "\nBetriebssystem: "+this.isPreInstalledOs()
+                ;
     }
 }
