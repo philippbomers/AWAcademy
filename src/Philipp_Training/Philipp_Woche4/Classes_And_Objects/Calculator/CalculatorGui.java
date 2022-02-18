@@ -1,6 +1,7 @@
 package Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CalculatorGui extends JFrame {
     private JPanel mainPanel;
@@ -16,6 +17,9 @@ public class CalculatorGui extends JFrame {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
+
+        result.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
         this.pack();
 
         a0Button.addActionListener(e -> actualNumber.setText(actualNumber.getText() + "0"));
