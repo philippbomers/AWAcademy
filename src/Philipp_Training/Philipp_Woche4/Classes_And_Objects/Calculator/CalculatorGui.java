@@ -15,7 +15,8 @@ public class CalculatorGui extends JFrame {
         super(title);
         CalculatorLogic calculatorLogic = new CalculatorLogic();
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Out-commented to keep the router working. Remove when not using the router.
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
 
         result.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
