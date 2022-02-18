@@ -5,22 +5,9 @@ import javax.swing.*;
 public class CalculatorGui extends JFrame {
     private JPanel mainPanel;
     private JTextField actualNumber;
-    private JButton a1Button,
-            a2Button,
-            a3Button,
-            ACButton,
-            a4Button,
-            a5Button,
-            a6Button,
-            plusButton,
-            a7Button,
-            a8Button,
-            a9Button,
-            minusButton,
-            divisionButton,
-            a0Button,
-            MultiplyButton,
-            DeleteButton;
+    private JButton a1Button, a2Button, a3Button, ACButton, a4Button, a5Button,
+            a6Button, plusButton, a7Button, a8Button, a9Button, minusButton,
+            divisionButton, a0Button, MultiplyButton, DeleteButton;
     private JTextPane result;
 
     public CalculatorGui(String title) {
@@ -73,12 +60,8 @@ public class CalculatorGui extends JFrame {
             actualNumber.setText("");
         });
 
-        DeleteButton.addActionListener(e -> actualNumber.setText(actualNumber.getText().substring(0, actualNumber.getText().length() - 1)));
+        DeleteButton.addActionListener(e -> actualNumber.setText(
+                actualNumber.getText().substring(0, actualNumber.getText().length() - 1))
+        );
     }
-
-    public static void main(String[] args) {
-        JFrame frame = new CalculatorGui("My first Java-GUI-calculator");
-        frame.setVisible(true);
-    }
-
 }
