@@ -39,7 +39,7 @@ public class Router {
                         pressReturnToContinue();
                         continue;
                     case 2:
-                        Main.main(null);
+                        Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop.Main.main(null);
                         pressReturnToContinue();
                         continue;
                     default:
