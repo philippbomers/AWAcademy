@@ -1,17 +1,5 @@
 package Philipp_Training.Philipp_Woche4.Classes_And_Objects;
 
-import Philipp_Training.Philipp_Woche3.Arrays.MinimumAndMaximum;
-import Philipp_Training.Philipp_Woche3.Arrays.MultiplicationTables;
-import Philipp_Training.Philipp_Woche3.Arrays.PassThrough;
-import Philipp_Training.Philipp_Woche3.Arrays.Sum;
-import Philipp_Training.Philipp_Woche3.Strings.CompareStrings;
-import Philipp_Training.Philipp_Woche3.Strings.CountWords;
-import Philipp_Training.Philipp_Woche3.Strings.StringMethods;
-
-import Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator.*;
-import Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop.*;
-import Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop.Main;
-
 import javax.swing.*;
 import java.util.Scanner;
 
