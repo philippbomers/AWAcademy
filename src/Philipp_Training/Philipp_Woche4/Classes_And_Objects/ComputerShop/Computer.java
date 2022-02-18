@@ -21,6 +21,8 @@ public class Computer {
     }
 
     public String getManufacturerName() {
+        if(manufacturerName==null)
+            return "Unbekannt";
         return manufacturerName;
     }
 
@@ -29,6 +31,8 @@ public class Computer {
     }
 
     public String getType() {
+        if(type==null)
+            return "Unbekannt";
         return type;
     }
 
@@ -37,7 +41,7 @@ public class Computer {
     }
 
     public int getCpuMhz() {
-        return cpuMhz;
+        return this.cpuMhz;
     }
 
     public void setCpuMhz(int cpuMhz) {
@@ -45,7 +49,7 @@ public class Computer {
     }
 
     public int getScreenSizeInches() {
-        return screenSizeInches;
+        return this.screenSizeInches;
     }
 
     public void setScreenSizeInches(int screenSizeInches) {
@@ -53,7 +57,7 @@ public class Computer {
     }
 
     public int getRamGb() {
-        return ramGb;
+        return this.ramGb;
     }
 
     public void setRamGb(int ramGb) {
@@ -61,7 +65,7 @@ public class Computer {
     }
 
     public int getHddGb() {
-        return hddGb;
+        return this.hddGb;
     }
 
     public void setHddGb(int hddGb) {
@@ -69,7 +73,7 @@ public class Computer {
     }
 
     public byte getNumberOfUsbPorts() {
-        return numberOfUsbPorts;
+        return this.numberOfUsbPorts;
     }
 
     public void setNumberOfUsbPorts(byte numberOfUsbPorts) {
@@ -78,10 +82,10 @@ public class Computer {
 
     public String isPreInstalledOs() {
         String installedOs;
-        if (preInstalledOs) {
+        if (this.preInstalledOs) {
             installedOs = "Vorinstalliert";
-            if (getOperatingSystem() != null)
-                installedOs+=" ("+getOperatingSystem()+")";
+            if (this.getOperatingSystem() != null)
+                installedOs+=" ("+this.getOperatingSystem()+")";
         }else
             installedOs = "Nicht vorhanden";
 
@@ -93,7 +97,9 @@ public class Computer {
     }
 
     public String getGraphicCard() {
-        return graphicCard;
+        if(this.graphicCard==null)
+            return "Unbekannt";
+        return this.graphicCard;
     }
 
     public void setGraphicCard(String graphicCard) {
@@ -101,7 +107,7 @@ public class Computer {
     }
 
     public double getPurchasingPrice() {
-        return reduceDecimals(purchasingPrice);
+        return this.reduceDecimals(purchasingPrice);
     }
 
     public void setPurchasingPrice(double purchasingPrice) {
@@ -109,7 +115,7 @@ public class Computer {
     }
 
     public double getSellingPrice() {
-        return reduceDecimals(sellingPrice);
+        return this.reduceDecimals(sellingPrice);
     }
 
     public void setSellingPrice(double sellingPrice) {
@@ -117,11 +123,11 @@ public class Computer {
     }
 
     public double getProfit(){
-        return reduceDecimals(this.purchasingPrice-this.sellingPrice);
+        return this.reduceDecimals(this.purchasingPrice-this.sellingPrice);
     }
 
     public String getOperatingSystem() {
-        return operatingSystem;
+        return this.operatingSystem;
     }
 
     public void setOperatingSystem(String operatingSystem) {
