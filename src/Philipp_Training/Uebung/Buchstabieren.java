@@ -13,7 +13,7 @@ public class Buchstabieren {
             if (input.equals("stop")) {
                 break;
             } else if (input.length() <= 1) {
-                name = name + input;
+                name += input;
             } else {
                 System.out.println("Bitte nur eine Buchstabe eingeben !");
                 return;
