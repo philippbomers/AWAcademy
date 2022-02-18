@@ -29,7 +29,8 @@ public class StringMethods {
 
     public static String findUppercaseLetters(String myString) {
         StringBuilder letters = new StringBuilder();
-        for (char c : myString.toCharArray()) if (Character.isUpperCase(c)) letters.append(c);
+        for (char c : myString.toCharArray())
+            if (Character.isUpperCase(c)) letters.append(c);
         return letters.toString();
     }
 }

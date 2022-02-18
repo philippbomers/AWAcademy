@@ -6,13 +6,11 @@ public class PassThrough {
         // create Array with counting down
         int startNumber = 9;
         Integer[] numbers = new Integer[startNumber];
-        for(int i=0; i<startNumber; i++){
-            numbers[i] = startNumber-i;
-        }
+        for (int i = 0; i < startNumber; i++)
+            numbers[i] = startNumber - i;
 
         // Print out array
-        for (int i : numbers) {
+        for (int i : numbers)
             System.out.println(i);
-        }
     }
 }
