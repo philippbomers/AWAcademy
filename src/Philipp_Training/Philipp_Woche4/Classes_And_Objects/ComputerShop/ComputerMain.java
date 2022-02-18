@@ -82,5 +82,4 @@ public class ComputerMain {
                 MathOperations.reduceDecimals(completeProfit) +
                 " Euro Gewinn.");
     }
-
 }
