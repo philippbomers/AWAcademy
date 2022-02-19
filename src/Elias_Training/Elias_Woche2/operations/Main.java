@@ -9,13 +9,13 @@ public class Main {
         Metropolen metropolenObj = new Metropolen();
 
         trenner("Sekunden in Zeitraum umrechnen");
-        //zeiteinheitenObj.zeiteinheitenRechner();
+        zeiteinheitenObj.zeiteinheitenRechner();
 
         trenner("Volumen und Gesamtfäche der Dosen berechnen");
-        //zylinderObj.zylinderRechner();
+        zylinderObj.zylinderRechner();
 
         trenner("Code in einer Zeile");
-        //eineZeileCodeObj.codeInEinerZeile();
+        eineZeileCodeObj.codeInEinerZeile();
 
         trenner("Ist die genannte Stadt eine Metropole? ");
         metropolenObj.metropolenBestimmen();
