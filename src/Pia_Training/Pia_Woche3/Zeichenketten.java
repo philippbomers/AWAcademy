@@ -1,3 +1,5 @@
+package Pia_Training.Pia_Woche3;
+
 public class Zeichenketten {
     public static void main(String[] args) {
         // METHODEN DES STRING
@@ -18,12 +20,11 @@ public class Zeichenketten {
         String myName = "Pia Stitzing";
         System.out.println("Ich heiße " + myName + ".");
         System.out.println("\n");
-        if (originalText.compareTo(myName) > 0)
+        if (originalText.compareTo(myName) > 0) {
             System.out.println("Der Original-Text steht lexikografisch nach meinem Namen.");
-        if (originalText.compareTo(myName) < 0)
+        } else {
             System.out.println("Der Original-Text steht lexikografisch vor meinem Namen.");
-        if (originalText.compareTo(myName) == 0)
-            System.out.println("Der Original-Text steht lexikografisch nach meinem Namen.");
+        }
         System.out.println("\n");
         // 3. Verkettung Vor- und Nachname
         String firstName = "Pia";
@@ -31,26 +32,30 @@ public class Zeichenketten {
         System.out.println(firstName.concat(lastName));
         System.out.println("\n");
         // 4. Kommen "gemacht" und "Java" vor?
-        System.out.println("Enthält der Original-Text das Wort 'gemacht'? ('true/false)");
+        System.out.println("Enthält der Original-Text das Wort 'gemacht'? (true/false)");
         System.out.println(originalText.contains("gemacht"));
-        System.out.println("Enthält der Original-Text das Wort 'Java'? ('true/false)");
+        System.out.println("Enthält der Original-Text das Wort 'Java'? (true/false)");
         System.out.println(originalText.contains("Java"));
         System.out.println("\n");
         // 5. Vergleich auf Gleichheit mit "equals"
         String myString = "Na klar geht das!";
+        System.out.println("Stimmt mein Text mit dem Original-Text überein? (true/false)");
         System.out.println(originalText.equals(myString));
         System.out.println("\n");
         // 6. Gib den Index des ersten “d”s aus.
+        System.out.println("Der Index von 'd' ist:");
         System.out.println(originalText.indexOf('d'));
         System.out.println("\n");
         // 7. Prüfe auf den Leerstring
+        System.out.println("Handelt es sich um einen Leerstring?");
         System.out.println(originalText.isEmpty());
         System.out.println("\n");
         // 8. Prüfe auf null
+        System.out.println("Was ergibt die Prüfung auf 'null'?");
         System.out.println(originalText == null);
         System.out.println("\n");
         // 9. Gib die Länge des Textes aus
-        System.out.println(originalText.length());
+        System.out.println("Der Text hat " + originalText.length() + " Zeichen.");
         System.out.println("\n");
         // 10 Lese die Wörter “sagten” und “gemacht” aus
         System.out.println(originalText.substring(5, 11) + " &" +
@@ -60,8 +65,8 @@ public class Zeichenketten {
         // VERGLEICHE VON STRINGS
         String str1 = "Vergleich";
         String str2 = "Vergleich";
-        String str3 = new String("Vergleich");
-        String str4 = new String("Vergleich");
+        String str3 = "Vergleich";
+        String str4 = "Vergleich";
 
         System.out.println(str1.equals(str2));
         System.out.println(str1 == str2);
@@ -85,7 +90,7 @@ public class Zeichenketten {
                 "Bioformen so erstaunlich primitiv sind, daß sie Digitaluhren noch immer für eine " +
                 "unwahrscheinlich tolle Erfindung halten.";
 
-        String numberWords[] = text.split(" ");
-        System.out.println("Der Text hat "+numberWords.length + " Wörter.");
+        String[] numberWords = text.split(" ");
+        System.out.println("Der Text hat " + numberWords.length + " Wörter.");
     }
-    }
+}
