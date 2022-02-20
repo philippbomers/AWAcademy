@@ -15,9 +15,9 @@ public class Computer {
     }
 
     public String getManufacturerName() {
-        if (manufacturerName == null)
+        if (this.manufacturerName == null)
             return "Unbekannt";
-        return manufacturerName;
+        return this.manufacturerName;
     }
 
     public void setManufacturerName(String manufacturerName) {
@@ -25,9 +25,9 @@ public class Computer {
     }
 
     public String getType() {
-        if (type == null)
+        if (this.type == null)
             return "Unbekannt";
-        return type;
+        return this.type;
     }
 
     public void setType(String type) {
@@ -109,7 +109,7 @@ public class Computer {
     }
 
     public double getSellingPrice() {
-        return MathOperations.reduceDecimals(sellingPrice);
+        return MathOperations.reduceDecimals(this.sellingPrice);
     }
 
     public void setSellingPrice(double sellingPrice) {
@@ -121,6 +121,8 @@ public class Computer {
     }
 
     public String getOperatingSystem() {
+        if(this.operatingSystem == null)
+            return "Unbekanntes Betriebssystem";
         return this.operatingSystem;
     }
 
@@ -129,9 +131,9 @@ public class Computer {
     }
 
     public String getComputerName() {
-        if (computerName == null)
+        if (this.computerName == null)
             return "Unbekannter PC";
-        return computerName;
+        return this.computerName;
     }
 
     public void setComputerName(String computerName) {
