@@ -1,9 +1,9 @@
 package Philipp_Training.Philipp_Woche4.Classes_And_Objects.Autos;
 
 public class AutosLogik {
-    private int ps, tueren;
-    private String farbe, marke, modell;
-    private boolean automatik, diesel;
+    private int ps, tueren = 4;
+    private String farbe = "Weiß", marke, modell;
+    private boolean automatik = false, diesel = false;
 
     public AutosLogik (String marke, String modell){
         this.marke = marke;
@@ -50,8 +50,11 @@ public class AutosLogik {
         this.modell = modell;
     }
 
-    public boolean isAutomatik() {
-        return automatik;
+    public String isAutomatik() {
+        if(automatik)
+            return "Automatikschaltung";
+
+        return "manuelle Schaltung";
     }
 
     public void setAutomatik(boolean automatik) {
@@ -60,9 +63,9 @@ public class AutosLogik {
 
     public String isDiesel() {
         if(this.diesel)
-            return "Das Auto ist ein Diesel";
-        else
-            return  "Das Auto ist ein Benziner";
+            return "Diesel";
+
+        return  "Benziner";
     }
 
     public void setDiesel(boolean diesel) {
@@ -72,13 +75,13 @@ public class AutosLogik {
     @Override
     public String toString() {
         return "Die Werte meines Autos sind:\n" +
-                "PS: =" + ps +
-                "\n tueren=" + tueren +
-                "\n  farbe='" + farbe + '\'' +
-                "\n  marke='" + marke + '\'' +
-                "\n  Modellnummer ='" + modell + '\'' +
-                "\n  automatik=" + automatik +
-                "\n  diesel=" + this.isDiesel()
+                "PS: " + this.getPs() +
+                "\nTüren: " + this.getTueren() +
+                "\nFarbe: " + this.getFarbe() +
+                "\nMarke: " + this.getMarke() +
+                "\nModellnummer: " + this.getModell() +
+                "\nGetriebe: " + this.isAutomatik() +
+                "\nKraftstoff: " + this.isDiesel()
                 ;
     }
 }

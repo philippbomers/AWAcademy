@@ -12,6 +12,6 @@ public class AutosMain {
         eliasGolf5.setFarbe("Schwarz");
         eliasGolf5.setAutomatik(true);
         eliasGolf5.setDiesel(true);
-        System.out.println("Elias Auto: "+eliasGolf5);
+        System.out.println("\n\nElias Auto: "+eliasGolf5);
     }
 }
