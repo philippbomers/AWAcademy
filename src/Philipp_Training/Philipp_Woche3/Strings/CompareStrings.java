@@ -4,8 +4,8 @@ public class CompareStrings {
     public static void main(String[] args) {
         String str1 = "Vergleich",
                 str2 = "Vergleich",
-                str3 = "Vergleich",
-                str4 = "Vergleich";
+                str3 = new String("Vergleich"),
+                str4 = new String("Vergleich");
 
         System.out.println("String 1 und 2 wurden mit = 'text' erstellt,\n" +
                 "während String 3 und 4 mit einer neuen String-Instanz erstellt wurden:\n" +
