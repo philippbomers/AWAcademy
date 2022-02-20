@@ -6,14 +6,14 @@ public class MultiplicationTables {
         // create Array with all values
         int[][] multiplicationTable = new int[10][10];
         for (int row = 0; row < multiplicationTable.length; row++) {
-            for (int line = 0; line < multiplicationTable.length; line++) {
+            for (int line = 0; line < multiplicationTable.length; line++)
                 multiplicationTable[row][line] = (row + 1) * (line + 1);
-            }
         }
 
         // print out table
-        for (int[] i : multiplicationTable) {
-            for (int n : i) System.out.printf("%4s", n);
+        for (int[] row : multiplicationTable) {
+            for (int value : row)
+                System.out.printf("%4s", value);
             System.out.printf("%n");
         }
     }

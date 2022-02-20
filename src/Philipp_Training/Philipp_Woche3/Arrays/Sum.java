@@ -6,7 +6,9 @@ public class Sum {
 
         // calculate sum of array values
         int sum = 0;
-        for (int i : input) sum += i;
+        for (int i : input)
+            sum += i;
+
         System.out.println(sum);
     }
 }

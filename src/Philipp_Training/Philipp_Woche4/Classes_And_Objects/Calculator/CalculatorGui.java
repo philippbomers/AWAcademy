@@ -1,34 +1,26 @@
 package Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CalculatorGui extends JFrame {
     private JPanel mainPanel;
     private JTextField actualNumber;
-    private JButton a1Button,
-            a2Button,
-            a3Button,
-            ACButton,
-            a4Button,
-            a5Button,
-            a6Button,
-            plusButton,
-            a7Button,
-            a8Button,
-            a9Button,
-            minusButton,
-            divisionButton,
-            a0Button,
-            MultiplyButton,
-            DeleteButton;
+    private JButton a1Button, a2Button, a3Button, ACButton, a4Button, a5Button,
+            a6Button, plusButton, a7Button, a8Button, a9Button, minusButton,
+            divisionButton, a0Button, MultiplyButton, DeleteButton;
     private JTextPane result;
 
     public CalculatorGui(String title) {
         super(title);
         CalculatorLogic calculatorLogic = new CalculatorLogic();
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Out-commented to keep the router working. Remove when not using the router.
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
+
+        result.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
         this.pack();
 
         a0Button.addActionListener(e -> actualNumber.setText(actualNumber.getText() + "0"));
@@ -73,12 +65,8 @@ public class CalculatorGui extends JFrame {
             actualNumber.setText("");
         });
 
-        DeleteButton.addActionListener(e -> actualNumber.setText(actualNumber.getText().substring(0, actualNumber.getText().length() - 1)));
+        DeleteButton.addActionListener(e -> actualNumber.setText(
+                actualNumber.getText().substring(0, actualNumber.getText().length() - 1))
+        );
     }
-
-    public static void main(String[] args) {
-        JFrame frame = new CalculatorGui("My first Java-GUI-calculator");
-        frame.setVisible(true);
-    }
-
 }

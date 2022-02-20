@@ -18,25 +18,23 @@ public class Arrays {
         }
         System.out.println("Summe: " + result);
 
-        for (int value : sum) {
-            if (value > largest) largest = value;
-            if (value < smallest) smallest = value;
+        for (int i = 0; i < sum.length; i++) {
+            if (sum[i] > largest) largest = sum[i];
+            if (sum[i] < smallest) smallest = sum[i];
         }
         System.out.println("Minimum: " + smallest);
         System.out.println("Maximum: " + largest);
         System.out.println("\n");
 
         // EIN-MAL-EINS (BONUSAUFGABE)
-        int[][] multiply = new int[10][10];
+        int [] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int [][] multiply = new int[10][10];
 
-        for (int j = 0; j < multiply.length; j++) {
-            for (int k = 0; k < multiply.length; k++) {
-                multiply[j][k] = (j + 1) * (k + 1);
-            }
-        }
-        for (int[] spalte : multiply) {
-            for (int zeile : spalte) {
-                System.out.printf("%4s", zeile);
+        for (int j = 1; j < numbers.length; j++) {
+            for (int k = 1; k < numbers.length; k++) {
+                if (j * k < 10) System.out.print(" ");
+                if (j * k < 100) System.out.print(" ");
+                System.out.print("  " + j * k);
             }
             System.out.println();
         }
