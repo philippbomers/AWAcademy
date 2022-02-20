@@ -13,7 +13,7 @@ public class MultiplicationTables {
         // print out table
         for (int[] row : multiplicationTable) {
             for (int value : row)
-                System.out.printf("%4s", value);
+                System.out.printf("%4d", value);
             System.out.printf("%n");
         }
     }

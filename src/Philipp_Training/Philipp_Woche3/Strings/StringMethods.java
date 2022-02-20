@@ -12,8 +12,7 @@ public class StringMethods {
 
         System.out.println(
                 "1. Großbuchstaben:" + findUppercaseLetters(myString) +
-                        "\n2. Vergleiche mit Namen: Mein Name hat " +
-                        (myString.compareTo(firstName + " " + lastName) * (-1)) + " Wörter weniger als der String." +
+                        "\n2. Vergleiche mit Namen (Alphabetisch geordnet): " + myString.compareTo(firstName + " " + lastName) +
                         "\n3. Vor- und Nachname verketten: " + firstName.concat(lastName) +
                         "\n4.1 Suche nach 'gemacht': " + myString.contains("gemacht") +
                         "\n4.2 und 'Java': " + myString.contains("Java") +
