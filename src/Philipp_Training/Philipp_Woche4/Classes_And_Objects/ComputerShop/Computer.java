@@ -75,15 +75,12 @@ public class Computer {
     }
 
     public String isPreInstalledOs() {
-        String installedOs;
         if (this.preInstalledOs) {
-            installedOs = "Vorinstalliert";
             if (this.getOperatingSystem() != null)
-                installedOs += " (" + this.getOperatingSystem() + ")";
+                return "Vorinstalliert (" + this.getOperatingSystem() + ")";
+            return "Vorinstalliert";
         } else
-            installedOs = "Nicht vorhanden";
-
-        return installedOs;
+            return "Nicht vorhanden";
     }
 
     public void setPreInstalledOs(boolean preInstalledOs) {
@@ -149,7 +146,7 @@ public class Computer {
                 "\nComputertyp: " + this.getType() +
                 "\nGrafikkarte: " + this.getGraphicCard() +
                 "\nProzessorgeschwindigkeit: " + this.getCpuMhz() + " MHZ" +
-                "\nBildschirndiagonale: " + this.getScreenSizeInches() + " Zoll" +
+                "\nBildschirmdiagonale: " + this.getScreenSizeInches() + " Zoll" +
                 "\nArbeitsspeicher: " + this.getRamGb() + " Gigabyte" +
                 "\nFestplattenspeicher: " + this.getHddGb() + " Gigabyte" +
                 "\nAnzahl der USB-Ports: " + this.getNumberOfUsbPorts() +
