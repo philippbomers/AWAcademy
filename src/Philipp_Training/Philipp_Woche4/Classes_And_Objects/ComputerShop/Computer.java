@@ -8,10 +8,29 @@ public class Computer {
     private boolean preInstalledOs;
 
     public Computer(String computerName, String manufacturerName, int screenSizeInches, boolean preInstalledOs) {
-        this.computerName = computerName;
-        this.manufacturerName = manufacturerName;
-        this.screenSizeInches = screenSizeInches;
-        this.preInstalledOs = preInstalledOs;
+        this.setComputerName(computerName);
+        this.setManufacturerName(manufacturerName);
+        this.setScreenSizeInches(screenSizeInches);
+        this.setPreInstalledOs(preInstalledOs);
+    }
+
+    public Computer(String computerName, String manufacturerName, String type, String graphicCard, String operatingSystem,
+                    int cpuMhz, int screenSizeInches, int ramGb, int hddGb,
+                    byte numberOfUsbPorts, double purchasingPrice, double sellingPrice,
+                    boolean preInstalledOs) {
+        this.setComputerName(computerName);
+        this.setManufacturerName(manufacturerName);
+        this.setType(type);
+        this.setGraphicCard(graphicCard);
+        this.setOperatingSystem(operatingSystem);
+        this.setCpuMhz(cpuMhz);
+        this.setScreenSizeInches(screenSizeInches);
+        this.setRamGb(ramGb);
+        this.setHddGb(hddGb);
+        this.setNumberOfUsbPorts(numberOfUsbPorts);
+        this.setPurchasingPrice(purchasingPrice);
+        this.setSellingPrice(sellingPrice);
+        this.setPreInstalledOs(preInstalledOs);
     }
 
     public String getManufacturerName() {
@@ -118,7 +137,7 @@ public class Computer {
     }
 
     public String getOperatingSystem() {
-        if(this.operatingSystem == null)
+        if (this.operatingSystem == null)
             return "Unbekanntes Betriebssystem";
         return this.operatingSystem;
     }

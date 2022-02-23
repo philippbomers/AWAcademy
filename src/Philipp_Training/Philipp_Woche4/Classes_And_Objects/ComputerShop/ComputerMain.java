@@ -56,16 +56,22 @@ public class ComputerMain {
                 numberOfUsbPorts = {5, 8, 2, 3, 1};
 
         for (int i = 0; i < allComputers.length; i++) {
-            allComputers[i] = new Computer("Computer " + (i + 1), manufacturerNames[i], screenSize[i], preInstalledOs[i]);
-            allComputers[i].setType(computerTypes[i]);
-            allComputers[i].setCpuMhz(cpuSpeeds[i]);
-            allComputers[i].setHddGb(hddSpaces[i]);
-            allComputers[i].setSellingPrice(sellingPrices[i]);
-            allComputers[i].setPurchasingPrice(purchasingPrices[i]);
-            allComputers[i].setRamGb(ramSpaces[i]);
-            allComputers[i].setGraphicCard(graphicCards[i]);
-            allComputers[i].setNumberOfUsbPorts(numberOfUsbPorts[i]);
-            allComputers[i].setOperatingSystem(operatingSystems[i]);
+            allComputers[i] = new Computer(
+                    "Computer " + (i + 1),
+                    manufacturerNames[i],
+                    computerTypes[i],
+                    graphicCards[i],
+                    operatingSystems[i],
+                    cpuSpeeds[i],
+                    screenSize[i],
+                    ramSpaces[i],
+                    hddSpaces[i],
+                    numberOfUsbPorts[i],
+                    purchasingPrices[i],
+                    sellingPrices[i],
+                    preInstalledOs[i]
+            );
+
 
             System.out.println(allComputers[i] +
                     "\nZum Fortfahren drücke ENTER.\n");
