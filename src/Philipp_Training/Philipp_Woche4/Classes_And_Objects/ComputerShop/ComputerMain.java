@@ -7,6 +7,11 @@ public class ComputerMain {
 
         Scanner placeHolder = new Scanner(System.in);
 
+        Computer testPC = new Computer();
+        System.out.println("Test-Computer mit Standardkonstruktor erstellt: " + testPC.getComputerName());
+        System.out.println("\nZum Fortfahren drücke ENTER.");
+        placeHolder.nextLine();
+
         // generate a computer with some values
         Computer PhilippsPC = new Computer("Philipps Computer", "Dell", 32, true);
         PhilippsPC.setPurchasingPrice(670.65);
@@ -43,7 +48,7 @@ public class ComputerMain {
                 graphicCards = {"AMD", "AMD", "Intel", "Nvidia", "Adreno"},
                 operatingSystems = {null, "RHEL", "MacOs", "Windows", "Android"};
         int[]
-                screenSize = {32, 24, 16, 18, 7},
+                screenSize = {32, 24, 0, 18, 7},
                 cpuSpeeds = {3600, 2700, 1600, 3800, 700},
                 hddSpaces = {512, 256, 256, 1024, 36},
                 ramSpaces = {16, 16, 8, 8, 4};

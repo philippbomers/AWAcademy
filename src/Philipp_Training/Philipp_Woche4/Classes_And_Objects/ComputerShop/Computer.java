@@ -7,6 +7,8 @@ public class Computer {
     private double purchasingPrice, sellingPrice;
     private boolean preInstalledOs;
 
+    public Computer(){}
+
     public Computer(String computerName, String manufacturerName, int screenSizeInches, boolean preInstalledOs) {
         this.setComputerName(computerName);
         this.setManufacturerName(manufacturerName);
@@ -61,8 +63,10 @@ public class Computer {
         this.cpuMhz = cpuMhz;
     }
 
-    public int getScreenSizeInches() {
-        return this.screenSizeInches;
+    public String getScreenSizeInches() {
+        if(this.screenSizeInches == 0)
+            return "Kein Bildschirm vorhanden.";
+        return this.screenSizeInches + " Zoll";
     }
 
     public void setScreenSizeInches(int screenSizeInches) {
@@ -165,7 +169,7 @@ public class Computer {
                 "\nComputertyp: " + this.getType() +
                 "\nGrafikkarte: " + this.getGraphicCard() +
                 "\nProzessorgeschwindigkeit: " + this.getCpuMhz() + " MHZ" +
-                "\nBildschirmdiagonale: " + this.getScreenSizeInches() + " Zoll" +
+                "\nBildschirmdiagonale: " + this.getScreenSizeInches() +
                 "\nArbeitsspeicher: " + this.getRamGb() + " Gigabyte" +
                 "\nFestplattenspeicher: " + this.getHddGb() + " Gigabyte" +
                 "\nAnzahl der USB-Ports: " + this.getNumberOfUsbPorts() +
