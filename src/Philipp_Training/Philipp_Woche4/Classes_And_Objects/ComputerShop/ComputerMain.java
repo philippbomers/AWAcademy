@@ -83,14 +83,8 @@ public class ComputerMain {
             placeHolder.nextLine();
         }
 
-        // calculate the profit when selling all computers
-        double completeProfit = 0;
-        for (Computer computer : allComputers) {
-            completeProfit += computer.getProfit();
-        }
-
         System.out.println("Wenn ich alle Computer verkaufe, erhalte ich " +
-                MathOperations.reduceDecimals(completeProfit) +
+                MathOperations.getComputerProfit(allComputers) +
                 " Euro Gewinn.");
     }
 }
