@@ -5,10 +5,10 @@ public class DurchlaufSummeMinMax {
 
         trenner("Durchlauf");
 
-        int numbers[] = new int[9];
+        int[] numbers = new int[9];
 
-        for (int i = 0; i < numbers.length; i++ ){
-            numbers[i] = ((i)-9)*(-1);
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = ((i) - 9) * (-1); // numbers[i] = 9-i
         }
 
         for (int num : numbers
@@ -17,9 +17,8 @@ public class DurchlaufSummeMinMax {
         }
 
 
-
         trenner("Summe");
-        int[] input = {1,4,5,7,20000,-511,100,-200,400};
+        int[] input = {1, 4, 5, 7, 20000, -511, 100, -200, 400};
         int result = 0;
         for (int number : input
         ) {
@@ -34,8 +33,7 @@ public class DurchlaufSummeMinMax {
         System.out.println(Arrays.stream(input).min());
         */
 
-        int min = input[0];
-        int max = input[0];
+        int min = input[0], max = input[0];
         for (int j : input) {
             if (min > j) min = j;
             else if (max < j) max = j;
@@ -45,9 +43,8 @@ public class DurchlaufSummeMinMax {
     }
 
 
-
-    public static void trenner(String text){
-        System.out.println("_-_-_-_- "+text+" -_-_-_-_");
+    public static void trenner(String text) {
+        System.out.println("_-_-_-_- " + text + " -_-_-_-_");
     }
 }
 
