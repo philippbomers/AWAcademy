@@ -7,6 +7,7 @@ public class Main {
         meinRechner.mal(2);
         meinRechner.geteilt(0);
         meinRechner.minus(8);
+        meinRechner.mal(4);
         System.out.println("Das Ergebnis lautet:" +meinRechner.getErgebnis());
     }
 }
