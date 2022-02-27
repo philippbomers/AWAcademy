@@ -7,17 +7,38 @@ public class Computer {
     private double purchasingPrice, sellingPrice;
     private boolean preInstalledOs;
 
+    public Computer(){}
+
     public Computer(String computerName, String manufacturerName, int screenSizeInches, boolean preInstalledOs) {
-        this.computerName = computerName;
-        this.manufacturerName = manufacturerName;
-        this.screenSizeInches = screenSizeInches;
-        this.preInstalledOs = preInstalledOs;
+        this.setComputerName(computerName);
+        this.setManufacturerName(manufacturerName);
+        this.setScreenSizeInches(screenSizeInches);
+        this.setPreInstalledOs(preInstalledOs);
+    }
+
+    public Computer(String computerName, String manufacturerName, String type, String graphicCard, String operatingSystem,
+                    int cpuMhz, int screenSizeInches, int ramGb, int hddGb,
+                    byte numberOfUsbPorts, double purchasingPrice, double sellingPrice,
+                    boolean preInstalledOs) {
+        this.setComputerName(computerName);
+        this.setManufacturerName(manufacturerName);
+        this.setType(type);
+        this.setGraphicCard(graphicCard);
+        this.setOperatingSystem(operatingSystem);
+        this.setCpuMhz(cpuMhz);
+        this.setScreenSizeInches(screenSizeInches);
+        this.setRamGb(ramGb);
+        this.setHddGb(hddGb);
+        this.setNumberOfUsbPorts(numberOfUsbPorts);
+        this.setPurchasingPrice(purchasingPrice);
+        this.setSellingPrice(sellingPrice);
+        this.setPreInstalledOs(preInstalledOs);
     }
 
     public String getManufacturerName() {
-        if (manufacturerName == null)
+        if (this.manufacturerName == null)
             return "Unbekannt";
-        return manufacturerName;
+        return this.manufacturerName;
     }
 
     public void setManufacturerName(String manufacturerName) {
@@ -25,9 +46,9 @@ public class Computer {
     }
 
     public String getType() {
-        if (type == null)
+        if (this.type == null)
             return "Unbekannt";
-        return type;
+        return this.type;
     }
 
     public void setType(String type) {
@@ -42,8 +63,10 @@ public class Computer {
         this.cpuMhz = cpuMhz;
     }
 
-    public int getScreenSizeInches() {
-        return this.screenSizeInches;
+    public String getScreenSizeInches() {
+        if(this.screenSizeInches == 0)
+            return "Kein Bildschirm vorhanden.";
+        return this.screenSizeInches + " Zoll";
     }
 
     public void setScreenSizeInches(int screenSizeInches) {
@@ -75,15 +98,12 @@ public class Computer {
     }
 
     public String isPreInstalledOs() {
-        String installedOs;
         if (this.preInstalledOs) {
-            installedOs = "Vorinstalliert";
             if (this.getOperatingSystem() != null)
-                installedOs += " (" + this.getOperatingSystem() + ")";
+                return "Vorinstalliert (" + this.getOperatingSystem() + ")";
+            return "Vorinstalliert";
         } else
-            installedOs = "Nicht vorhanden";
-
-        return installedOs;
+            return "Nicht vorhanden";
     }
 
     public void setPreInstalledOs(boolean preInstalledOs) {
@@ -109,7 +129,7 @@ public class Computer {
     }
 
     public double getSellingPrice() {
-        return MathOperations.reduceDecimals(sellingPrice);
+        return MathOperations.reduceDecimals(this.sellingPrice);
     }
 
     public void setSellingPrice(double sellingPrice) {
@@ -121,6 +141,8 @@ public class Computer {
     }
 
     public String getOperatingSystem() {
+        if (this.operatingSystem == null)
+            return "Unbekanntes Betriebssystem";
         return this.operatingSystem;
     }
 
@@ -129,9 +151,9 @@ public class Computer {
     }
 
     public String getComputerName() {
-        if (computerName == null)
+        if (this.computerName == null)
             return "Unbekannter PC";
-        return computerName;
+        return this.computerName;
     }
 
     public void setComputerName(String computerName) {
@@ -147,7 +169,7 @@ public class Computer {
                 "\nComputertyp: " + this.getType() +
                 "\nGrafikkarte: " + this.getGraphicCard() +
                 "\nProzessorgeschwindigkeit: " + this.getCpuMhz() + " MHZ" +
-                "\nBildschirndiagonale: " + this.getScreenSizeInches() + " Zoll" +
+                "\nBildschirmdiagonale: " + this.getScreenSizeInches() +
                 "\nArbeitsspeicher: " + this.getRamGb() + " Gigabyte" +
                 "\nFestplattenspeicher: " + this.getHddGb() + " Gigabyte" +
                 "\nAnzahl der USB-Ports: " + this.getNumberOfUsbPorts() +

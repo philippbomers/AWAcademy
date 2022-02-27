@@ -7,6 +7,11 @@ public class ComputerMain {
 
         Scanner placeHolder = new Scanner(System.in);
 
+        Computer testPC = new Computer();
+        System.out.println("Test-Computer mit Standardkonstruktor erstellt: " + testPC.getComputerName());
+        System.out.println("\nZum Fortfahren drücke ENTER.");
+        placeHolder.nextLine();
+
         // generate a computer with some values
         Computer PhilippsPC = new Computer("Philipps Computer", "Dell", 32, true);
         PhilippsPC.setPurchasingPrice(670.65);
@@ -43,7 +48,7 @@ public class ComputerMain {
                 graphicCards = {"AMD", "AMD", "Intel", "Nvidia", "Adreno"},
                 operatingSystems = {null, "RHEL", "MacOs", "Windows", "Android"};
         int[]
-                screenSize = {32, 24, 16, 18, 7},
+                screenSize = {32, 24, 0, 18, 7},
                 cpuSpeeds = {3600, 2700, 1600, 3800, 700},
                 hddSpaces = {512, 256, 256, 1024, 36},
                 ramSpaces = {16, 16, 8, 8, 4};
@@ -56,30 +61,30 @@ public class ComputerMain {
                 numberOfUsbPorts = {5, 8, 2, 3, 1};
 
         for (int i = 0; i < allComputers.length; i++) {
-            allComputers[i] = new Computer("Computer " + (i + 1), manufacturerNames[i], screenSize[i], preInstalledOs[i]);
-            allComputers[i].setType(computerTypes[i]);
-            allComputers[i].setCpuMhz(cpuSpeeds[i]);
-            allComputers[i].setHddGb(hddSpaces[i]);
-            allComputers[i].setSellingPrice(sellingPrices[i]);
-            allComputers[i].setPurchasingPrice(purchasingPrices[i]);
-            allComputers[i].setRamGb(ramSpaces[i]);
-            allComputers[i].setGraphicCard(graphicCards[i]);
-            allComputers[i].setNumberOfUsbPorts(numberOfUsbPorts[i]);
-            allComputers[i].setOperatingSystem(operatingSystems[i]);
+            allComputers[i] = new Computer(
+                    "Computer " + (i + 1),
+                    manufacturerNames[i],
+                    computerTypes[i],
+                    graphicCards[i],
+                    operatingSystems[i],
+                    cpuSpeeds[i],
+                    screenSize[i],
+                    ramSpaces[i],
+                    hddSpaces[i],
+                    numberOfUsbPorts[i],
+                    purchasingPrices[i],
+                    sellingPrices[i],
+                    preInstalledOs[i]
+            );
+
 
             System.out.println(allComputers[i] +
                     "\nZum Fortfahren drücke ENTER.\n");
             placeHolder.nextLine();
         }
 
-        // calculate the profit when selling all computers
-        double completeProfit = 0;
-        for (Computer computer : allComputers) {
-            completeProfit += computer.getProfit();
-        }
-
         System.out.println("Wenn ich alle Computer verkaufe, erhalte ich " +
-                MathOperations.reduceDecimals(completeProfit) +
+                MathOperations.getComputerProfit(allComputers) +
                 " Euro Gewinn.");
     }
 }
