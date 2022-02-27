@@ -17,10 +17,10 @@ public class Zahlenraten {
             count = count + 1;
 
             if (guessZahl < randomZahl) {
-                System.out.println("Deine Zahl ist kleiner als die zu erratende Zahl");
+                System.out.println("Deine Zahl ist größer als die zu erratende Zahl");
 
             } else if (guessZahl > randomZahl) {
-                System.out.println("Deine Zahl ist größer als die zu erratende Zahl");
+                System.out.println("Deine Zahl ist kleiner als die zu erratende Zahl");
             } else {
                 System.out.println("Herzlichen Glückwunsch! Du hast die Zahl erfolgreich erraten " +
                         "und dafür: " + count + " Versuche benötigt.");
