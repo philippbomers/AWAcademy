@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class CalculatorMain {
     public static void main(String[] args) {
-        JFrame frame = new CalculatorGui("Calculators");
+        JFrame frame = new CalculatorGui("Calculator");
         frame.setVisible(true);
 
         /*

@@ -1,4 +1,4 @@
-package Philipp_Training.Uebung;
+package Philipp_Training.Uebung.Complete_Group_1802;
 
 import java.util.Locale;
 import java.util.Scanner;
