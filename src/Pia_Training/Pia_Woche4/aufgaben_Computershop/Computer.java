@@ -1,4 +1,4 @@
-package Pia_Woche4.aufgaben_Computershop;
+package Pia_Training.Pia_Woche4.aufgaben_Computershop;
 
 import java.text.DecimalFormat;
 

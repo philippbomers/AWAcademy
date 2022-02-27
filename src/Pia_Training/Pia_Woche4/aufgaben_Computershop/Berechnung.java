@@ -1,6 +1,4 @@
-package Pia_Woche4.aufgaben_Computershop;
-
-import Pia_Woche4.aufgaben_Computershop.Computer;
+package Pia_Training.Pia_Woche4.aufgaben_Computershop;
 
 import java.text.NumberFormat;
 

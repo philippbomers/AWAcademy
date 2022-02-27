@@ -1,4 +1,4 @@
-package Pia_Woche4.aufgaben_Taschenrechner;
+package Pia_Training.Pia_Woche4.aufgaben_Taschenrechner;
 
 public class Main {
     public static void main(String[] args) {

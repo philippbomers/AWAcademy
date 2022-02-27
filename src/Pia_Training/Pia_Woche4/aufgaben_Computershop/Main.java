@@ -1,7 +1,4 @@
-package Pia_Woche4.aufgaben_Computershop;
-
-import Pia_Woche4.aufgaben_Computershop.Berechnung;
-import Pia_Woche4.aufgaben_Computershop.Computer;
+package Pia_Training.Pia_Woche4.aufgaben_Computershop;
 
 public class Main {
     public static void main(String[] args) {
