@@ -13,5 +13,6 @@ public class StringsVergleichen {
         String stringKonstruktor2= new String("Hallo");
         System.out.println(stringKonstruktor1 == stringKonstruktor2);
         System.out.println(stringKonstruktor1.equals(stringKonstruktor2));
+        // stringKonstruktor1 & 2 sind gleiche Objekte, die haben aber nicht dieselbe Identität
     }
 }

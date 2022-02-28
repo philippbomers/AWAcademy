@@ -17,7 +17,8 @@ public class StringMethoden {
         trenner("2. Vergleich des Textes mit meinem Namen");
         String nachname = "Akbari";
         String vorname = "Elias";
-        System.out.println(textString.compareTo(nachname)); //nochmals besprechen
+        System.out.println(textString.compareTo(nachname));
+        System.out.println("k steht im Alphabet einen Buchstaben vor l ");
 
         trenner("3. Verkettung meines Vor- mit meines Nachnamens");
         System.out.println(vorname.concat(nachname));
@@ -42,11 +43,15 @@ public class StringMethoden {
 
         trenner("7. Leerstrings finden");
         String leerStr = "";
-        if (leerStr.isEmpty()) System.out.println("Ich bin leer :(");
-        else System.out.println("Ich bin voll :D");
+        String[] ary = {textString, leerStr};
+        for (String str: ary
+             ) {
+            if (str.isEmpty()) System.out.println("Ich bin leer :( --- LeerStr");
+             else System.out.println("Ich bin voll :D --- Original-String");
+        }
 
         trenner("8. String auf null prüfen");
-        System.out.println(vorname == null);
+        System.out.println((vorname == null) + ": Vorname ist nicht null");
 
         trenner("9. Länge des Textes");
         System.out.println("Der Text hat eine Länge von: " + textString.length());
