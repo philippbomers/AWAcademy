@@ -2,6 +2,7 @@ package Philipp_Training.Uebung;
 
 public class test {
     public static void main(String[] args) {
+        System.out.println("Sag hallo");
 
     }
 }
