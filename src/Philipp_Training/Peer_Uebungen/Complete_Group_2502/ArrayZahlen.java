@@ -1,4 +1,4 @@
-package Philipp_Training.Uebung.Complete_Group_2502;
+package Philipp_Training.Peer_Uebungen.Complete_Group_2502;
 
 import java.util.Arrays;
 

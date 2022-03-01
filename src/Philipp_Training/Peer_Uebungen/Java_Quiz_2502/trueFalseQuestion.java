@@ -1,4 +1,4 @@
-package Philipp_Training.Uebung.Java_Quiz_2502;
+package Philipp_Training.Peer_Uebungen.Java_Quiz_2502;
 
 public class trueFalseQuestion {
 

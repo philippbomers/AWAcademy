@@ -1,4 +1,4 @@
-package Philipp_Training.Uebung.Peer_Group_2002;
+package Philipp_Training.Peer_Uebungen.Peer_Group_2002;
 
 public class AutosMain {
     public static void main(String[] args) {
