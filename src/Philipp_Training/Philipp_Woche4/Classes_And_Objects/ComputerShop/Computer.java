@@ -1,14 +1,31 @@
 package Philipp_Training.Philipp_Woche4.Classes_And_Objects.ComputerShop;
 
+/**
+ * Diese Klasse erstellt ein Computer-Objekt
+ */
 public class Computer {
+
+    /**
+     * Die Eigenschaften des Computers sind:
+     */
     private String computerName, manufacturerName, type, graphicCard, operatingSystem;
     private int cpuMhz, screenSizeInches, ramGb, hddGb;
     private byte numberOfUsbPorts;
     private double purchasingPrice, sellingPrice;
     private boolean preInstalledOs;
 
+    /**
+     * Generiert einen Computer, ohne Eigenschaften festzulegen
+     */
     public Computer(){}
 
+    /**
+     *
+     * @param computerName Name des Computers
+     * @param manufacturerName Herstellername
+     * @param screenSizeInches Bildschirmgröße in Zoll
+     * @param preInstalledOs Ist das Betriebssystem vorinstalliert?
+     */
     public Computer(String computerName, String manufacturerName, int screenSizeInches, boolean preInstalledOs) {
         this.setComputerName(computerName);
         this.setManufacturerName(manufacturerName);
@@ -16,6 +33,22 @@ public class Computer {
         this.setPreInstalledOs(preInstalledOs);
     }
 
+    /**
+     * Erstellt einen Computer mit allen Werten
+     * @param computerName Computername
+     * @param manufacturerName Herstellername
+     * @param type Typ (Workstation, Laptop, Server,...)
+     * @param graphicCard Grafikkarte
+     * @param operatingSystem Betriebssystem
+     * @param cpuMhz Prozessorgeschwindigkeit in MHZ
+     * @param screenSizeInches Bildschirmgröße
+     * @param ramGb Größe des Arbeitsspeichers
+     * @param hddGb Größe der Festplatte
+     * @param numberOfUsbPorts Nummer der USB-Ports
+     * @param purchasingPrice Kaufpreis
+     * @param sellingPrice Verkaufspreis
+     * @param preInstalledOs Ist das Betriebssystem vorinstalliert?
+     */
     public Computer(String computerName, String manufacturerName, String type, String graphicCard, String operatingSystem,
                     int cpuMhz, int screenSizeInches, int ramGb, int hddGb,
                     byte numberOfUsbPorts, double purchasingPrice, double sellingPrice,
@@ -35,11 +68,16 @@ public class Computer {
         this.setPreInstalledOs(preInstalledOs);
     }
 
+    /**
+     * Herstellername
+     * @return Herstellername
+     */
     public String getManufacturerName() {
         if (this.manufacturerName == null)
             return "Unbekannt";
         return this.manufacturerName;
     }
+
 
     public void setManufacturerName(String manufacturerName) {
         this.manufacturerName = manufacturerName;

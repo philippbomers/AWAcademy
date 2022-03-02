@@ -13,7 +13,12 @@ public class ComputerMain {
         placeHolder.nextLine();
 
         // generate a computer with some values
-        Computer PhilippsPC = new Computer("Philipps Computer", "Dell", 32, true);
+        Computer PhilippsPC = new Computer(
+                "Philipps Computer",
+                "Dell",
+                32,
+                true
+        );
         PhilippsPC.setPurchasingPrice(670.65);
         PhilippsPC.setSellingPrice(455.59);
         PhilippsPC.setOperatingSystem("Fedora");
