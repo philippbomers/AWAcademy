@@ -1,3 +1,5 @@
+package Mehmet_Training.Mehmet_Woche1.src;
+
 import java.util.Scanner;
 
 public class DatentypenVariablen {

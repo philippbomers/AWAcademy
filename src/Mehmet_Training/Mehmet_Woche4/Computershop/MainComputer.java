@@ -1,4 +1,4 @@
-package Mehmet.Vorbereitung.Aufgaben.Mehmet_Woche4.Computershop;
+package Mehmet_Training.Mehmet_Woche4.Computershop;
 
 public class MainComputer {
     public static void main(String[] args) {
@@ -37,6 +37,11 @@ public class MainComputer {
 
     }
 
+    /**
+     * Berechnung des gesamten Gewinns nach Verkauf alle Rechner
+     * @param computerArray Array von verkauften Computern
+     * @return Nach der Berechnung wird der gesamte Gewinn zurückgegeben
+     */
     public static double getGewinn(Computer[] computerArray) {
         double gesamterGewinn = 0;
         for (Computer computer : computerArray) {
