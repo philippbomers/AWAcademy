@@ -1,4 +1,4 @@
-package Pia_Training.Pia_Woche3;
+package Pia_Training.Pia_Woche3.Zeichenketten;
 
 public class Zeichenketten {
     public static void main(String[] args) {

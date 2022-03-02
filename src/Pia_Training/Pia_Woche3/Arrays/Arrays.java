@@ -1,3 +1,5 @@
+package Pia_Training.Pia_Woche3.Arrays;
+
 public class Arrays {
     public static void main(String[] args) {
         // DURCHLAUF
