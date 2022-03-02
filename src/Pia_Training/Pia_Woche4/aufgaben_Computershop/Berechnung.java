@@ -4,6 +4,12 @@ import java.text.NumberFormat;
 
 public class Berechnung {
 
+    /**
+     * This class contains a string of the total selling profit of a computer shop.
+     * @param alleComputer : Array of all the computers of a computer shop.
+     * @return : total selling profit; calculation based on total purchasing price - total selling price.
+     */
+
     public static String gesamtGewinn(Computer[] alleComputer) {
         NumberFormat format = NumberFormat.getCurrencyInstance();
         double ergebnis = 0;
