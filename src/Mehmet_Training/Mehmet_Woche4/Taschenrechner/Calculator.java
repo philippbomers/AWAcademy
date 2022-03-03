@@ -1,4 +1,4 @@
-package Mehmet.Vorbereitung.Aufgaben.Mehmet_Woche4.Taschenrechner;
+package Mehmet_Training.Mehmet_Woche4.Taschenrechner;
 
 public class Calculator {
     //Eigenschaften
