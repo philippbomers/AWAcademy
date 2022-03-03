@@ -8,17 +8,16 @@ public class HTML {
         StringBuilder text = new StringBuilder();
         text.append("<table>\n");
         for(int i=0;i<10; i++){
-            text.append("<tr>");
-            text.append("<td>Row" + i + "</td>\n<td>xxxxx</td>");
-            text.append("</tr>");
+            text.append("<tr>\n");
+            text.append("<td>Row").append(i).append("</td>\n<td>xxxxx</td>\n");
+            text.append("</tr>\n");
         }
-        text.append("</table>");
-        //text.append(System.getProperty("Line.seperator"))
+        text.append("</table>\n");
         createHTML(text.toString());
     }
 
     public static void createHTML(String text) throws IOException {
-        String dateiName = "GenerierteHtmlText.html";
+        String dateiName = "src//Anja_Training//w1//GenerierteHtmlText.html";
         FileOutputStream schreibeStrom = new FileOutputStream(dateiName);
         for (int i = 0; i < text.length(); i++) {
             schreibeStrom.write((byte) text.charAt(i));
