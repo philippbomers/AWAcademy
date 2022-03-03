@@ -8,9 +8,9 @@ public class HTML {
         StringBuilder text = new StringBuilder();
         text.append("<table>\n");
         for(int i=0;i<10; i++){
-            text.append("<tr>\n");
-            text.append("<td>Row").append(i).append("</td>\n<td>xxxxx</td>\n");
-            text.append("</tr>\n");
+            text.append("\t<tr>\n");
+            text.append("\t\t<td>Row").append(i).append("</td>\n\t\t<td>xxxxx</td>\n");
+            text.append("\t</tr>\n");
         }
         text.append("</table>\n");
         createHTML(text.toString());
