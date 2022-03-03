@@ -1,4 +1,4 @@
-package Philipp_Training.Philipp_Woche5;
+package Philipp_Training.Philipp_Woche5.day2;
 
 import java.util.Scanner;
 
