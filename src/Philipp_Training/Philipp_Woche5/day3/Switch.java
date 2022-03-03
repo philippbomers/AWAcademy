@@ -39,10 +39,10 @@ public class Switch {
         }
 
         System.out.println();
-        Scanner stdin = new Scanner(System.in);
+
         System.out.println("Please enter your choice (1-4): ");
 
-        switch (stdin.nextInt()) {
+        switch ((new Scanner(System.in)).nextInt()) {
             case 1 -> System.out.println("You selected 1");
             case 2, 3 -> System.out.println("You selected 2 or 3");
             case 4 -> System.out.println("You selected 4");
