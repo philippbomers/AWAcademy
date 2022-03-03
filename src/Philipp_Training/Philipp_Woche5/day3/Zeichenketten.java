@@ -1,6 +1,5 @@
 package Philipp_Training.Philipp_Woche5.day3;
 
-import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 
 public class Zeichenketten {
@@ -27,27 +26,27 @@ public class Zeichenketten {
     }
 
     public static String backwardString(char[] zeichenKette){
-        String backward = "";
+        StringBuilder backward = new StringBuilder();
         for (char letter : zeichenKette){
-            backward = letter+backward;
+            backward.insert(0, letter);
         }
-        return backward;
+        return backward.toString();
     }
 
     public static String everySecondCharString(char[] zeichenKette){
-        String everySecondChar= "";
+        StringBuilder everySecondChar= new StringBuilder();
         for (int i=0; i < zeichenKette.length; i+=2){
-            everySecondChar += zeichenKette[i];
+            everySecondChar.append(zeichenKette[i]);
         }
-        return everySecondChar;
+        return everySecondChar.toString();
     }
 
     public static String charArrayToString(char[] charArray){
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (char letter : charArray){
-            result += letter;
+            result.append(letter);
         }
-        return result;
+        return result.toString();
     }
 
     public static int[] charArrayToInt(char[] charArray){
