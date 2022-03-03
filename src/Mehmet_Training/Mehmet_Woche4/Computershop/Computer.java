@@ -1,8 +1,11 @@
-package Mehmet.Vorbereitung.Aufgaben.Mehmet_Woche4.Computershop;
+package Mehmet_Training.Mehmet_Woche4.Computershop;
 
 public class Computer {
 
-    //Eigenschaften
+    /**
+     * Die Parameter für Klasse Computer,
+     * die schon angegeben sind.
+     */
     private String herstellerName;
     private double prozessorGeschwindigkeit;
     private int arbeitsSpeicher;
@@ -12,7 +15,10 @@ public class Computer {
     private String computerTyp;
     private boolean mitBetriebsSystem;
 
-    //Zusätzliche Eigenschaften
+    /**
+     * Zusätzliche Parameter, die auch
+     * für die Klasse wichtig sind.
+     */
     private String cpuHersteller;
     private String grafikKartenHersteller;
     private int grafikKartenSpeicher;
@@ -38,7 +44,6 @@ public class Computer {
     }
 
     //Getter/Setter
-
     public String getHerstellerName() {
         return herstellerName;
     }
@@ -162,9 +167,12 @@ public class Computer {
 
     //Methode(n)
 
-    //Computereigenschaften als Text
-    //Hier wird es geprüft, ob die Werte für die Variablen zugewiesen sind.
-    //Eigenschaften mit den Werten "leer, null, 0 oder 0,0" werden nicht ausgegeben.
+    /**
+     * Ausgabe der Computereigenschaften als Text
+     * Hier wird es geprüft, ob die Werte für die Variablen zugewiesen sind.
+     * Eigenschaften mit den Werten "leer, null, 0 oder 0,0" werden nicht ausgegeben.
+     * @return Nach der Prüfung wird der generierte String zurückgegeben.
+     */
 
     public String toString() {
         String computerEigenschaften = "EIGENSCHAFTEN DES COMPUTERS" + "\n";
@@ -214,9 +222,10 @@ public class Computer {
     }
 
 
-    //Gewinn pro Computer
-    //Die Methode ist zwar kurz, aber sie mach den Code mehr lesbar
-
+    /**
+     * Berechnung der Gewinn pro verkaufter Computer
+     * @return Nach der Berechnung wird der Gewinn pro Computer zurückgegeben
+     */
     public double gewinnProComputer() {
 
         return verkaufsPreis - einkaufsPreis;

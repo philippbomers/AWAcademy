@@ -1,4 +1,6 @@
-public class Arrays {
+package Mehmet_Training.Mehmet_Woche3.src;
+
+public class Arrays2 {
     public static void main(String[] args) {
         //Aufgabe: Durchlauf
         System.out.println("Aufgabe: Durchlauf");
