@@ -1,11 +1,11 @@
 package Philipp_Training.Other.JavaTranslator;
 
 
-public class sourceCode {
+public class sourceCodeGenerator {
 
     private final StringBuilder javaCode = new StringBuilder();
 
-    sourceCode(String germanLanguage){
+    sourceCodeGenerator(String germanLanguage){
         String[] sentences = germanLanguage.trim().split("\n");
 
         for(String sentence: sentences){
@@ -16,7 +16,7 @@ public class sourceCode {
     private void createConsoleOutput(String sentence){
         String text = "";
         if(sentence.toLowerCase().contains("schreibe: ")){
-            text = escape(sentence).replaceFirst(".*[Ss]chreibe(:)? ","System.out.print(\"")+"\");\n";
+            text = escape(sentence).replaceFirst(".*[Ss]chreibe: ","System.out.print(\"")+"\");\n";
         }
         this.javaCode.append(text);
     }

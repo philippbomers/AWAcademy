@@ -21,8 +21,8 @@ public class InputForm extends JFrame{
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
 
-                sourceCode sourceCode = new sourceCode(germanInput.getText());
-                javaOutput.setText(sourceCode.toString());
+                sourceCodeGenerator sourceCodeGenerator = new sourceCodeGenerator(germanInput.getText());
+                javaOutput.setText(sourceCodeGenerator.toString());
             }
         });
     }
