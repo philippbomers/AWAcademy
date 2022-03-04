@@ -16,7 +16,7 @@ public class sourceCode {
     private void createConsoleOutput(String sentence){
         String text = "";
         if(sentence.toLowerCase().contains("schreibe: ")){
-            text = escape(sentence).replaceFirst(".*[Ss]chreibe: ","System.out.print(\"")+"\");\n";
+            text = escape(sentence).replaceFirst(".*[Ss]chreibe(:)? ","System.out.print(\"")+"\");\n";
         }
         this.javaCode.append(text);
     }
