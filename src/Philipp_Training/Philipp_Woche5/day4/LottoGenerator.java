@@ -1,13 +1,11 @@
 package Philipp_Training.Philipp_Woche5.day4;
 
-import javax.lang.model.element.NestingKind;
-import java.util.Arrays;
-
 public class LottoGenerator {
     public static void main(String[] args) {
-        int[] lottoNumbers = generateNumbers();
-        for(int number : lottoNumbers){
-            System.out.println("Ziehung : " + number);
+        System.out.println("Heutige Lottoziehung");
+        int i=1;
+        for(int number : generateNumbers()){
+            System.out.println("Ziehung "+(i++)+": " + number);
         }
     }
 
@@ -30,7 +28,6 @@ public class LottoGenerator {
             }
 
         }
-
         return numberArray;
     }
 
