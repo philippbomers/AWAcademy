@@ -21,12 +21,18 @@ public class MinesweeperBoard {
 
     public void createBoard() {
         String content;
-        System.out.printf("%3s", " ");
+        System.out.printf("%6s", " ");
         for (int col = 0; col < this.height; col++) {
             System.out.printf("%3d", col);
         }
+        System.out.printf("%n");
+        System.out.printf("%6s", " ");
+        for (int col = 0; col < this.height; col++) {
+            System.out.printf("%3s", "___");
+        }
         for (int row = 0; row < this.height; row++) {
             System.out.printf("%n%3d", row);
+            System.out.printf("%3s", "|");
             for (int col = 0; col < this.width; col++) {
                 content = getSign(row, col);
                 System.out.printf("%3s", content);
