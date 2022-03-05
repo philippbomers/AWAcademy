@@ -64,8 +64,8 @@ public class Zeichenketten {
         System.out.println();
 
 
-        //Aufgabe: Vergleiche von Strings
-        System.out.println("Aufgabe: Vergleich von Strings");
+        //Aufgabe: Vergleiche von Zeichenketten_Wiederholung
+        System.out.println("Aufgabe: Vergleich von Zeichenketten_Wiederholung");
         String str1 = "Katran";
         String str2 = "Katran";
         String str3 = new String("Katran");

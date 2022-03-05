@@ -15,9 +15,7 @@ public class Arrays {
         int smallest = sum[0];
         int largest = sum[0];
 
-        for (int j : sum) {
-            result += j;
-        }
+        for (int j : sum) result += j;
         System.out.println("Summe: " + result);
 
         for (int i = 0; i < sum.length; i++) {

@@ -16,7 +16,7 @@ public class StringMethods {
                         "\n3. Vor- und Nachname verketten: " + firstName.concat(lastName) +
                         "\n4.1 Suche nach 'gemacht': " + myString.contains("gemacht") +
                         "\n4.2 und 'Java': " + myString.contains("Java") +
-                        "\n5. Vergleiche zwei Strings: " + myString.equals(secondString) +
+                        "\n5. Vergleiche zwei Zeichenketten_Wiederholung: " + myString.equals(secondString) +
                         "\n6. Index von 'd': " + myString.indexOf('d') +
                         "\n7. Prüfe auf Leerstring: " + myString.isEmpty() +
                         "\n8. Prüfe auf null: " + (myString == null) +

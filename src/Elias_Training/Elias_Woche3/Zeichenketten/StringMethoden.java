@@ -31,12 +31,12 @@ public class StringMethoden {
             System.out.println("Das Wort \"gemacht\" ist im String enthalten!");
         }
 
-        trenner("5. Strings auf Gleichheit vergleichen");
+        trenner("5. Zeichenketten_Wiederholung auf Gleichheit vergleichen");
         String textStringZwei = "Alle sagten, das geht nicht. Dann kam einer, der wusste das " +
                 "nicht und hat es einfach nicht gemacht.";
         if (textString.equals(textStringZwei))
-            System.out.println("Beide Strings sind gleich");
-        else System.out.println("Die Strings sind nicht gleich");
+            System.out.println("Beide Zeichenketten_Wiederholung sind gleich");
+        else System.out.println("Die Zeichenketten_Wiederholung sind nicht gleich");
 
         trenner("6. Index vom 1. Buchstaben \"d\"");
         System.out.println(textString.indexOf('d'));

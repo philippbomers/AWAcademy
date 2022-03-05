@@ -3,7 +3,7 @@ package Elias_Training.Elias_Woche3.Zeichenketten;
 public class StringsVergleichen {
     public static void main(String[] args) {
 
-        // hier werden die beiden Strings jeweils auf Gleichheit und Objektidentität geprüft
+        // hier werden die beiden Zeichenketten_Wiederholung jeweils auf Gleichheit und Objektidentität geprüft
         String str1 = "Vergleich";
         String str2 = "Vergleich";
         System.out.println(str1.equals(str2));
