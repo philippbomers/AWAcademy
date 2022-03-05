@@ -18,11 +18,12 @@ public class LottoGenerator {
         int number;
         boolean doubleNumber = false;
         //6 Zahlen 1-49
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < numberArray.length; i++) {
             while (true) {
                 number = (int) (Math.random() * 49)+1;
                 for (int oldNumber : numberArray) {
-                    if (number == oldNumber) doubleNumber = true;
+                    if (number == oldNumber)
+                        doubleNumber = true;
                 }
                 if (!doubleNumber) {
                     numberArray[i] = number;
