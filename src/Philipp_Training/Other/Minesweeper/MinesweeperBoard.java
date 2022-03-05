@@ -1,12 +1,13 @@
 package Philipp_Training.Other.Minesweeper;
 
 public class MinesweeperBoard {
-    final protected int width;
-    final protected int height;
+    final private int width;
+    final private int height;
     final private int bombs;
     final private boolean[][] bombFields;
     private final boolean[][] openFields;
     private final boolean[][] markedFields;
+    private final boolean[][] fields;
 
     public MinesweeperBoard(int width, int bombs) {
         this.width = width;
@@ -15,6 +16,7 @@ public class MinesweeperBoard {
         this.openFields = new boolean[width][width];
         this.bombFields = new boolean[width][width];
         this.markedFields = new boolean[width][width];
+        this.fields = new boolean[width][width];
 
         this.setStartConfiguration();
     }
@@ -75,14 +77,26 @@ public class MinesweeperBoard {
             }
         }
 
+        if (this.isFieldExisting((row + 1), (col - 1))) {
+            if (this.getBombFields((row + 1), (col - 1))) {
+                numberOfBombs++;
+            }
+        }
+
+        if (this.isFieldExisting((row - 1), (col + 1))) {
+            if (this.getBombFields((row - 1), (col + 1))) {
+                numberOfBombs++;
+            }
+        }
+
         return numberOfBombs;
     }
 
     private boolean isFieldExisting(int row, int col) {
-        return (row < this.height && col < this.width && row >= 0 && col >= 0);
+        return (row < this.getWidth() && col < this.getHeight() && row >= 0 && col >= 0);
     }
 
-    String getSign(int row, int col) {
+    protected String getSign(int row, int col) {
         String result = "X";
         if (getOpenFields(row, col)) {
             result = String.valueOf(this.getBombsAround(row, col));
@@ -97,7 +111,7 @@ public class MinesweeperBoard {
         return result;
     }
 
-    public void openAllFields() {
+    protected void openAllFields() {
         for (int row = 0; row < this.height; row++) {
             for (int col = 0; col < this.width; col++) {
                 this.openFields[row][col] = true;
@@ -113,7 +127,7 @@ public class MinesweeperBoard {
         this.bombFields[row][col] = true;
     }
 
-    private boolean getBombFields(int row, int col) {
+    boolean getBombFields(int row, int col) {
         return this.bombFields[row][col];
     }
 
@@ -136,12 +150,40 @@ public class MinesweeperBoard {
         this.markedFields[row][col] = !this.markedFields[row][col];
     }
 
-    public boolean isCompletedFields(){
-        for(boolean[] openFields : this.openFields) {
-            for(boolean openField : openFields){
-                if(!openField) return false;
+    public boolean isCompletedFields() {
+        for (boolean[] openFields : this.openFields) {
+            for (boolean openField : openFields) {
+                if (!openField) return false;
             }
         }
         return true;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getBombs() {
+        return bombs;
+    }
+
+    public boolean[][] getBombFields() {
+        return bombFields;
+    }
+
+    public boolean[][] getOpenFields() {
+        return openFields;
+    }
+
+    public boolean[][] getMarkedFields() {
+        return markedFields;
+    }
+
+    public boolean[][] getFields() {
+        return fields;
     }
 }
