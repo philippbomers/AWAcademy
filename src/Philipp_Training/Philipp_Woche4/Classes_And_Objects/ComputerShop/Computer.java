@@ -17,7 +17,11 @@ public class Computer {
     /**
      * Generiert einen Computer, ohne Eigenschaften festzulegen
      */
-    public Computer(){}
+    public Computer(){
+        computerName = "";
+        numberOfUsbPorts = 2;
+    }
+
 
     /**
      *
