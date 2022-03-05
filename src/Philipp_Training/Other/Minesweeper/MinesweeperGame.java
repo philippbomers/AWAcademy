@@ -1,33 +1,28 @@
 package Philipp_Training.Other.Minesweeper;
 
-import java.util.Scanner;
-
 public class MinesweeperGame {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Willkommen beim Minesweeper-Game!");
-        System.out.println("Wie hoch und breit soll das Feld sein?");
-        int width = Integer.parseInt(scanner.nextLine());
-        System.out.println("Wie viele Bomben soll es geben?");
-        int bombs = Integer.parseInt(scanner.nextLine());
 
+        int width = MinesweeperConsole.getUserInputInteger("Wie hoch und breit soll das Brett sein?", 0, 100);
+        int bombs = MinesweeperConsole.getUserInputInteger("wie viele Bomben soll es geben?", 0, (width * width - 2));
 
-        MinesweeperBoard minesweeperBoard = new MinesweeperBoard(width, bombs);
-        minesweeperBoard.createBoard();
+        MinesweeperConsole minesweeperConsole = new MinesweeperConsole(width, bombs);
+        minesweeperConsole.createBoard();
 
         while (true) {
-            System.out.println("\nBitte gib die Reihe ein: ");
-            int row = Integer.parseInt(scanner.nextLine());
+            int row = MinesweeperConsole.getUserInputInteger("Bitte gib die Reihe ein: ", 0, minesweeperConsole.height);
+            int col = MinesweeperConsole.getUserInputInteger("Bitte gib die Spalte ein: ", 0, minesweeperConsole.width);
 
-            System.out.println("Bitte gib die Spalte ein: ");
-            int col = Integer.parseInt(scanner.nextLine());
+            minesweeperConsole.setOpenFields(row, col);
+            minesweeperConsole.createBoard();
 
-            minesweeperBoard.setOpenFields(row, col);
-            minesweeperBoard.createBoard();
-
-            System.out.println("\nMöchtest du das Programm beenden? [Ja] oder [Return]");
-            if (scanner.nextLine().equalsIgnoreCase("ja")) {
-                return;
+            if (!minesweeperConsole.isCompletedFields()) {
+                if (MinesweeperConsole.getUserInputBoolean("Möchtest du das Programm beenden? [true][false]")) {
+                    System.exit(0);
+                }
+            } else {
+                minesweeperConsole.getLoosingDialogue();
             }
         }
     }

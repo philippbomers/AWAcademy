@@ -1,8 +1,8 @@
 package Philipp_Training.Other.Minesweeper;
 
 public class MinesweeperBoard {
-    final private int width;
-    final private int height;
+    final protected int width;
+    final protected int height;
     final private int bombs;
     final private boolean[][] bombFields;
     private final boolean[][] openFields;
@@ -17,27 +17,6 @@ public class MinesweeperBoard {
         this.markedFields = new boolean[width][width];
 
         this.setStartConfiguration();
-    }
-
-    public void createBoard() {
-        String content;
-        System.out.printf("%6s", " ");
-        for (int col = 0; col < this.height; col++) {
-            System.out.printf("%3d", col);
-        }
-        System.out.printf("%n");
-        System.out.printf("%6s", " ");
-        for (int col = 0; col < this.height; col++) {
-            System.out.printf("%3s", "___");
-        }
-        for (int row = 0; row < this.height; row++) {
-            System.out.printf("%n%3d", row);
-            System.out.printf("%3s", "|");
-            for (int col = 0; col < this.width; col++) {
-                content = getSign(row, col);
-                System.out.printf("%3s", content);
-            }
-        }
     }
 
     private void setStartConfiguration() {
@@ -103,7 +82,7 @@ public class MinesweeperBoard {
         return (row < this.height && col < this.width && row >= 0 && col >= 0);
     }
 
-    private String getSign(int row, int col) {
+    String getSign(int row, int col) {
         String result = "X";
         if (getOpenFields(row, col)) {
             result = String.valueOf(this.getBombsAround(row, col));
@@ -141,15 +120,8 @@ public class MinesweeperBoard {
     public void setOpenFields(int row, int col) {
         if (!this.openFields[row][col]) this.openFields[row][col] = true;
         if (this.getBombFields(row, col)) {
-            this.getLoosingDialogue();
+            this.openAllFields();
         }
-    }
-
-    public void getLoosingDialogue() {
-        System.out.println("\nDU\nHAST\nVerloren\n");
-        openAllFields();
-        this.createBoard();
-        System.exit(0);
     }
 
     private boolean getOpenFields(int row, int col) {
@@ -162,5 +134,14 @@ public class MinesweeperBoard {
 
     public void setMarkedFields(int row, int col) {
         this.markedFields[row][col] = !this.markedFields[row][col];
+    }
+
+    public boolean isCompletedFields(){
+        for(boolean[] openFields : this.openFields) {
+            for(boolean openField : openFields){
+                if(!openField) return false;
+            }
+        }
+        return true;
     }
 }
