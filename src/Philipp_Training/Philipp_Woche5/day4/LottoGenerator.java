@@ -22,8 +22,10 @@ public class LottoGenerator {
             while (true) {
                 number = (int) (Math.random() * 49)+1;
                 for (int oldNumber : numberArray) {
-                    if (number == oldNumber)
+                    if (number == oldNumber) {
                         doubleNumber = true;
+                        break;
+                    }
                 }
                 if (!doubleNumber) {
                     numberArray[i] = number;
