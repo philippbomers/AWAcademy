@@ -139,7 +139,7 @@ public class MinesweeperBoard {
     }
 
     public void setOpenFields(int row, int col) {
-        if(!this.openFields[row][col]) this.openFields[row][col] = true;
+        if (!this.openFields[row][col]) this.openFields[row][col] = true;
         if (this.getBombFields(row, col)) {
             this.getLoosingDialogue();
         }
