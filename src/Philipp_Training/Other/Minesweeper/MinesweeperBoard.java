@@ -42,7 +42,7 @@ public class MinesweeperBoard {
      */
     private void setStartConfiguration() {
         int randomRow, randomColumn;
-        this.setOpenFields(getRandomNumber(), getRandomNumber());
+        this.setOpenField(getRandomNumber(), getRandomNumber());
         for (int i = 0; i < this.bombs; i++) {
             randomRow = getRandomNumber();
             randomColumn = getRandomNumber();
@@ -193,6 +193,7 @@ public class MinesweeperBoard {
         for (int row = 0; row < this.getWidth(); row++) {
             for (int col = 0; col < this.getWidth(); col++) {
                 this.openFields[row][col] = true;
+                this.flaggedFields[row][col] = false;
             }
         }
     }
@@ -233,8 +234,9 @@ public class MinesweeperBoard {
      * @param row Reihe
      * @param col Spalte
      */
-    protected void setOpenFields(int row, int col) {
+    protected void setOpenField(int row, int col) {
         this.openFields[row][col] = true;
+        this.flaggedFields[row][col] = false;
     }
 
     /**

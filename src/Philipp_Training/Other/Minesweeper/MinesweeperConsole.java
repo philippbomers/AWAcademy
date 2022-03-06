@@ -25,7 +25,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
             int row = MinesweeperConsole.getUserInputInteger("Bitte gib die Reihe ein: ", 0, this.getWidth());
             int col = MinesweeperConsole.getUserInputInteger("Bitte gib die Spalte ein: ", 0, this.getWidth());
 
-            super.setOpenFields(row, col);
+            super.setOpenField(row, col);
             this.createBoard();
 
             if (super.isOpenField(row, col)) {

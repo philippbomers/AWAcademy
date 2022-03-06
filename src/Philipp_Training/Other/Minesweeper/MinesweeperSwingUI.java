@@ -80,12 +80,19 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      */
     private void setOpenAllFields() {
         int buttonNumber = 0;
-        super.openAllFields();
         for (int row = 0; row < super.getWidth(); row++) {
             for (int col = 0; col < super.getWidth(); col++) {
                 if(this.isFlaggedField(row, col) && this.isBombField(row, col)){
                     this.points.setText(String.valueOf(Integer.parseInt(this.points.getText()) + 1));
                 }
+                buttons[buttonNumber].setText(super.getSign(row, col));
+                buttons[buttonNumber++].setEnabled(false);
+            }
+        }
+        buttonNumber = 0;
+        super.openAllFields();
+        for (int row = 0; row < super.getWidth(); row++) {
+            for (int col = 0; col < super.getWidth(); col++) {
                 buttons[buttonNumber].setText(super.getSign(row, col));
                 buttons[buttonNumber++].setEnabled(false);
             }
@@ -132,7 +139,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      */
     private void getFieldButtonAction(int row, int col, int buttonNumber) {
         if (this.isFlaggedField(row, col)) {
-            super.setOpenFields(row, col);
+            super.setOpenField(row, col);
             this.buttons[buttonNumber].setText(super.getSign(row, col));
             if (super.isBombField(row, col)) {
                 this.getLoosingWindow();
