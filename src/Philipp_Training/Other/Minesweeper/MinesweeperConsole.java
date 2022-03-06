@@ -2,10 +2,19 @@ package Philipp_Training.Other.Minesweeper;
 
 import java.util.Scanner;
 
+/**
+ * Das Spiel in der Konsole
+ */
 public class MinesweeperConsole extends MinesweeperBoard {
 
     Scanner scanner;
 
+    /**
+     * Generiert das Brett auf der Konsole
+     *
+     * @param width Breite (in Anzahl der Felder)
+     * @param bombs Anzahl der Bomben
+     */
     public MinesweeperConsole(int width, int bombs) {
         super(width, bombs);
         this.scanner = new Scanner(System.in);
@@ -19,7 +28,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
             super.setOpenFields(row, col);
             this.createBoard();
 
-            if (super.getOpenFields(row, col)) {
+            if (super.isOpenField(row, col)) {
                 this.getLoosingDialogue();
             } else if (super.isCompletedFields()) {
                 this.getWinningDialogue();
@@ -31,6 +40,14 @@ public class MinesweeperConsole extends MinesweeperBoard {
         }
     }
 
+    /**
+     * Erstellt und überprüft Benutzereingaben von Zahlen (Integer)
+     *
+     * @param text    Angezeigter Text
+     * @param minimum Minimaler Soll-Wert
+     * @param maximum Maximaler Soll-Wert
+     * @return Integer-Zahl
+     */
     private static int getUserInputInteger(String text, int minimum, int maximum) {
         while (true) {
             System.out.println("\n" + text);
@@ -44,12 +61,21 @@ public class MinesweeperConsole extends MinesweeperBoard {
         }
     }
 
+    /**
+     * Erstellt und überprüft Benutzereingaben von boolischen Wahrheitswerten
+     *
+     * @param text Benutzereingabe (true, false)
+     * @return boolischer Wahrheitswert (true, false)
+     */
     private static boolean getUserInputBoolean(String text) {
         System.out.println("\n" + text);
         String input = (new Scanner(System.in)).nextLine();
         return Boolean.parseBoolean(input);
     }
 
+    /**
+     * Druckt das Brett aus
+     */
     private void createBoard() {
         String content;
         System.out.printf("%6s", " ");
@@ -71,11 +97,17 @@ public class MinesweeperConsole extends MinesweeperBoard {
         }
     }
 
+    /**
+     * Wird angezeigt, wenn man verliert
+     */
     private void getLoosingDialogue() {
         System.out.println("\nDU HAST VERLOREN");
         System.exit(0);
     }
 
+    /**
+     * Wird angezeigt, wenn man gewinnt
+     */
     private void getWinningDialogue() {
         System.out.println("\nDU HAST GEWONNEN");
         System.exit(0);

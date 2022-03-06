@@ -1,6 +1,11 @@
 package Philipp_Training.Other.Minesweeper;
 
 public class MinesweeperGame {
+
+    /**
+     * Startdatei zum Spiel.
+     * Kann angepasst werden, um die Oberfläche zu wechseln.
+     */
     public static void main(String[] args) {
         // start Swing GUI game
         new MinesweeperConfigDialogue();

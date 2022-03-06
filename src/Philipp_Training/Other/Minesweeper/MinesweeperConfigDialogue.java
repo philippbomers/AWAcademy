@@ -2,9 +2,15 @@ package Philipp_Training.Other.Minesweeper;
 
 import javax.swing.*;
 
+/**
+ * Oberfläche zum Einstellen der Anzahl von Feldern und Bomben
+ */
 public class MinesweeperConfigDialogue {
     final private JFrame configWindow;
 
+    /**
+     * Erstellt ein neues Fenster
+     */
     public MinesweeperConfigDialogue() {
         this.configWindow = new JFrame("Configuration");
         this.configWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -14,6 +20,10 @@ public class MinesweeperConfigDialogue {
         this.addWidthDialogue();
     }
 
+    /**
+     * Generiert den Inhalt des Fensters
+     * mit Abfrage von Feldgröße und Anzahl der Bomben
+     */
     private void addWidthDialogue() {
         JLabel widthLabel = new JLabel();
         widthLabel.setText("How many fields should be in a row?");
@@ -41,6 +51,14 @@ public class MinesweeperConfigDialogue {
         this.configWindow.repaint();
     }
 
+    /**
+     * Weist dem Submit-Button Aktionen zu:
+     * 1. Überprüfung der Eingaben
+     * 2. Schließen dieses Fensters und öffnen des Spielfensters
+     *
+     * @param inputWidth Eingabe des ersten Inputs (Breite)
+     * @param inputBomb  Eingabe des zweiten Inputs (Bombenanzahl)
+     */
     private void getSubmitButtonAction(String inputWidth, String inputBomb) {
         if (isInteger(inputWidth, 4, 40) && isInteger(inputBomb, 0, 1599)) {
             int width = Integer.parseInt(inputWidth);
@@ -56,6 +74,14 @@ public class MinesweeperConfigDialogue {
         }
     }
 
+    /**
+     * Prüft, ob die Eingabe eine Zahl ist
+     *
+     * @param input Eingabe des Textfeldes
+     * @param min   Minimaler Soll-Wert
+     * @param max   Maximaler Soll-Wert
+     * @return Ist die Eingabe eine passende Zahl? (true, false)
+     */
     private boolean isInteger(String input, int min, int max) {
         if (input.matches("-?(0|[1-9]\\d*)")) {
             int value = Integer.parseInt(input);
