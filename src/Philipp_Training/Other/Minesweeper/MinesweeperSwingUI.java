@@ -11,20 +11,15 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
 
     public MinesweeperSwingUI(int width, int bombs) {
         super(width, bombs);
-
         window = new JFrame("Minesweeper");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
-
         this.getBoardGui();
     }
 
     public void getBoardGui() {
-
         this.window.add(this.setMenuBar(), BorderLayout.NORTH);
-
-        JPanel fields = this.setFieldsPanel();
-        window.add(fields, BorderLayout.CENTER);
+        window.add(this.setFieldsPanel(), BorderLayout.CENTER);
         window.setSize(super.getWidth() * 100, super.getWidth() * 50);
     }
 
@@ -36,8 +31,9 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         int buttonNumber = 0;
         for (boolean[] row : super.getFields()) {
             for (boolean col : row) {
-                fields.add(this.getFieldButton(fieldRow, fieldColumn, buttonNumber++));
+                fields.add(this.getFieldButton(fieldRow, fieldColumn, buttonNumber));
                 fieldColumn++;
+                buttonNumber++;
             }
             fieldColumn = 0;
             fieldRow++;
@@ -84,8 +80,11 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
     }
 
     JButton getFieldButton(int row, int column, int buttonNumber) {
-        this.buttons[buttonNumber] = new JButton("X");
+        this.buttons[buttonNumber] = new JButton(super.getSign(row,column));
         buttons[buttonNumber].addActionListener(e -> this.getFieldButtonAction(row, column, buttonNumber));
+        if(!this.buttons[buttonNumber].getText().equals("X")){
+            this.buttons[buttonNumber].setEnabled(false);
+        }
         return this.buttons[buttonNumber];
     }
 
@@ -101,6 +100,9 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         } else if(this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")){
             int userPoints = Integer.parseInt(this.points.getText())+Integer.parseInt(this.buttons[buttonNumber].getText());
             this.points.setText(String.valueOf(userPoints));
+        }
+        if(!this.buttons[buttonNumber].getText().equals("X")){
+            this.buttons[buttonNumber].setEnabled(false);
         }
     }
 }
