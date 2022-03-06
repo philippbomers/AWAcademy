@@ -139,7 +139,7 @@ public class MinesweeperBoard {
     public boolean isCompletedFields() {
         for (boolean[] openFields : this.getOpenFields()) {
             for (boolean openField : openFields) {
-                if (!openField){
+                if (!openField) {
                     return false;
                 }
             }
