@@ -17,7 +17,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         this.getBoardGui();
     }
 
-    public void getBoardGui() {
+    private void getBoardGui() {
         this.window.add(this.setMenuBar(), BorderLayout.NORTH);
         window.add(this.setFieldsPanel(), BorderLayout.CENTER);
         window.setSize(super.getWidth() * 100, super.getWidth() * 50);
@@ -30,7 +30,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         int fieldColumn = 0;
         int buttonNumber = 0;
         for (boolean[] row : super.getFields()) {
-            for (boolean col : row) {
+            for (boolean ignored : row) {
                 fields.add(this.getFieldButton(fieldRow, fieldColumn, buttonNumber));
                 fieldColumn++;
                 buttonNumber++;
@@ -47,7 +47,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         JButton restartButton = new JButton("RESTART");
         restartButton.addActionListener(e -> {
             window.dispose();
-            new MinesweeperSwingUI(this.getWidth(), this.getBombs());
+            new MinesweeperConfigDialogue();
         });
         jMenuBar.add(restartButton);
 
@@ -79,7 +79,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         JOptionPane.showMessageDialog(window, "Du hast verloren!");
     }
 
-    JButton getFieldButton(int row, int column, int buttonNumber) {
+    private JButton getFieldButton(int row, int column, int buttonNumber) {
         this.buttons[buttonNumber] = new JButton(super.getSign(row, column));
         buttons[buttonNumber].addActionListener(e -> this.getFieldButtonAction(row, column, buttonNumber));
         if (!this.buttons[buttonNumber].getText().equals("X")) {

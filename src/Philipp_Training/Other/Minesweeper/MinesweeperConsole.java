@@ -31,7 +31,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
         }
     }
 
-    public static int getUserInputInteger(String text, int minimum, int maximum) {
+    private static int getUserInputInteger(String text, int minimum, int maximum) {
         while (true) {
             System.out.println("\n" + text);
             String input = (new Scanner(System.in)).nextLine();
@@ -42,16 +42,15 @@ public class MinesweeperConsole extends MinesweeperBoard {
                 System.out.println("Diese Zahl ist nicht möglich.");
             }
         }
-
     }
 
-    public static boolean getUserInputBoolean(String text) {
+    private static boolean getUserInputBoolean(String text) {
         System.out.println("\n" + text);
         String input = (new Scanner(System.in)).nextLine();
         return Boolean.parseBoolean(input);
     }
 
-    public void createBoard() {
+    private void createBoard() {
         String content;
         System.out.printf("%6s", " ");
         for (int col = 0; col < this.getWidth(); col++) {
@@ -72,12 +71,12 @@ public class MinesweeperConsole extends MinesweeperBoard {
         }
     }
 
-    public void getLoosingDialogue() {
+    private void getLoosingDialogue() {
         System.out.println("\nDU HAST VERLOREN");
         System.exit(0);
     }
 
-    public void getWinningDialogue() {
+    private void getWinningDialogue() {
         System.out.println("\nDU HAST GEWONNEN");
         System.exit(0);
     }

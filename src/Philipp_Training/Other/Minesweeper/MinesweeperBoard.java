@@ -116,27 +116,27 @@ public class MinesweeperBoard {
         this.bombFields[row][col] = true;
     }
 
-    boolean getBombFields(int row, int col) {
+    protected boolean getBombFields(int row, int col) {
         return this.bombFields[row][col];
     }
 
-    public void setOpenFields(int row, int col) {
+    protected void setOpenFields(int row, int col) {
         this.openFields[row][col] = true;
     }
 
-    boolean getOpenFields(int row, int col) {
+    protected boolean getOpenFields(int row, int col) {
         return this.openFields[row][col];
     }
 
-    public boolean getMarkedFields(int row, int col) {
+    protected boolean getMarkedFields(int row, int col) {
         return this.markedFields[row][col];
     }
 
-    public void setMarkedFields(int row, int col) {
+    protected void setMarkedFields(int row, int col) {
         this.markedFields[row][col] = !this.markedFields[row][col];
     }
 
-    public boolean isCompletedFields() {
+    protected boolean isCompletedFields() {
         for (boolean[] openFields : this.getOpenFields()) {
             for (boolean openField : openFields) {
                 if (!openField) {
@@ -147,27 +147,27 @@ public class MinesweeperBoard {
         return true;
     }
 
-    public int getWidth() {
+    protected int getWidth() {
         return this.width;
     }
 
-    public int getBombs() {
+    protected int getBombs() {
         return this.bombs;
     }
 
-    public boolean[][] getBombFields() {
+    protected boolean[][] getBombFields() {
         return this.bombFields;
     }
 
-    public boolean[][] getOpenFields() {
+    protected boolean[][] getOpenFields() {
         return this.openFields;
     }
 
-    public boolean[][] getMarkedFields() {
+    protected boolean[][] getMarkedFields() {
         return this.markedFields;
     }
 
-    public boolean[][] getFields() {
+    protected boolean[][] getFields() {
         return this.fields;
     }
 
