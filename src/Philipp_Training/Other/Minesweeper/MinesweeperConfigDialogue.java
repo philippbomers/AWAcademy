@@ -8,7 +8,7 @@ public class MinesweeperConfigDialogue {
     public MinesweeperConfigDialogue() {
         this.configWindow = new JFrame("Configuration");
         this.configWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.configWindow.setSize(250, 210);
+        this.configWindow.setSize(260, 210);
         this.configWindow.setLayout(null);
         this.configWindow.setVisible(true);
         this.addWidthDialogue();
@@ -25,8 +25,8 @@ public class MinesweeperConfigDialogue {
         this.configWindow.add(inputWidth);
 
         JLabel bombLabel = new JLabel();
-        bombLabel.setText("How many fields should be in a row?");
-        bombLabel.setBounds(10, 70, 300, 20);
+        bombLabel.setText("How many bombs should be on the field?");
+        bombLabel.setBounds(10, 70, 310, 20);
         this.configWindow.add(bombLabel);
 
         JTextField inputBomb = new JTextField("8");
