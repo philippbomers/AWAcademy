@@ -23,7 +23,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         window.setSize(super.getWidth() * 100, super.getWidth() * 50);
     }
 
-    private JPanel setFieldsPanel(){
+    private JPanel setFieldsPanel() {
         JPanel fields = new JPanel(new GridLayout(super.getWidth(), super.getWidth()));
         buttons = new JButton[super.getWidth() * super.getWidth()];
         int fieldRow = 0;
@@ -41,17 +41,17 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         return fields;
     }
 
-    private JMenuBar setMenuBar(){
+    private JMenuBar setMenuBar() {
         JMenuBar jMenuBar = new JMenuBar();
 
         JButton restartButton = new JButton("RESTART");
         restartButton.addActionListener(e -> {
             window.dispose();
-            new MinesweeperSwingUI(this.getWidth(),this.getBombs());
+            new MinesweeperSwingUI(this.getWidth(), this.getBombs());
         });
         jMenuBar.add(restartButton);
 
-        jMenuBar.add( Box.createRigidArea( new Dimension( 50 , 0 ) )  );
+        jMenuBar.add(Box.createRigidArea(new Dimension(50, 0)));
 
         jMenuBar.add(new JLabel("POINTS: "));
         this.points = new JLabel("0");
@@ -80,9 +80,9 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
     }
 
     JButton getFieldButton(int row, int column, int buttonNumber) {
-        this.buttons[buttonNumber] = new JButton(super.getSign(row,column));
+        this.buttons[buttonNumber] = new JButton(super.getSign(row, column));
         buttons[buttonNumber].addActionListener(e -> this.getFieldButtonAction(row, column, buttonNumber));
-        if(!this.buttons[buttonNumber].getText().equals("X")){
+        if (!this.buttons[buttonNumber].getText().equals("X")) {
             this.buttons[buttonNumber].setEnabled(false);
         }
         return this.buttons[buttonNumber];
@@ -97,11 +97,11 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         } else if (this.isCompletedFields()) {
             this.getWinningWindow();
             this.setOpenAllFields();
-        } else if(this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")){
-            int userPoints = Integer.parseInt(this.points.getText())+Integer.parseInt(this.buttons[buttonNumber].getText());
+        } else if (this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")) {
+            int userPoints = Integer.parseInt(this.points.getText()) + Integer.parseInt(this.buttons[buttonNumber].getText());
             this.points.setText(String.valueOf(userPoints));
         }
-        if(!this.buttons[buttonNumber].getText().equals("X")){
+        if (!this.buttons[buttonNumber].getText().equals("X")) {
             this.buttons[buttonNumber].setEnabled(false);
         }
     }
