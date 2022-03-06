@@ -18,6 +18,17 @@ public class Auto {
         this.leistung = leistung;
     }
 
+    public static void main(String[] args) {
+        Auto meinAuto = new Auto();
+        System.out.println("meinAuto = " + meinAuto);
+
+        Auto meinAuto2 = new Auto("Philipp");
+        System.out.println("meinAuto2 = " + meinAuto2);
+
+        Auto meinAuto3 = new Auto("Rot", 132, "Philipp");
+        System.out.println("meinAuto3 = " + meinAuto3);
+    }
+
     public String getFarbe() {
         return farbe;
     }
@@ -49,16 +60,5 @@ public class Auto {
                 ", leistung=" + leistung +
                 ", nameFahrer='" + nameFahrer + '\'' +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        Auto meinAuto = new Auto();
-        System.out.println("meinAuto = " + meinAuto);
-
-        Auto meinAuto2 = new Auto("Philipp");
-        System.out.println("meinAuto2 = " + meinAuto2);
-
-        Auto meinAuto3 = new Auto("Rot", 132, "Philipp");
-        System.out.println("meinAuto3 = " + meinAuto3);
     }
 }

@@ -5,8 +5,7 @@ public class Datentypen {
         byte monate = 12,
                 seitenImFlyer = 3,
                 anzahlMaustasten = 3,
-                kleinwagenPS = 68
-                        ;
+                kleinwagenPS = 68;
 
         short einwohnerKleinstadt = 21_000,
                 sportwagenPS = 240;

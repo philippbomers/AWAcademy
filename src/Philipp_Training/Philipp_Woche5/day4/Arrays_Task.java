@@ -5,10 +5,10 @@ public class Arrays_Task {
 //        taskOne();
 //        taskOneBonus();
 
-        int[] myNumbers = {1,4,51,532,1,-124,-125,32};
-        System.out.println("max: "+ArrayHelperTask.maxNumber(myNumbers));
-        System.out.println("min: "+ArrayHelperTask.minNumber(myNumbers));
-        System.out.println("sum: "+ArrayHelperTask.sum(myNumbers));
+        int[] myNumbers = {1, 4, 51, 532, 1, -124, -125, 32};
+        System.out.println("max: " + ArrayHelperTask.maxNumber(myNumbers));
+        System.out.println("min: " + ArrayHelperTask.minNumber(myNumbers));
+        System.out.println("sum: " + ArrayHelperTask.sum(myNumbers));
     }
 
     public static void taskOne() {
@@ -39,7 +39,7 @@ public class Arrays_Task {
                 int[] newArray = new int[input.length - 1];
                 int i = 0;
                 for (int value : input) {
-                    if(value!=item){
+                    if (value != item) {
                         newArray[i++] = value;
                         result = newArray;
                     }

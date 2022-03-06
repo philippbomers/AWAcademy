@@ -5,7 +5,7 @@ public class AutosLogik {
     private String farbe = "Weiß", marke, modell;
     private boolean automatik = false, diesel = false;
 
-    public AutosLogik (String marke, String modell){
+    public AutosLogik(String marke, String modell) {
         this.marke = marke;
         this.modell = modell;
     }
@@ -51,7 +51,7 @@ public class AutosLogik {
     }
 
     public String isAutomatik() {
-        if(automatik)
+        if (automatik)
             return "Automatikschaltung";
 
         return "manuelle Schaltung";
@@ -62,10 +62,10 @@ public class AutosLogik {
     }
 
     public String isDiesel() {
-        if(this.diesel)
+        if (this.diesel)
             return "Diesel";
 
-        return  "Benziner";
+        return "Benziner";
     }
 
     public void setDiesel(boolean diesel) {

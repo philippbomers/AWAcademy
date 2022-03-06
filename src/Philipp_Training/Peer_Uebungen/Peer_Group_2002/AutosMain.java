@@ -6,12 +6,12 @@ public class AutosMain {
         piasKaputterToyota.setFarbe("Weiss und günstig");
         piasKaputterToyota.setPs(150);
         piasKaputterToyota.setDiesel(false);
-        System.out.println("Pias Auto: "+piasKaputterToyota);
+        System.out.println("Pias Auto: " + piasKaputterToyota);
 
         AutosLogik eliasGolf5 = new AutosLogik("VW", "Golf 5");
         eliasGolf5.setFarbe("Schwarz");
         eliasGolf5.setAutomatik(true);
         eliasGolf5.setDiesel(true);
-        System.out.println("\n\nElias Auto: "+eliasGolf5);
+        System.out.println("\n\nElias Auto: " + eliasGolf5);
     }
 }

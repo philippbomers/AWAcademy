@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class InputForm extends JFrame{
+public class InputForm extends JFrame {
     private JPanel mainPanel;
     private JTextArea germanInput;
     private JTextPane javaOutput;

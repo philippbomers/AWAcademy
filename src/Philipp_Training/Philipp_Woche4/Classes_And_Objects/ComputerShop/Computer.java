@@ -17,18 +17,17 @@ public class Computer {
     /**
      * Generiert einen Computer, ohne Eigenschaften festzulegen
      */
-    public Computer(){
+    public Computer() {
         computerName = "";
         numberOfUsbPorts = 2;
     }
 
 
     /**
-     *
-     * @param computerName Name des Computers
+     * @param computerName     Name des Computers
      * @param manufacturerName Herstellername
      * @param screenSizeInches Bildschirmgröße in Zoll
-     * @param preInstalledOs Ist das Betriebssystem vorinstalliert?
+     * @param preInstalledOs   Ist das Betriebssystem vorinstalliert?
      */
     public Computer(String computerName, String manufacturerName, int screenSizeInches, boolean preInstalledOs) {
         this.setComputerName(computerName);
@@ -39,19 +38,20 @@ public class Computer {
 
     /**
      * Erstellt einen Computer mit allen Werten
-     * @param computerName Computername
+     *
+     * @param computerName     Computername
      * @param manufacturerName Herstellername
-     * @param type Typ (Workstation, Laptop, Server,...)
-     * @param graphicCard Grafikkarte
-     * @param operatingSystem Betriebssystem
-     * @param cpuMhz Prozessorgeschwindigkeit in MHZ
+     * @param type             Typ (Workstation, Laptop, Server,...)
+     * @param graphicCard      Grafikkarte
+     * @param operatingSystem  Betriebssystem
+     * @param cpuMhz           Prozessorgeschwindigkeit in MHZ
      * @param screenSizeInches Bildschirmgröße
-     * @param ramGb Größe des Arbeitsspeichers
-     * @param hddGb Größe der Festplatte
+     * @param ramGb            Größe des Arbeitsspeichers
+     * @param hddGb            Größe der Festplatte
      * @param numberOfUsbPorts Nummer der USB-Ports
-     * @param purchasingPrice Kaufpreis
-     * @param sellingPrice Verkaufspreis
-     * @param preInstalledOs Ist das Betriebssystem vorinstalliert?
+     * @param purchasingPrice  Kaufpreis
+     * @param sellingPrice     Verkaufspreis
+     * @param preInstalledOs   Ist das Betriebssystem vorinstalliert?
      */
     public Computer(String computerName, String manufacturerName, String type, String graphicCard, String operatingSystem,
                     int cpuMhz, int screenSizeInches, int ramGb, int hddGb,
@@ -74,6 +74,7 @@ public class Computer {
 
     /**
      * Herstellername
+     *
      * @return Herstellername
      */
     public String getManufacturerName() {
@@ -106,7 +107,7 @@ public class Computer {
     }
 
     public String getScreenSizeInches() {
-        if(this.screenSizeInches == 0)
+        if (this.screenSizeInches == 0)
             return "Kein Bildschirm vorhanden.";
         return this.screenSizeInches + " Zoll";
     }

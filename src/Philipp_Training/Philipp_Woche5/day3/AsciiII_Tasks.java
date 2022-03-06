@@ -10,7 +10,7 @@ public class AsciiII_Tasks {
 
         String output;
         for (int column = -1; column < 8; column++) {
-            output = (column<0) ? "" : String.valueOf(column);
+            output = (column < 0) ? "" : String.valueOf(column);
             System.out.printf("%3s", output);
         }
 
@@ -18,12 +18,12 @@ public class AsciiII_Tasks {
         for (int row = 0; row < 16; row++) {
             System.out.printf("%n%3s", row);
             for (int column = 0; column < 8; column++) {
-                if(asciiVal<32){
+                if (asciiVal < 32) {
                     asciiVal++;
                     String asciicharacter = ".";
                     System.out.printf("%3s", asciicharacter);
                 }
-                if(asciiVal>31 && asciiVal<127){
+                if (asciiVal > 31 && asciiVal < 127) {
                     String asciicharacter = String.valueOf((char) (asciiVal++));
                     System.out.printf("%3s", asciicharacter);
                 }

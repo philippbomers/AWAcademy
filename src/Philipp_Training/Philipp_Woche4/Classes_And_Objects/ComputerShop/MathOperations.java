@@ -5,7 +5,7 @@ public class MathOperations {
         return Math.round(Math.pow(10.0, 2) * value) / Math.pow(10.0, 2);
     }
 
-    public static double getComputerProfit(Computer[] computers){
+    public static double getComputerProfit(Computer[] computers) {
         double completeProfit = 0;
         for (Computer computer : computers) {
             completeProfit += computer.getProfit();

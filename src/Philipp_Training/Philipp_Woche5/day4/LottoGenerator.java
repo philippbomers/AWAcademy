@@ -9,8 +9,8 @@ public class LottoGenerator {
             System.out.println("Ziehung " + (i++) + ": " + number);
         }
 
-        int[] myNumbers = new int[]{1,2,3,4,5};
-        System.out.println("Du hast "+getCorrectNumbers(myNumbers,lottoNumbers)+" richtige Zahlen geraten");
+        int[] myNumbers = new int[]{1, 2, 3, 4, 5};
+        System.out.println("Du hast " + getCorrectNumbers(myNumbers, lottoNumbers) + " richtige Zahlen geraten");
     }
 
     public static int[] generateNumbers() {
@@ -20,7 +20,7 @@ public class LottoGenerator {
         //6 Zahlen 1-49
         for (int i = 0; i < numberArray.length; i++) {
             while (true) {
-                number = (int) (Math.random() * 49)+1;
+                number = (int) (Math.random() * 49) + 1;
                 for (int oldNumber : numberArray) {
                     if (number == oldNumber) {
                         doubleNumber = true;
@@ -38,11 +38,11 @@ public class LottoGenerator {
         return numberArray;
     }
 
-    public static int getCorrectNumbers(int[] myNumbers, int[] lottoNumbers){
+    public static int getCorrectNumbers(int[] myNumbers, int[] lottoNumbers) {
         int correctNumbers = 0;
-        for(int lottoNumber : lottoNumbers){
-            for(int myNumber : myNumbers){
-                if(myNumber==lottoNumber) correctNumbers++;
+        for (int lottoNumber : lottoNumbers) {
+            for (int myNumber : myNumbers) {
+                if (myNumber == lottoNumber) correctNumbers++;
             }
         }
         return correctNumbers;

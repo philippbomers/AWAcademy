@@ -27,7 +27,7 @@ public class Switch_Tasks {
 
         System.out.println();
         char input1 = 'b';
-        switch (input1){
+        switch (input1) {
             case 'a':
                 System.out.println("Airplane");
                 break;

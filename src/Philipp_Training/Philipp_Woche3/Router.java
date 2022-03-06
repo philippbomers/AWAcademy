@@ -1,8 +1,13 @@
 package Philipp_Training.Philipp_Woche3;
 
 
-import Philipp_Training.Philipp_Woche3.Arrays.*;
-import Philipp_Training.Philipp_Woche3.Strings.*;
+import Philipp_Training.Philipp_Woche3.Arrays.MinimumAndMaximum;
+import Philipp_Training.Philipp_Woche3.Arrays.MultiplicationTables;
+import Philipp_Training.Philipp_Woche3.Arrays.PassThrough;
+import Philipp_Training.Philipp_Woche3.Arrays.Sum;
+import Philipp_Training.Philipp_Woche3.Strings.CompareStrings;
+import Philipp_Training.Philipp_Woche3.Strings.CountWords;
+import Philipp_Training.Philipp_Woche3.Strings.StringMethods;
 
 import javax.swing.*;
 import java.util.Scanner;
