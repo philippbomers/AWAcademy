@@ -4,17 +4,18 @@ package Philipp_Training.Other.Minesweeper;
  * Minesweeper
  * 1. Generiert ein Feld mit der Größe x * x mit n Bomben auf zufälligen Feldern
  * 2. Öffnet zu Beginn ein zufälliges Feld, welches keine Bombe beinhaltet
- * 3. Der Benutzer öffnet ein Feld
+ * 3. Der Benutzer flagged ein Feld und dann öffnet er es
  * A: Bombe: Das Spiel ist verloren
  * B: Keine Bombe: Das Feld zeigt die Anzahl der Bomben im Umkreis an
- * 4. Das Spiel ist gewonnen, wenn alle Felder geöffnet sind
+ * 4. Das Spiel ist zu Ende, wenn alle Felder geöffnet sind.
+ * Punkte: Alle an Bomben angrenzenden Felder werden zusammen gezählt. Geflaggte Bomben zählen 1 Punkt.
  */
 public class MinesweeperBoard {
     final private int width;
     final private int bombs;
     final private boolean[][] bombFields;
     private final boolean[][] openFields;
-    private final boolean[][] markedFields;
+    private final boolean[][] flaggedFields;
     private final boolean[][] fields;
 
     /**
@@ -28,7 +29,7 @@ public class MinesweeperBoard {
         this.bombs = bombs;
         this.openFields = new boolean[width][width];
         this.bombFields = new boolean[width][width];
-        this.markedFields = new boolean[width][width];
+        this.flaggedFields = new boolean[width][width];
         this.fields = new boolean[width][width];
         this.setStartConfiguration();
     }
@@ -178,8 +179,8 @@ public class MinesweeperBoard {
         String result = "X";
         if (isOpenField(row, col)) {
             result = isBombField(row, col) ? "B" : String.valueOf(this.getNumberOfBombsAround(row, col));
-        } else if (isMarkedField(row, col)) {
-            result = "M";
+        } else if (isFlaggedField(row, col)) {
+            result = "F";
         }
         return result;
     }
@@ -254,8 +255,8 @@ public class MinesweeperBoard {
      * @param col Spalte
      * @return Feld markiert? (true, false)
      */
-    protected boolean isMarkedField(int row, int col) {
-        return this.markedFields[row][col];
+    protected boolean isFlaggedField(int row, int col) {
+        return this.flaggedFields[row][col];
     }
 
     /**
@@ -265,8 +266,8 @@ public class MinesweeperBoard {
      * @param row Reihe
      * @param col Spalte
      */
-    protected void setMarkedField(int row, int col) {
-        this.markedFields[row][col] = !this.markedFields[row][col];
+    protected void setFlaggedField(int row, int col) {
+        this.flaggedFields[row][col] = !this.flaggedFields[row][col];
     }
 
     /**
@@ -277,7 +278,7 @@ public class MinesweeperBoard {
     protected boolean isCompletedFields() {
         for (int row = 0; row < this.getWidth(); row++) {
             for (int col = 0; col < this.getWidth(); col++) {
-                if (!this.isOpenField(row, col) && !this.isMarkedField(row, col)) {
+                if (!this.isOpenField(row, col) && !this.isFlaggedField(row, col)&&!this.isBombField(row,col)) {
                     return false;
                 }
             }
@@ -326,8 +327,8 @@ public class MinesweeperBoard {
      *
      * @return Feld markiert?
      */
-    protected boolean[][] isMarkedField() {
-        return this.markedFields;
+    protected boolean[][] isFlaggedField() {
+        return this.flaggedFields;
     }
 
     /**

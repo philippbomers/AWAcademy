@@ -83,6 +83,9 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         super.openAllFields();
         for (int row = 0; row < super.getWidth(); row++) {
             for (int col = 0; col < super.getWidth(); col++) {
+                if(this.isFlaggedField(row, col) && this.isBombField(row, col)){
+                    this.points.setText(String.valueOf(Integer.parseInt(this.points.getText()) + 1));
+                }
                 buttons[buttonNumber].setText(super.getSign(row, col));
                 buttons[buttonNumber++].setEnabled(false);
             }
@@ -93,7 +96,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      * Zeigt ein Gewinn-Fenster an
      */
     private void getWinningWindow() {
-        JOptionPane.showMessageDialog(window, "Du hast gewonnen!");
+        JOptionPane.showMessageDialog(window, "Das Spiel ist vorbei. Du hast "+this.points.getText()+" Punkte erreicht");
     }
 
     /**
@@ -128,20 +131,26 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      * @param buttonNumber Button-Name
      */
     private void getFieldButtonAction(int row, int col, int buttonNumber) {
-        super.setOpenFields(row, col);
-        this.buttons[buttonNumber].setText(super.getSign(row, col));
-        if (super.isBombField(row, col)) {
-            this.getLoosingWindow();
-            this.setOpenAllFields();
-        } else if (this.isCompletedFields()) {
-            this.getWinningWindow();
-            this.setOpenAllFields();
-        } else if (this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")) {
-            int userPoints = Integer.parseInt(this.points.getText()) + Integer.parseInt(this.buttons[buttonNumber].getText());
-            this.points.setText(String.valueOf(userPoints));
+        if (this.isFlaggedField(row, col)) {
+            super.setOpenFields(row, col);
+            this.buttons[buttonNumber].setText(super.getSign(row, col));
+            if (super.isBombField(row, col)) {
+                this.getLoosingWindow();
+                this.setOpenAllFields();
+            } else if (this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")) {
+                int userPoints = Integer.parseInt(this.points.getText()) + Integer.parseInt(this.buttons[buttonNumber].getText());
+                this.points.setText(String.valueOf(userPoints));
+            }
+            if (!this.buttons[buttonNumber].getText().equals("X")) {
+                this.buttons[buttonNumber].setEnabled(false);
+            }
+        }else{
+            this.setFlaggedField(row, col);
+            this.buttons[buttonNumber].setText(super.getSign(row, col));
         }
-        if (!this.buttons[buttonNumber].getText().equals("X")) {
-            this.buttons[buttonNumber].setEnabled(false);
+        if (this.isCompletedFields()) {
+            this.setOpenAllFields();
+            this.getWinningWindow();
         }
     }
 }

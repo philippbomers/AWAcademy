@@ -14,7 +14,7 @@ public class MinesweeperConfigDialogue {
     public MinesweeperConfigDialogue() {
         this.configWindow = new JFrame("Configuration");
         this.configWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.configWindow.setSize(260, 210);
+        this.configWindow.setSize(260, 400);
         this.configWindow.setLayout(null);
         this.configWindow.setVisible(true);
         this.addWidthDialogue();
@@ -47,6 +47,20 @@ public class MinesweeperConfigDialogue {
         submitButton.setBounds(80, 140, 120, 20);
         submitButton.addActionListener(e -> getSubmitButtonAction(inputWidth.getText(), inputBomb.getText()));
         this.configWindow.add(submitButton);
+
+        JLabel rulesLabel = new JLabel();
+        rulesLabel.setText("<html><body>" +
+                "Points:<br>" +
+                "1 point for a marked bomb.<br>" +
+                "0-8 points for the number of bombs<br>" +
+                "around an opened field.<br><br>" +
+                "You loose when you hit a bomb.<br><br>" +
+                "The game is over when you opened<br>" +
+                "or marked every field that don't<br>" +
+                "include a bomb." +
+                "</body></html>");
+        rulesLabel.setBounds(10, 150, 310, 200);
+        this.configWindow.add(rulesLabel);
 
         this.configWindow.repaint();
     }
