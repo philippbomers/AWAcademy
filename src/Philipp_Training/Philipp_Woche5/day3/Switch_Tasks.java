@@ -2,7 +2,7 @@ package Philipp_Training.Philipp_Woche5.day3;
 
 import java.util.Scanner;
 
-public class Switch {
+public class Switch_Tasks {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 

@@ -1,7 +1,7 @@
 package Philipp_Training.Philipp_Woche5.day3;
 
 
-public class AsciiII {
+public class AsciiII_Tasks {
     public static void main(String[] args) {
         asciiIITable();
     }

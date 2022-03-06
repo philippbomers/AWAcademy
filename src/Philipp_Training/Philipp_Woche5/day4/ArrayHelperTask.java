@@ -1,6 +1,6 @@
 package Philipp_Training.Philipp_Woche5.day4;
 
-public class ArrayHelper {
+public class ArrayHelperTask {
 
     public static int maxNumber(int[] integerArray) {
         int max = integerArray[0];

@@ -1,14 +1,14 @@
 package Philipp_Training.Philipp_Woche5.day4;
 
-public class Arrays {
+public class Arrays_Task {
     public static void main(String[] args) {
 //        taskOne();
 //        taskOneBonus();
 
         int[] myNumbers = {1,4,51,532,1,-124,-125,32};
-        System.out.println("max: "+ArrayHelper.maxNumber(myNumbers));
-        System.out.println("min: "+ArrayHelper.minNumber(myNumbers));
-        System.out.println("sum: "+ArrayHelper.sum(myNumbers));
+        System.out.println("max: "+ArrayHelperTask.maxNumber(myNumbers));
+        System.out.println("min: "+ArrayHelperTask.minNumber(myNumbers));
+        System.out.println("sum: "+ArrayHelperTask.sum(myNumbers));
     }
 
     public static void taskOne() {

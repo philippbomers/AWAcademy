@@ -1,6 +1,6 @@
 package Philipp_Training.Philipp_Woche5.day4;
 
-public class Methods {
+public class MethodsTask {
     public static void main(String[] args) {
         System.out.println(openCar(true));
         System.out.println(getMaxSpeed(130, 1000));
