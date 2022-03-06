@@ -2,7 +2,6 @@ package Philipp_Training.Other.Minesweeper;
 
 public class MinesweeperBoard {
     final private int width;
-    final private int height;
     final private int bombs;
     final private boolean[][] bombFields;
     private final boolean[][] openFields;
@@ -11,26 +10,21 @@ public class MinesweeperBoard {
 
     public MinesweeperBoard(int width, int bombs) {
         this.width = width;
-        this.height = width;
         this.bombs = bombs;
         this.openFields = new boolean[width][width];
         this.bombFields = new boolean[width][width];
         this.markedFields = new boolean[width][width];
         this.fields = new boolean[width][width];
-
         this.setStartConfiguration();
     }
 
     private void setStartConfiguration() {
-        int randomRow;
-        int randomColumn;
+        int randomRow, randomColumn;
         this.setOpenFields(getRandomNumber(), getRandomNumber());
-
         for (int i = 0; i < this.bombs; i++) {
             randomRow = getRandomNumber();
             randomColumn = getRandomNumber();
-            if (!this.getBombFields(randomRow, randomColumn)
-                    && !this.getOpenFields(randomRow, randomColumn)) {
+            if (!this.getBombFields(randomRow, randomColumn) && !this.getOpenFields(randomRow, randomColumn)) {
                 this.setBombFields(randomRow, randomColumn);
             } else {
                 i--;
@@ -93,34 +87,29 @@ public class MinesweeperBoard {
     }
 
     private boolean isFieldExisting(int row, int col) {
-        return (row < this.getWidth() && col < this.getHeight() && row >= 0 && col >= 0);
+        return (row < this.getWidth() && col < this.getWidth() && row >= 0 && col >= 0);
     }
 
     protected String getSign(int row, int col) {
         String result = "X";
         if (getOpenFields(row, col)) {
-            result = String.valueOf(this.getBombsAround(row, col));
-            if (getBombFields(row, col)) {
-                result = "B";
-            }
-        } else {
-            if (getMarkedFields(row, col)) {
-                result = "M";
-            }
+            result = getBombFields(row, col) ? "B" : String.valueOf(this.getBombsAround(row, col));
+        } else if (getMarkedFields(row, col)) {
+            result = "M";
         }
         return result;
     }
 
     protected void openAllFields() {
-        for (int row = 0; row < this.height; row++) {
-            for (int col = 0; col < this.width; col++) {
+        for (int row = 0; row < this.getWidth(); row++) {
+            for (int col = 0; col < this.getWidth(); col++) {
                 this.openFields[row][col] = true;
             }
         }
     }
 
     private int getRandomNumber() {
-        return (int) (Math.random() * this.width);
+        return (int) (Math.random() * this.getWidth());
     }
 
     private void setBombFields(int row, int col) {
@@ -132,13 +121,10 @@ public class MinesweeperBoard {
     }
 
     public void setOpenFields(int row, int col) {
-        if (!this.openFields[row][col]) this.openFields[row][col] = true;
-        if (this.getBombFields(row, col)) {
-            this.openAllFields();
-        }
+        this.openFields[row][col] = true;
     }
 
-    private boolean getOpenFields(int row, int col) {
+    boolean getOpenFields(int row, int col) {
         return this.openFields[row][col];
     }
 
@@ -151,39 +137,39 @@ public class MinesweeperBoard {
     }
 
     public boolean isCompletedFields() {
-        for (boolean[] openFields : this.openFields) {
+        for (boolean[] openFields : this.getOpenFields()) {
             for (boolean openField : openFields) {
-                if (!openField) return false;
+                if (!openField){
+                    return false;
+                }
             }
         }
         return true;
     }
 
     public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
+        return this.width;
     }
 
     public int getBombs() {
-        return bombs;
+        return this.bombs;
     }
 
     public boolean[][] getBombFields() {
-        return bombFields;
+        return this.bombFields;
     }
 
     public boolean[][] getOpenFields() {
-        return openFields;
+        return this.openFields;
     }
 
     public boolean[][] getMarkedFields() {
-        return markedFields;
+        return this.markedFields;
     }
 
     public boolean[][] getFields() {
-        return fields;
+        return this.fields;
     }
+
+
 }

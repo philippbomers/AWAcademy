@@ -1,14 +1,12 @@
 package Philipp_Training.Other.Minesweeper;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.util.Objects;
 
 public class MinesweeperSwingUI extends MinesweeperBoard {
     private final JFrame window;
     private JButton[] buttons;
+    private JLabel points;
 
 
     public MinesweeperSwingUI(int width, int bombs) {
@@ -23,63 +21,86 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
 
     public void getBoardGui() {
 
-        JPanel fields = new JPanel(new GridLayout(super.getWidth(), super.getHeight()));
-        buttons = new JButton[super.getWidth() * super.getHeight()];
+        this.window.add(this.setMenuBar(), BorderLayout.NORTH);
 
+        JPanel fields = this.setFieldsPanel();
+        window.add(fields, BorderLayout.CENTER);
+        window.setSize(super.getWidth() * 100, super.getWidth() * 50);
+    }
+
+    private JPanel setFieldsPanel(){
+        JPanel fields = new JPanel(new GridLayout(super.getWidth(), super.getWidth()));
+        buttons = new JButton[super.getWidth() * super.getWidth()];
         int fieldRow = 0;
         int fieldColumn = 0;
         int buttonNumber = 0;
         for (boolean[] row : super.getFields()) {
             for (boolean col : row) {
-                buttons[buttonNumber] = new JButton("X");
-                buttons[buttonNumber].setActionCommand("X");
-                buttons[buttonNumber].setSize(1, 1);
-                int finalFieldRow = fieldRow;
-                int finalFieldColumn = fieldColumn;
-                int finalButtonNumber = buttonNumber;
-                buttons[buttonNumber].addActionListener(e -> {
-                    super.setOpenFields(finalFieldRow, finalFieldColumn);
-                    buttons[finalButtonNumber].setText(super.getSign(finalFieldRow, finalFieldColumn));
-                    if (super.getBombFields(finalFieldRow, finalFieldColumn)) {
-                        this.getLoosingWindow();
-                        this.setOpenAllFields();
-                    } else if (this.isCompletedFields()) {
-                        this.getWinningWindow();
-                        this.setOpenAllFields();
-                    }
-                });
-                fields.add(buttons[buttonNumber++]);
+                fields.add(this.getFieldButton(fieldRow, fieldColumn, buttonNumber++));
                 fieldColumn++;
             }
             fieldColumn = 0;
             fieldRow++;
         }
+        return fields;
+    }
 
-        window.add(fields, BorderLayout.CENTER);
-        fields.setVisible(true);
-        window.setSize(super.getWidth() * 100, super.getHeight() * 50);
+    private JMenuBar setMenuBar(){
+        JMenuBar jMenuBar = new JMenuBar();
+
+        JButton restartButton = new JButton("RESTART");
+        restartButton.addActionListener(e -> {
+            window.dispose();
+            new MinesweeperSwingUI(this.getWidth(),this.getBombs());
+        });
+        jMenuBar.add(restartButton);
+
+        jMenuBar.add( Box.createRigidArea( new Dimension( 50 , 0 ) )  );
+
+        jMenuBar.add(new JLabel("POINTS: "));
+        this.points = new JLabel("0");
+        jMenuBar.add(this.points);
+
+        return jMenuBar;
     }
 
     private void setOpenAllFields() {
-        int fieldRow = 0;
-        int fieldColumn = 0;
         int buttonNumber = 0;
-        for (boolean[] row : super.getFields()) {
-            for (boolean col : row) {
-                buttons[buttonNumber].setText(super.getSign(fieldRow, fieldColumn));
-                fieldRow++;
-                buttonNumber++;
+        super.openAllFields();
+        for (int row = 0; row < super.getWidth(); row++) {
+            for (int col = 0; col < super.getWidth(); col++) {
+                buttons[buttonNumber].setText(super.getSign(row, col));
+                buttons[buttonNumber++].setEnabled(false);
             }
-            fieldRow = 0;
-            fieldColumn++;
         }
     }
 
-    public void getWinningWindow() {
+    private void getWinningWindow() {
         JOptionPane.showMessageDialog(window, "Du hast gewonnen!");
     }
 
-    public void getLoosingWindow() {
+    private void getLoosingWindow() {
         JOptionPane.showMessageDialog(window, "Du hast verloren!");
+    }
+
+    JButton getFieldButton(int row, int column, int buttonNumber) {
+        this.buttons[buttonNumber] = new JButton("X");
+        buttons[buttonNumber].addActionListener(e -> this.getFieldButtonAction(row, column, buttonNumber));
+        return this.buttons[buttonNumber];
+    }
+
+    private void getFieldButtonAction(int row, int col, int buttonNumber) {
+        super.setOpenFields(row, col);
+        this.buttons[buttonNumber].setText(super.getSign(row, col));
+        if (super.getBombFields(row, col)) {
+            this.getLoosingWindow();
+            this.setOpenAllFields();
+        } else if (this.isCompletedFields()) {
+            this.getWinningWindow();
+            this.setOpenAllFields();
+        } else if(this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")){
+            int userPoints = Integer.parseInt(this.points.getText())+Integer.parseInt(this.buttons[buttonNumber].getText());
+            this.points.setText(String.valueOf(userPoints));
+        }
     }
 }
