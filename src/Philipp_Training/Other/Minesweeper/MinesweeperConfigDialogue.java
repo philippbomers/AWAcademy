@@ -42,10 +42,10 @@ public class MinesweeperConfigDialogue {
     }
 
     private void getSubmitButtonAction(String inputWidth, String inputBomb) {
-        if (isInteger(inputWidth, 4, 100) && isInteger(inputBomb, 0, 99)) {
+        if (isInteger(inputWidth, 4, 40) && isInteger(inputBomb, 0, 1599)) {
             int width = Integer.parseInt(inputWidth);
             int bombs = Integer.parseInt(inputBomb);
-            if (bombs < width * width) {
+            if (bombs < (width * width)) {
                 this.configWindow.dispose();
                 new MinesweeperSwingUI(Integer.parseInt(inputWidth), Integer.parseInt(inputBomb));
             } else {
