@@ -280,7 +280,7 @@ public class MinesweeperBoard {
     protected boolean isCompletedFields() {
         for (int row = 0; row < this.getWidth(); row++) {
             for (int col = 0; col < this.getWidth(); col++) {
-                if (!this.isOpenField(row, col) && !this.isFlaggedField(row, col)&&!this.isBombField(row,col)) {
+                if (!this.isOpenField(row, col) && !this.isFlaggedField(row, col) && !this.isBombField(row, col)) {
                     return false;
                 }
             }

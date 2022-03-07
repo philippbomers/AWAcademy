@@ -2,6 +2,7 @@ package Philipp_Training.Other.Minesweeper;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Grafische Oberfläche für Minesweeper
@@ -72,6 +73,19 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         this.points = new JLabel("0");
         jMenuBar.add(this.points);
 
+        jMenuBar.add(Box.createRigidArea(new Dimension(50, 0)));
+
+        JButton leaderBoardButton = new JButton("LEADERBOARD");
+        leaderBoardButton.addActionListener(e -> {
+            try {
+                MinesweeperLeaderBoard minesweeperLeaderBoard = new MinesweeperLeaderBoard(this.getWidth(), this.getBombs(), Integer.parseInt(this.points.getText()));
+                minesweeperLeaderBoard.setWindow();
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(window, ex);
+            }
+        });
+        jMenuBar.add(leaderBoardButton);
+
         return jMenuBar;
     }
 
@@ -82,7 +96,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         int buttonNumber = 0;
         for (int row = 0; row < super.getWidth(); row++) {
             for (int col = 0; col < super.getWidth(); col++) {
-                if(this.isFlaggedField(row, col) && this.isBombField(row, col)){
+                if (this.isFlaggedField(row, col) && this.isBombField(row, col)) {
                     this.points.setText(String.valueOf(Integer.parseInt(this.points.getText()) + 1));
                 }
                 buttons[buttonNumber].setText(super.getSign(row, col));
@@ -103,7 +117,14 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      * Zeigt ein Gewinn-Fenster an
      */
     private void getWinningWindow() {
-        JOptionPane.showMessageDialog(window, "Das Spiel ist vorbei. Du hast "+this.points.getText()+" Punkte erreicht");
+        JOptionPane.showMessageDialog(window, "Das Spiel ist vorbei. Du hast " + this.points.getText() + " Punkte erreicht");
+        try {
+            MinesweeperLeaderBoard minesweeperLeaderBoard = new MinesweeperLeaderBoard(this.getWidth(), this.getBombs(), Integer.parseInt(this.points.getText()));
+            minesweeperLeaderBoard.setEntry(null);
+            minesweeperLeaderBoard.setWindow();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(window, e);
+        }
     }
 
     /**
@@ -151,7 +172,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
             if (!this.buttons[buttonNumber].getText().equals("X")) {
                 this.buttons[buttonNumber].setEnabled(false);
             }
-        }else{
+        } else {
             this.setFlaggedField(row, col);
             this.buttons[buttonNumber].setText(super.getSign(row, col));
         }
