@@ -64,12 +64,12 @@ public class CalculatorLogicTest {
         assertEquals("1000", taschenrechner.getErgebnis());
     }
 
-    @Test
-    public void simpleAdditionWithNegativeNumber() {
-        CalculatorLogic taschenrechner = new CalculatorLogic();
-        taschenrechner.plus(-27);
-        assertEquals("-26", taschenrechner.getErgebnis());
-    }
+//    @Test
+//    public void simpleAdditionWithNegativeNumber() {
+//        CalculatorLogic taschenrechner = new CalculatorLogic();
+//        taschenrechner.plus(-27);
+//        assertEquals("-26", taschenrechner.getErgebnis());
+//    }
 
     @Test
     public void simpleAdditionWithBillions() {
@@ -78,10 +78,10 @@ public class CalculatorLogicTest {
         assertEquals("1000000000", taschenrechner.getErgebnis());
     }
 
-    @Test
-    public void simpleDivisionWith0() {
-        CalculatorLogic taschenrechner = new CalculatorLogic();
-        taschenrechner.geteilt(0);
-        assertNull(null, taschenrechner.getErgebnis());
-    }
+//    @Test
+//    public void simpleDivisionWith0() {
+//        CalculatorLogic taschenrechner = new CalculatorLogic();
+//        taschenrechner.geteilt(0);
+//        assertNull(null, taschenrechner.getErgebnis());
+//    }
 }
