@@ -49,9 +49,7 @@ public class MinesweeperLeaderBoard {
         String path = MinesweeperLeaderBoard.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         path = path.replaceFirst("/","");
         String fullPath = Objects.requireNonNull(MinesweeperLeaderBoard.class.getResource(".")).getPath().substring(1);
-        String newPath = fullPath.replaceAll(path,"");
-        newPath = "src/"+newPath;
-        return newPath;
+        return  "src/"+fullPath.replaceAll(path,"");
     }
 
     /**
