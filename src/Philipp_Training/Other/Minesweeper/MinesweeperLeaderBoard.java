@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -33,11 +34,24 @@ public class MinesweeperLeaderBoard {
         this.width = width;
         this.bombs = bombs;
         this.points = points;
-        this.leaderBoard = new File("src/Philipp_Training/Other/Minesweeper/leaderboard.minesweeper");
+        this.leaderBoard = new File(getPath()+"leaderboard.minesweeper");
         this.path = leaderBoard.getPath();
         if (leaderBoard.length() == 0) {
             leaderBoard.createNewFile();
         }
+    }
+
+    /**
+     * Finde den Pfad automatisch
+     * @return relative Pfadangabe für diesen Ordner
+     */
+    private String getPath(){
+        String path = MinesweeperLeaderBoard.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        path = path.replaceFirst("/","");
+        String fullPath = Objects.requireNonNull(MinesweeperLeaderBoard.class.getResource(".")).getPath().substring(1);
+        String newPath = fullPath.replaceAll(path,"");
+        newPath = "src/"+newPath;
+        return newPath;
     }
 
     /**
