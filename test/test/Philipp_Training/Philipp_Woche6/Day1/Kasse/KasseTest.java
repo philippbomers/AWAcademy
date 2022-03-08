@@ -1,4 +1,4 @@
-package Pia_Training.test.Philipp_Training.Philipp_Woche6.Day1.Kasse;
+package test.Philipp_Training.Philipp_Woche6.Day1.Kasse;
 
 import Philipp_Training.Philipp_Woche6.Day1.Kasse.Kasse;
 import Philipp_Training.Philipp_Woche6.Day1.Kasse.Produkt;

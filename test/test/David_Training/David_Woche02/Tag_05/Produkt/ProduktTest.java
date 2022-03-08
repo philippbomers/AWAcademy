@@ -1,4 +1,4 @@
-package Pia_Training.test.David_Training.David_Woche02_Tag05.Produkt;
+package test.David_Training.David_Woche02.Tag_05.Produkt;
 
 import David_Training.Training_Week02.Training_Day05.Produkt;
 import org.junit.Test;

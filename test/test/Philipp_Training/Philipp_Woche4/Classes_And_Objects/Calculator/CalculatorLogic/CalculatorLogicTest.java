@@ -1,4 +1,4 @@
-package Pia_Training.test.CalculatorLogic.Calculator.Classes_And_Objects.Philipp_Woche4.Philipp_Training;
+package test.Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator.CalculatorLogic;
 
 import Philipp_Training.Philipp_Woche4.Classes_And_Objects.Calculator.CalculatorLogic;
 import org.junit.Test;
