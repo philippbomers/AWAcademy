@@ -24,8 +24,8 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
 
-        this.window.add(this.setMenuBar(), BorderLayout.NORTH);
-        window.add(this.setFieldsPanel(), BorderLayout.CENTER);
+        this.window.add(this.generateMenuBar(), BorderLayout.NORTH);
+        window.add(this.generateFieldButton(), BorderLayout.CENTER);
         window.setSize(super.getWidth() * 100, super.getWidth() * 50);
     }
 
@@ -34,7 +34,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      *
      * @return JPanel mit allen Feldern
      */
-    private JPanel setFieldsPanel() {
+    private JPanel generateFieldButton() {
         JPanel fields = new JPanel(new GridLayout(super.getWidth(), super.getWidth()));
         buttons = new JButton[super.getWidth() * super.getWidth()];
         int fieldRow = 0;
@@ -57,13 +57,13 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      *
      * @return JMenuBar obere Leiste
      */
-    private JMenuBar setMenuBar() {
+    private JMenuBar generateMenuBar() {
         JMenuBar jMenuBar = new JMenuBar();
 
         JButton restartButton = new JButton("RESTART");
         restartButton.addActionListener(e -> {
             window.dispose();
-            new MinesweeperConfigDialogue();
+            new MinesweeperConfigDialog();
         });
         jMenuBar.add(restartButton);
 
@@ -79,7 +79,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
         leaderBoardButton.addActionListener(e -> {
             try {
                 MinesweeperLeaderBoard minesweeperLeaderBoard = new MinesweeperLeaderBoard(this.getWidth(), this.getBombs(), Integer.parseInt(this.points.getText()));
-                minesweeperLeaderBoard.setWindow();
+                minesweeperLeaderBoard.showWindow();
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(window, ex);
             }
@@ -92,7 +92,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
     /**
      * Öffnet und deaktiviert alle Felder
      */
-    private void setOpenAllFields() {
+    private void openAllFieldButtons() {
         int buttonNumber = 0;
         for (int row = 0; row < super.getWidth(); row++) {
             for (int col = 0; col < super.getWidth(); col++) {
@@ -116,12 +116,12 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
     /**
      * Zeigt ein Gewinn-Fenster an
      */
-    private void getWinningWindow() {
+    private void showWinningWindow() {
         JOptionPane.showMessageDialog(window, "Das Spiel ist vorbei. Du hast " + this.points.getText() + " Punkte erreicht");
         try {
             MinesweeperLeaderBoard minesweeperLeaderBoard = new MinesweeperLeaderBoard(this.getWidth(), this.getBombs(), Integer.parseInt(this.points.getText()));
             minesweeperLeaderBoard.setEntry(null);
-            minesweeperLeaderBoard.setWindow();
+            minesweeperLeaderBoard.showWindow();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(window, e);
         }
@@ -164,7 +164,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
             this.buttons[buttonNumber].setText(super.getSign(row, col));
             if (super.isBombField(row, col)) {
                 this.getLoosingWindow();
-                this.setOpenAllFields();
+                this.openAllFieldButtons();
             } else if (this.buttons[buttonNumber].getText().matches("-?(0|[1-9]\\d*)")) {
                 int userPoints = Integer.parseInt(this.points.getText()) + Integer.parseInt(this.buttons[buttonNumber].getText());
                 this.points.setText(String.valueOf(userPoints));
@@ -177,8 +177,8 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
             this.buttons[buttonNumber].setText(super.getSign(row, col));
         }
         if (this.isCompletedFields()) {
-            this.setOpenAllFields();
-            this.getWinningWindow();
+            this.openAllFieldButtons();
+            this.showWinningWindow();
         }
     }
 }

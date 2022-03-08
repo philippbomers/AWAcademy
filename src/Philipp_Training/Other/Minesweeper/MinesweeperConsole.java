@@ -22,18 +22,18 @@ public class MinesweeperConsole extends MinesweeperBoard {
         this.createBoard();
 
         while (true) {
-            int row = MinesweeperConsole.getUserInputInteger("Bitte gib die Reihe ein: ", 0, this.getWidth());
-            int col = MinesweeperConsole.getUserInputInteger("Bitte gib die Spalte ein: ", 0, this.getWidth());
+            int row = MinesweeperConsole.parseUserInputInteger("Bitte gib die Reihe ein: ", 0, this.getWidth());
+            int col = MinesweeperConsole.parseUserInputInteger("Bitte gib die Spalte ein: ", 0, this.getWidth());
 
             super.setOpenField(row, col);
             this.createBoard();
 
             if (super.isOpenField(row, col)) {
-                this.getLoosingDialogue();
+                this.generateLoosingDialog();
             } else if (super.isCompletedFields()) {
-                this.getWinningDialogue();
+                this.generateWinningDialog();
             } else {
-                if (MinesweeperConsole.getUserInputBoolean("Möchtest du das Programm beenden? [true][false]")) {
+                if (MinesweeperConsole.parseUserInputBoolean("Möchtest du das Programm beenden? [true][false]")) {
                     System.exit(0);
                 }
             }
@@ -48,7 +48,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
      * @param maximum Maximaler Soll-Wert
      * @return Integer-Zahl
      */
-    private static int getUserInputInteger(String text, int minimum, int maximum) {
+    private static int parseUserInputInteger(String text, int minimum, int maximum) {
         while (true) {
             System.out.println("\n" + text);
             String input = (new Scanner(System.in)).nextLine();
@@ -67,7 +67,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
      * @param text Benutzereingabe (true, false)
      * @return boolischer Wahrheitswert (true, false)
      */
-    private static boolean getUserInputBoolean(String text) {
+    private static boolean parseUserInputBoolean(String text) {
         System.out.println("\n" + text);
         String input = (new Scanner(System.in)).nextLine();
         return Boolean.parseBoolean(input);
@@ -100,7 +100,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
     /**
      * Wird angezeigt, wenn man verliert
      */
-    private void getLoosingDialogue() {
+    private void generateLoosingDialog() {
         System.out.println("\nDU HAST VERLOREN");
         System.exit(0);
     }
@@ -108,7 +108,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
     /**
      * Wird angezeigt, wenn man gewinnt
      */
-    private void getWinningDialogue() {
+    private void generateWinningDialog() {
         System.out.println("\nDU HAST GEWONNEN");
         System.exit(0);
     }

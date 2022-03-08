@@ -31,7 +31,7 @@ public class MinesweeperBoard {
         this.bombFields = new boolean[width][width];
         this.flaggedFields = new boolean[width][width];
         this.fields = new boolean[width][width];
-        this.setStartConfiguration();
+        this.generateNewField();
     }
 
     /**
@@ -40,12 +40,12 @@ public class MinesweeperBoard {
      * Öffnet ein zufälliges Feld ohne Bomben.
      * Verteilt die Bomben auf zufällige Felder, die nicht offen sind.
      */
-    private void setStartConfiguration() {
+    private void generateNewField() {
         int randomRow, randomColumn;
-        this.setOpenField(getRandomNumber(), getRandomNumber());
+        this.setOpenField(generateRandomNumber(), generateRandomNumber());
         for (int i = 0; i < this.bombs; i++) {
-            randomRow = getRandomNumber();
-            randomColumn = getRandomNumber();
+            randomRow = generateRandomNumber();
+            randomColumn = generateRandomNumber();
             if (!this.isBombField(randomRow, randomColumn) && !this.isOpenField(randomRow, randomColumn)) {
                 this.setBombField(randomRow, randomColumn);
             } else {
@@ -203,7 +203,7 @@ public class MinesweeperBoard {
      *
      * @return Zufallszahl nach Anzahl der Felder
      */
-    private int getRandomNumber() {
+    private int generateRandomNumber() {
         return (int) (Math.random() * this.getWidth());
     }
 

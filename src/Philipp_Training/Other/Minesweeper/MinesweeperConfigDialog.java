@@ -5,26 +5,26 @@ import javax.swing.*;
 /**
  * Oberfläche zum Einstellen der Anzahl von Feldern und Bomben
  */
-public class MinesweeperConfigDialogue {
+public class MinesweeperConfigDialog {
     final private JFrame configWindow;
 
     /**
      * Erstellt ein neues Fenster
      */
-    public MinesweeperConfigDialogue() {
+    public MinesweeperConfigDialog() {
         this.configWindow = new JFrame("Configuration");
         this.configWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.configWindow.setSize(260, 400);
         this.configWindow.setLayout(null);
         this.configWindow.setVisible(true);
-        this.addWidthDialogue();
+        this.generateConfigDialog();
     }
 
     /**
      * Generiert den Inhalt des Fensters
      * mit Abfrage von Feldgröße und Anzahl der Bomben
      */
-    private void addWidthDialogue() {
+    private void generateConfigDialog() {
         JLabel widthLabel = new JLabel();
         widthLabel.setText("How many fields should be in a row?");
         widthLabel.setBounds(10, 10, 300, 20);

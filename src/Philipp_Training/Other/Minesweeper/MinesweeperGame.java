@@ -8,7 +8,7 @@ public class MinesweeperGame {
      */
     public static void main(String[] args) {
         // start Swing GUI game
-        new MinesweeperConfigDialogue();
+        new MinesweeperConfigDialog();
 
 //        Run game in Console (with restricted functionality):
 //        System.out.println("Willkommen beim Minesweeper-Game!");
