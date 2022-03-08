@@ -79,7 +79,7 @@ public class MinesweeperConfigDialog {
             int bombs = Integer.parseInt(inputBomb);
             if (bombs < (width * width)) {
                 this.configWindow.dispose();
-                new MinesweeperSwingUI(Integer.parseInt(inputWidth), Integer.parseInt(inputBomb));
+                new MinesweeperSwingUILogic(Integer.parseInt(inputWidth), Integer.parseInt(inputBomb));
             } else {
                 JOptionPane.showMessageDialog(this.configWindow, "Bitte gib weniger Bomben an.");
             }

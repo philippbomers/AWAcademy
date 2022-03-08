@@ -10,7 +10,7 @@ package Philipp_Training.Other.Minesweeper;
  * 4. Das Spiel ist zu Ende, wenn alle Felder geöffnet sind.
  * Punkte: Alle an Bomben angrenzenden Felder werden zusammen gezählt. Geflaggte Bomben zählen 1 Punkt.
  */
-public class MinesweeperBoard {
+public class MinesweeperBoardLogic {
     final private int width;
     final private int bombs;
     final private boolean[][] bombFields;
@@ -24,7 +24,7 @@ public class MinesweeperBoard {
      * @param width Anzahl der Reihen und Spalte
      * @param bombs Anzahl der Bomben
      */
-    public MinesweeperBoard(int width, int bombs) {
+    public MinesweeperBoardLogic(int width, int bombs) {
         this.width = width;
         this.bombs = bombs;
         this.openFields = new boolean[width][width];

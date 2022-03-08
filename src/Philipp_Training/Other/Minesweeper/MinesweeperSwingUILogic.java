@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Grafische Oberfläche für Minesweeper
  */
-public class MinesweeperSwingUI extends MinesweeperBoard {
+public class MinesweeperSwingUILogic extends MinesweeperBoardLogic {
     private final JFrame window;
     private JButton[] buttons;
     private JLabel points;
@@ -18,7 +18,7 @@ public class MinesweeperSwingUI extends MinesweeperBoard {
      * @param width Breite (in Anzahl der Felder)
      * @param bombs Anzahl der Bomben
      */
-    public MinesweeperSwingUI(int width, int bombs) {
+    public MinesweeperSwingUILogic(int width, int bombs) {
         super(width, bombs);
         window = new JFrame("Minesweeper");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

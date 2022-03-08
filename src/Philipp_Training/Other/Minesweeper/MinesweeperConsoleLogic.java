@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Das Spiel in der Konsole
  */
-public class MinesweeperConsole extends MinesweeperBoard {
+public class MinesweeperConsoleLogic extends MinesweeperBoardLogic {
 
     Scanner scanner;
 
@@ -15,15 +15,15 @@ public class MinesweeperConsole extends MinesweeperBoard {
      * @param width Breite (in Anzahl der Felder)
      * @param bombs Anzahl der Bomben
      */
-    public MinesweeperConsole(int width, int bombs) {
+    public MinesweeperConsoleLogic(int width, int bombs) {
         super(width, bombs);
         this.scanner = new Scanner(System.in);
 
         this.createBoard();
 
         while (true) {
-            int row = MinesweeperConsole.parseUserInputInteger("Bitte gib die Reihe ein: ", 0, this.getWidth());
-            int col = MinesweeperConsole.parseUserInputInteger("Bitte gib die Spalte ein: ", 0, this.getWidth());
+            int row = MinesweeperConsoleLogic.parseUserInputInteger("Bitte gib die Reihe ein: ", 0, this.getWidth());
+            int col = MinesweeperConsoleLogic.parseUserInputInteger("Bitte gib die Spalte ein: ", 0, this.getWidth());
 
             super.setOpenField(row, col);
             this.createBoard();
@@ -33,7 +33,7 @@ public class MinesweeperConsole extends MinesweeperBoard {
             } else if (super.isCompletedFields()) {
                 this.generateWinningDialog();
             } else {
-                if (MinesweeperConsole.parseUserInputBoolean("Möchtest du das Programm beenden? [true][false]")) {
+                if (MinesweeperConsoleLogic.parseUserInputBoolean("Möchtest du das Programm beenden? [true][false]")) {
                     System.exit(0);
                 }
             }
