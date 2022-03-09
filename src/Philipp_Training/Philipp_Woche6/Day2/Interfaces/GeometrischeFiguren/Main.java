@@ -13,17 +13,18 @@ public class Main {
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
         terminal.enterPrivateMode();
 
-        Rechteck[] rechtecke = new Rechteck[2];
-        rechtecke[0] = new Rechteck(new Punkt(8, 5), new Punkt(15, 10));
-        rechtecke[1] = new Rechteck(new Punkt(2, 2), new Punkt(5, 8));
+        Figur[] figuren = new Rechteck[2];
+        figuren[0] = new Rechteck(new Punkt(8, 5), new Punkt(15, 10));
+        figuren[1] = new Rechteck(new Punkt(2, 2), new Punkt(5, 8));
+//        figuren[2] = new Kreis(new Punkt(17, 12), new Punkt(23, 16));
 
         StandardZeichnung standardZeichnung = new StandardZeichnung(terminal);
-        standardZeichnung.zeichneFiguren(rechtecke);
+        standardZeichnung.zeichneFiguren(figuren);
 
         Thread.sleep(2000);
         terminal.clearScreen();
 
         VergroesserteZeichnung vergroesserteZeichnung = new VergroesserteZeichnung(terminal);
-        vergroesserteZeichnung.zeichneFiguren(rechtecke);
+        vergroesserteZeichnung.zeichneFiguren(figuren);
     }
 }
