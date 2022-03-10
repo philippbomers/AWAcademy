@@ -1,6 +1,6 @@
-package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
+package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.Piece;
 
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.ChessPiece;
+import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessPiece;
 
 /**
  * Königin
@@ -16,9 +16,9 @@ public class Queen extends ChessPiece {
     @Override
     public boolean canMove(int x, int y) {
         if (super.canMove(x, y)) {
-            int anzahlFelderNachX = Math.abs(x - this.getX());
-            int anzahlFelderNachY = Math.abs(y - this.getY());
-            return ((anzahlFelderNachX == anzahlFelderNachY)||(this.getX() == x ^ this.getY() == y));
+            int CountFieldsOfX = Math.abs(x - this.getX());
+            int CountFieldsOfY = Math.abs(y - this.getY());
+            return ((CountFieldsOfX == CountFieldsOfY)||(this.getX() == x ^ this.getY() == y));
         }
         return false;
     }

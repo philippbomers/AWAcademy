@@ -1,6 +1,6 @@
-package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
+package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.Piece;
 
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.ChessPiece;
+import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessPiece;
 
 /**
  * Turm
