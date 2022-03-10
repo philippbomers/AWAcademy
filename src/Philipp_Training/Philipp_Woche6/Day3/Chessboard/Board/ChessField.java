@@ -9,7 +9,7 @@ public class ChessField {
     private ChessPiece chessPiece;
 
     public ChessField(char x, int y) {
-        this.x = x;
+        this.x = getNumber(x);
         this.y = y;
         int fieldNumberY = y + 1;
         this.name = x + "" + fieldNumberY;
@@ -42,7 +42,7 @@ public class ChessField {
         this.chessPiece = chessPiece;
     }
 
-    private char getLetter(int number) {
+    public static char getLetter(int number) {
         return switch (number) {
             case 0 -> 'A';
             case 1 -> 'B';
@@ -55,7 +55,7 @@ public class ChessField {
         };
     }
 
-    private int getNumber(char letter) {
+    public static int getNumber(char letter) {
         return switch (Character.toUpperCase(letter)) {
             case 'A' -> 0;
             case 'B' -> 1;

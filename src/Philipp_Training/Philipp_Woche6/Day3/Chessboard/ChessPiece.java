@@ -39,4 +39,8 @@ public abstract class ChessPiece {
     public int getY() {
         return this.y;
     }
+
+    public boolean isWhite() {
+        return white;
+    }
 }

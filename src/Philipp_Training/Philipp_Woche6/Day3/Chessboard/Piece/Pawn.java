@@ -17,8 +17,8 @@ public class Pawn extends ChessPiece {
     public boolean canMove(int x, int y) {
         if (super.canMove(x, y)) {
             int CountFieldsOfX = Math.abs(x - this.getX());
-            int CountFieldsOfY = Math.abs(y - this.getY());
-            return (CountFieldsOfX == 0) && (CountFieldsOfY == 1);
+            int CountFieldsOfY = y - this.getY();
+            return ((CountFieldsOfY == -1 && !this.isWhite()) || CountFieldsOfY == 1 && this.isWhite()) && (CountFieldsOfX == 0);
         }
         return false;
     }
