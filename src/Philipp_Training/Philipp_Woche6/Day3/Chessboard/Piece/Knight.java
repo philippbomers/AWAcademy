@@ -2,8 +2,13 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.ChessPiece;
 
-// Springer
+/**
+ * Springer
+ */
 public class Knight extends ChessPiece {
+
+    public static final String CHESS_PIECE_KNIGHT_NAME = "Knight";
+
     public Knight(boolean white, int x, int y) {
         super(white, x, y);
     }
@@ -18,4 +23,10 @@ public class Knight extends ChessPiece {
         }
         return false;
     }
+
+    @Override
+    public String getName() {
+        return CHESS_PIECE_KNIGHT_NAME;
+    }
+
 }
