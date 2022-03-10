@@ -1,13 +1,13 @@
-package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.Piece;
+package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
 
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessPiece;
+import Philipp_Training.Philipp_Woche6.Day3.Chessboard.ChessPiece;
 
 /**
  * Läufer
  */
 public class Bishop extends ChessPiece {
 
-    public static final String CHESS_PIECE_BISHOP_NAME = "Bishop";
+    public static final String CHESS_PIECE_BISHOP_NAME = "Laeufer";
 
     public Bishop(boolean white, int x, int y) {
         super(white, x, y);

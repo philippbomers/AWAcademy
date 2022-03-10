@@ -1,13 +1,13 @@
-package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.Piece;
+package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
 
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessPiece;
+import Philipp_Training.Philipp_Woche6.Day3.Chessboard.ChessPiece;
 
 /**
  * Turm
  */
 public class Rook extends ChessPiece {
 
-    public static final String CHESS_PIECE_ROOK_NAME = "Rook";
+    public static final String CHESS_PIECE_ROOK_NAME = "Turm";
 
     public Rook(boolean white, int x, int y) {
         super(white, x, y);

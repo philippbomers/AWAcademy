@@ -1,4 +1,4 @@
-package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
+package Philipp_Training.Philipp_Woche6.Day3.Chessboard;
 
 public abstract class ChessPiece {
     final private boolean white;
