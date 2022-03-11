@@ -10,7 +10,7 @@ public class ChessBoard {
 
         this.field = new ChessField[8][8];
 
-//      creates a new chess field
+        /* creates a new chess field */
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
                 this.field[x][y] = new ChessField(x, y);
