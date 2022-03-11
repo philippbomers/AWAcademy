@@ -2,7 +2,7 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessBoard;
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessField;
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
+import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.King;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -15,7 +15,7 @@ public class ChessConsole {
     public ChessConsole() {
         this.chessBoard = new ChessBoard();
 
-        while (true){
+        while (true) {
             this.king = 0;
             this.generateConsoleChessBoard();
             if (king == 1) {
@@ -26,11 +26,11 @@ public class ChessConsole {
         }
     }
 
-    private void generateConsoleWinningDialog(){
+    private void generateConsoleWinningDialog() {
         System.out.println("\nDu hast gewonnen!");
     }
 
-    private void generateConsoleChessBoard(){
+    private void generateConsoleChessBoard() {
         System.out.printf("%10s", "");
         for (int n = 0; n < 8; n++) {
             System.out.printf("%10s", ChessField.getLetter(n));
@@ -41,15 +41,15 @@ public class ChessConsole {
         }
 
         for (int y = 0; y < 8; y++) {
-            System.out.printf("%n%10s", (y+1) + " | ");
+            System.out.printf("%n%10s", (y + 1) + " | ");
             for (int x = 0; x < 8; x++) {
                 if (chessBoard.getField(x, y).getChessPiece() != null) {
-                    if(!chessBoard.getField(x, y).getChessPiece().isWhite()){
+                    if (!chessBoard.getField(x, y).getChessPiece().isWhite()) {
                         System.out.printf("%10s", chessBoard.getField(x, y).getChessPiece().getName().toLowerCase());
-                    }else{
+                    } else {
                         System.out.printf("%10s", chessBoard.getField(x, y).getChessPiece().getName().toUpperCase());
                     }
-                    if(Objects.equals(chessBoard.getField(x, y).getChessPiece().getName(), King.CHESS_PIECE_KING_NAME)){
+                    if (Objects.equals(chessBoard.getField(x, y).getChessPiece().getName(), King.CHESS_PIECE_KING_NAME)) {
                         king++;
                     }
                 } else {
@@ -59,7 +59,7 @@ public class ChessConsole {
         }
     }
 
-    private void generateConsoleMovePieceDialog(){
+    private void generateConsoleMovePieceDialog() {
         try {
             Scanner scanner = new Scanner(System.in);
             System.out.println("\n\nVon X (A-F):");
@@ -67,37 +67,54 @@ public class ChessConsole {
             int numFromInputX = ChessField.getNumber(fromInputX);
 
             System.out.println("Von Y (1-8):");
-            int fromInputY = Integer.parseInt(scanner.nextLine())-1;
+            int fromInputY = Integer.parseInt(scanner.nextLine()) - 1;
 
             System.out.println("Auf X:");
             char toInputX = scanner.nextLine().charAt(0);
             int numToInputX = ChessField.getNumber(toInputX);
 
             System.out.println("Auf Y:");
-            int toInputY = Integer.parseInt(scanner.nextLine())-1;
+            int toInputY = Integer.parseInt(scanner.nextLine()) - 1;
 
-            if(!this.movePieceOnBoard(numFromInputX, fromInputY, numToInputX, toInputY)){
+            if (!this.movePieceOnBoard(numFromInputX, fromInputY, numToInputX, toInputY)) {
                 this.generateConsoleInputInvalidDialog();
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             this.generateConsoleInputInvalidDialog();
             this.generateConsoleMovePieceDialog();
         }
 
     }
 
-    private void generateConsoleInputInvalidDialog(){
+    private void generateConsoleInputInvalidDialog() {
         System.out.println("Eingabe nicht möglich.");
     }
 
-    private boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY){
+    private boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
         ChessField actualField = this.chessBoard.getField(numFromInputX, fromInputY);
         ChessField newField = this.chessBoard.getField(numToInputX, toInputY);
 
-        if((actualField.getChessPiece() != null) &&
-                (newField.getChessPiece() == null ||
-                        actualField.getChessPiece().isWhite() != newField.getChessPiece().isWhite()) &&
-                (actualField.getChessPiece().move(numToInputX, toInputY))){
+        int countFieldsOfX = numToInputX - numFromInputX;
+        int countFieldsOfY = toInputY - fromInputY;
+        boolean negativeX = countFieldsOfX < 0;
+        boolean negativeY = countFieldsOfY < 0;
+
+        // cannot jump over other figures
+        boolean pieceInWay = false;
+        int x = Math.abs(countFieldsOfX);
+        int y = Math.abs(countFieldsOfY);
+        while (x != 0 && y != 0) {
+            int xNow = numFromInputX + (negativeX ? x++ : x--);
+            int yNow = fromInputY + (negativeY ? y++ : y--);
+            if (actualField.getChessPiece().canMove(xNow, yNow) && chessBoard.getField(xNow, yNow).getChessPiece() != null) {
+                pieceInWay = true;
+            }
+        }
+
+        if (!pieceInWay && (
+                (actualField.getChessPiece() != null) &&
+                        (newField.getChessPiece() == null || actualField.getChessPiece().isWhite() != newField.getChessPiece().isWhite()) &&
+                        (actualField.getChessPiece().move(numToInputX, toInputY)))) {
             newField.setChessPiece(actualField.getChessPiece());
             actualField.setChessPiece(null);
             return true;
