@@ -14,13 +14,13 @@ public class Mengenoperation {
     private static List<Integer> vereinigung(List<Integer> listA, List<Integer> listB) {
         List<Integer> newList = new ArrayList<>();
         for (Integer entryListA : listA) {
-            for (Integer entryListB : listB) {
-                if (!newList.contains(entryListA)) {
-                    newList.add(entryListA);
-                }
-                if (!newList.contains(entryListB)) {
-                    newList.add(entryListB);
-                }
+            if (!newList.contains(entryListA)) {
+                newList.add(entryListA);
+            }
+        }
+        for (Integer entryListB : listB) {
+            if (!newList.contains(entryListB)) {
+                newList.add(entryListB);
             }
         }
         Collections.sort(newList);
@@ -44,7 +44,7 @@ public class Mengenoperation {
         List<Integer> oldList = vereinigung(listA, listB);
         List<Integer> newList = new ArrayList<>();
         for (Integer entry : oldList) {
-            if (!listA.contains(entry) && !listB.contains(entry)) {
+            if (listA.contains(entry) ^ listB.contains(entry)) {
                 newList.add(entry);
             }
         }
