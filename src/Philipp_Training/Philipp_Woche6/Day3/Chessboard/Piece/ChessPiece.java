@@ -4,14 +4,16 @@ public abstract class ChessPiece {
     final private boolean white;
     private int x;
     private int y;
-
-    public abstract String getName();
+    private boolean firstStep;
 
     public ChessPiece(boolean white, int x, int y) {
         this.white = white;
         this.x = x;
         this.y = y;
+        this.firstStep = true;
     }
+
+    public abstract String getName();
 
     public boolean canMove(int x, int y) {
         // Ist die Figur auf dem Schachbrett?
@@ -42,5 +44,13 @@ public abstract class ChessPiece {
 
     public boolean isWhite() {
         return white;
+    }
+
+    public boolean isFirstStep() {
+        return firstStep;
+    }
+
+    public void setFirstStep(boolean firstStep) {
+        this.firstStep = firstStep;
     }
 }

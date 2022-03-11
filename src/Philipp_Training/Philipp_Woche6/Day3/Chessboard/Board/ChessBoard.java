@@ -54,4 +54,42 @@ public class ChessBoard {
     public void setField(int x, int y) {
         this.field[x][y] = null;
     }
+
+    public boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
+        ChessField actualField = this.getField(numFromInputX, fromInputY);
+        ChessField newField = this.getField(numToInputX, toInputY);
+
+        // cannot jump over other figures
+        boolean pieceInWay = false;
+        int countFieldsOfX = numToInputX - numFromInputX;
+        int countFieldsOfY = toInputY - fromInputY;
+        int xNow = numFromInputX;
+        int yNow = fromInputY;
+        while (countFieldsOfX != 0 || countFieldsOfY != 0) {
+
+            if (countFieldsOfX != 0) {
+                xNow = numFromInputX + (countFieldsOfX < 0 ? ++countFieldsOfX : --countFieldsOfX);
+            }
+
+            if (countFieldsOfY != 0) {
+                yNow = fromInputY + (countFieldsOfY < 0 ? ++countFieldsOfY : --countFieldsOfY);
+            }
+
+            if (actualField.getChessPiece().canMove(xNow, yNow) &&
+                    this.getField(xNow, yNow).getChessPiece() != null) {
+                pieceInWay = true;
+            }
+        }
+
+        if (!pieceInWay && (
+                (actualField.getChessPiece() != null) &&
+                        (newField.getChessPiece() == null || actualField.getChessPiece().isWhite() != newField.getChessPiece().isWhite()) &&
+                        (actualField.getChessPiece().move(numToInputX, toInputY)))) {
+            newField.setChessPiece(actualField.getChessPiece());
+            actualField.setChessPiece(null);
+            newField.getChessPiece().setFirstStep(false);
+            return true;
+        }
+        return false;
+    }
 }

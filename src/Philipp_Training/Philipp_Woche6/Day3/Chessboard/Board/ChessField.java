@@ -22,26 +22,6 @@ public class ChessField {
         this.name = getLetter(x) + "" + fieldNumberY;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public ChessPiece getChessPiece() {
-        return this.chessPiece;
-    }
-
-    public void setChessPiece(ChessPiece chessPiece) {
-        this.chessPiece = chessPiece;
-    }
-
     public static char getLetter(int number) {
         return switch (number) {
             case 0 -> 'A';
@@ -66,6 +46,26 @@ public class ChessField {
             case 'G' -> 6;
             default -> 7;
         };
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public ChessPiece getChessPiece() {
+        return this.chessPiece;
+    }
+
+    public void setChessPiece(ChessPiece chessPiece) {
+        this.chessPiece = chessPiece;
     }
 
 

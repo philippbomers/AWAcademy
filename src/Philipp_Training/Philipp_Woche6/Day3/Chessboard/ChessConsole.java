@@ -14,7 +14,6 @@ public class ChessConsole {
 
     public ChessConsole() {
         this.chessBoard = new ChessBoard();
-
         while (true) {
             this.king = 0;
             this.generateConsoleChessBoard();
@@ -76,7 +75,7 @@ public class ChessConsole {
             System.out.println("Auf Y:");
             int toInputY = Integer.parseInt(scanner.nextLine()) - 1;
 
-            if (!this.movePieceOnBoard(numFromInputX, fromInputY, numToInputX, toInputY)) {
+            if (!this.chessBoard.movePieceOnBoard(numFromInputX, fromInputY, numToInputX, toInputY)) {
                 this.generateConsoleInputInvalidDialog();
             }
         } catch (Exception e) {
@@ -90,35 +89,4 @@ public class ChessConsole {
         System.out.println("Eingabe nicht möglich.");
     }
 
-    private boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
-        ChessField actualField = this.chessBoard.getField(numFromInputX, fromInputY);
-        ChessField newField = this.chessBoard.getField(numToInputX, toInputY);
-
-        int countFieldsOfX = numToInputX - numFromInputX;
-        int countFieldsOfY = toInputY - fromInputY;
-        boolean negativeX = countFieldsOfX < 0;
-        boolean negativeY = countFieldsOfY < 0;
-
-        // cannot jump over other figures
-        boolean pieceInWay = false;
-        int x = Math.abs(countFieldsOfX);
-        int y = Math.abs(countFieldsOfY);
-        while (x != 0 && y != 0) {
-            int xNow = numFromInputX + (negativeX ? x++ : x--);
-            int yNow = fromInputY + (negativeY ? y++ : y--);
-            if (actualField.getChessPiece().canMove(xNow, yNow) && chessBoard.getField(xNow, yNow).getChessPiece() != null) {
-                pieceInWay = true;
-            }
-        }
-
-        if (!pieceInWay && (
-                (actualField.getChessPiece() != null) &&
-                        (newField.getChessPiece() == null || actualField.getChessPiece().isWhite() != newField.getChessPiece().isWhite()) &&
-                        (actualField.getChessPiece().move(numToInputX, toInputY)))) {
-            newField.setChessPiece(actualField.getChessPiece());
-            actualField.setChessPiece(null);
-            return true;
-        }
-        return false;
-    }
 }
