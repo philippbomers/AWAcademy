@@ -1,6 +1,6 @@
 package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
 
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.ChessPiece;
+import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.ChessPiece;
 
 public class ChessField {
     final private String name;

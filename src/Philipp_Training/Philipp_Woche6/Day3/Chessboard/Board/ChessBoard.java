@@ -1,11 +1,10 @@
-package Philipp_Training.Philipp_Woche6.Day3.Chessboard;
+package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
 
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessField;
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
 
 public class ChessBoard {
 
-    private ChessField[][] field;
+    private final ChessField[][] field;
 
     public ChessBoard() {
 
