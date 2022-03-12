@@ -29,7 +29,7 @@ public abstract class ChessPiece {
         if (canMove(x, y, discard)) {
             this.x = x;
             this.y = y;
-            if(this.firstStep) this.firstStep = false;
+            if (this.firstStep) this.firstStep = false;
             return true;
         }
         return false;

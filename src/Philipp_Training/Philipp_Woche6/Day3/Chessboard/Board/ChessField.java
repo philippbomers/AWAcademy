@@ -74,6 +74,4 @@ public class ChessField {
     public void setChessPiece(ChessPiece chessPiece) {
         this.chessPiece = chessPiece;
     }
-
-
 }

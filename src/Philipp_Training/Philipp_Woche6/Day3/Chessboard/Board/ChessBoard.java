@@ -106,4 +106,8 @@ public class ChessBoard {
     public void setWhiteTurn(boolean whiteTurn) {
         this.whiteTurn = whiteTurn;
     }
+
+    public ChessField[][] getField() {
+        return field;
+    }
 }
