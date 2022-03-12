@@ -2,9 +2,7 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessBoard;
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board.ChessField;
-import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.King;
 
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -14,12 +12,11 @@ import java.util.stream.IntStream;
 public class ChessConsole {
 
     private final ChessBoard chessBoard = new ChessBoard();
-    private int king = 0;
 
     public ChessConsole() {
         do {
             this.generateConsoleChessBoard();
-            if (king == 1) {
+            if (chessBoard.checkWin()) {
                 this.generateConsoleWinningDialog();
                 return;
             }
@@ -32,7 +29,6 @@ public class ChessConsole {
     }
 
     private void generateConsoleChessBoard() {
-        this.king = 0;
 
         System.out.printf("%10s", "");
         IntStream.range(0, 8).forEachOrdered(n -> System.out.printf("%10s", ChessField.getLetter(n)));
@@ -46,10 +42,6 @@ public class ChessConsole {
                     System.out.printf("%10s", !chessBoard.getField(x, y).getChessPiece().isWhite() ?
                             chessBoard.getField(x, y).getChessPiece().getName().toLowerCase() :
                             chessBoard.getField(x, y).getChessPiece().getName().toUpperCase());
-
-                    if (Objects.equals(chessBoard.getField(x, y).getChessPiece().getName(), King.CHESS_PIECE_KING_NAME)) {
-                        this.king++;
-                    }
                 } else {
                     System.out.printf("%10s", chessBoard.getField(x, y).getName());
                 }
@@ -89,5 +81,4 @@ public class ChessConsole {
     private void generateConsoleInputInvalidDialog() {
         System.out.println("Eingabe nicht möglich.");
     }
-
 }

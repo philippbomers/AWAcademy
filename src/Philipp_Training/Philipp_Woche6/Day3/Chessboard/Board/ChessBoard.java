@@ -2,6 +2,8 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
 
+import java.util.Arrays;
+
 /**
  * Generiert die Logik eines Schachbrettes zur externen Verwendung einer Oberfläche.
  * Funktionen:
@@ -109,5 +111,10 @@ public class ChessBoard {
 
     public ChessField[][] getField() {
         return field;
+    }
+
+    public boolean checkWin() {
+        int count = (int) Arrays.stream(this.getField()).flatMap(Arrays::stream).filter(chessField -> chessField.getChessPiece() != null && chessField.getChessPiece().getName().equals(King.CHESS_PIECE_KING_NAME)).count();
+        return (count == 1);
     }
 }

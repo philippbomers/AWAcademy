@@ -11,7 +11,7 @@ public class ChessSwing extends ChessBoard {
 
     private final JFrame window = new JFrame("Chess");
     private final ChessBoard chessBoard = new ChessBoard();
-    private int king = 0;
+    private final int king = 0;
 
     public ChessSwing() {
 
