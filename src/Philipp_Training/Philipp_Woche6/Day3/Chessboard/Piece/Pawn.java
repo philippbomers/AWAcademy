@@ -20,7 +20,7 @@ public class Pawn extends ChessPiece {
                                     y == this.getY() + (isWhite() ? 1 : -1) &&
                                             !anotherPieceOnField
                     )) ^
-                    (// Abwurf condition
+                    (// anotherPieceOnField condition
                             anotherPieceOnField && (
                                     this.getX() + 1 == x ||
                                             this.getX() - 1 == x) && (

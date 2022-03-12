@@ -1,7 +1,7 @@
 package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
 
 /**
- * König
+ * Koenig
  */
 public class King extends ChessPiece {
 

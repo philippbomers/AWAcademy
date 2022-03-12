@@ -6,50 +6,49 @@ import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.King;
 
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
+/**
+ * Erstellt das Schachspiel auf der Konsole
+ */
 public class ChessConsole {
 
-    private final ChessBoard chessBoard;
-    private int king;
+    private final ChessBoard chessBoard = new ChessBoard();
+    private int king = 0;
 
     public ChessConsole() {
-        this.chessBoard = new ChessBoard();
-        while (true) {
-            this.king = 0;
+        do {
             this.generateConsoleChessBoard();
             if (king == 1) {
                 this.generateConsoleWinningDialog();
                 return;
             }
             generateConsoleMovePieceDialog();
-        }
+        } while (true);
     }
 
     private void generateConsoleWinningDialog() {
-        System.out.println("\nDu hast gewonnen!");
+        System.out.println("\n" + (!chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz") + " hat gewonnen!");
     }
 
     private void generateConsoleChessBoard() {
+        this.king = 0;
+
         System.out.printf("%10s", "");
-        for (int n = 0; n < 8; n++) {
-            System.out.printf("%10s", ChessField.getLetter(n));
-        }
+        IntStream.range(0, 8).forEachOrdered(n -> System.out.printf("%10s", ChessField.getLetter(n)));
         System.out.printf("%n%10s", "");
-        for (int n = 0; n < 8; n++) {
-            System.out.printf("%10s", "________");
-        }
+        IntStream.range(0, 8).forEachOrdered(n -> System.out.printf("%10s", "________"));
 
         for (int y = 0; y < 8; y++) {
             System.out.printf("%n%10s", (y + 1) + " | ");
             for (int x = 0; x < 8; x++) {
                 if (chessBoard.getField(x, y).getChessPiece() != null) {
-                    if (!chessBoard.getField(x, y).getChessPiece().isWhite()) {
-                        System.out.printf("%10s", chessBoard.getField(x, y).getChessPiece().getName().toLowerCase());
-                    } else {
-                        System.out.printf("%10s", chessBoard.getField(x, y).getChessPiece().getName().toUpperCase());
-                    }
+                    System.out.printf("%10s", !chessBoard.getField(x, y).getChessPiece().isWhite() ?
+                            chessBoard.getField(x, y).getChessPiece().getName().toLowerCase() :
+                            chessBoard.getField(x, y).getChessPiece().getName().toUpperCase());
+
                     if (Objects.equals(chessBoard.getField(x, y).getChessPiece().getName(), King.CHESS_PIECE_KING_NAME)) {
-                        king++;
+                        this.king++;
                     }
                 } else {
                     System.out.printf("%10s", chessBoard.getField(x, y).getName());
@@ -60,7 +59,7 @@ public class ChessConsole {
 
     private void generateConsoleMovePieceDialog() {
         try {
-            System.out.println("\n\n"+ (chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz") + " ist am Zug.");
+            System.out.println("\n\n" + (chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz") + " ist am Zug.");
 
             Scanner scanner = new Scanner(System.in);
             System.out.println("Von X (A-F):");

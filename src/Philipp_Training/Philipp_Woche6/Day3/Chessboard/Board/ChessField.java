@@ -2,6 +2,13 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.ChessPiece;
 
+/**
+ * Generiert ein Schachfeld
+ * - x kann über A-H definiert werden oder über 1-6
+ * - y wird über 1-6 definiert
+ * - Figuren können sich in einem Feld befinden
+ * - Der Name des Feldes lautet X(Buchstabe)Y
+ */
 public class ChessField {
     final private String name;
     final private int x;

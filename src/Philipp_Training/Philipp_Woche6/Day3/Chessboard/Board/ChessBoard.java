@@ -2,46 +2,42 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
 
+/**
+ * Generiert die Logik eines Schachbrettes zur externen Verwendung einer Oberfläche.
+ * Funktionen:
+ * - generiert Schachbrett im Array
+ * → Wenn sich etwas ändert, ändert es sich auch im Array
+ * - Es wird überprüft, wer am Zug ist
+ * - Figuren bewegen sich korrekt
+ * - Figuren können nicht über andere Figuren springen
+ * - Figuren können Figuren mit anderer Farbe abwerfen
+ */
 public class ChessBoard {
 
     // TODO Rochade, Verbotszone um König, Bauer auf dem letzten Feld
 
-    private final ChessField[][] field;
-    private boolean whiteTurn;
+    private final ChessField[][] field = new ChessField[8][8];
+    private boolean whiteTurn = true;
 
     public ChessBoard() {
 
-        this.field = new ChessField[8][8];
-        this.setWhiteTurn(true);
-
-        /* creates a new chess field */
+        // creates a new chess field
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
-                this.field[x][y] = new ChessField(x, y);
+                this.setField(x, y, new ChessField(x, y));
                 switch (y) {
-                    case 0:
+                    case 0, 7:
                         switch (x) {
-                            case 0, 7 -> this.field[x][y].setChessPiece(new Rook(true, x, y));
-                            case 1, 6 -> this.field[x][y].setChessPiece(new Knight(true, x, y));
-                            case 2, 5 -> this.field[x][y].setChessPiece(new Bishop(true, x, y));
-                            case 3 -> this.field[x][y].setChessPiece(new Queen(true, x, y));
-                            case 4 -> this.field[x][y].setChessPiece(new King(true, x, y));
+                            case 0, 7 -> this.getField(x, y).setChessPiece(new Rook((y == 0), x, y));
+                            case 1, 6 -> this.getField(x, y).setChessPiece(new Knight((y == 0), x, y));
+                            case 2, 5 -> this.getField(x, y).setChessPiece(new Bishop((y == 0), x, y));
+                            case 3 -> this.getField(x, y).setChessPiece(new Queen((y == 0), x, y));
+                            case 4 -> this.getField(x, y).setChessPiece(new King((y == 0), x, y));
                         }
                         break;
-                    case 1:
-                        this.field[x][y].setChessPiece(new Pawn(true, x, y));
+                    case 1, 6:
+                        this.getField(x, y).setChessPiece(new Pawn((y == 1), x, y));
                         break;
-                    case 6:
-                        this.field[x][y].setChessPiece(new Pawn(false, x, y));
-                        break;
-                    case 7:
-                        switch (x) {
-                            case 0, 7 -> this.field[x][y].setChessPiece(new Rook(false, x, y));
-                            case 1, 6 -> this.field[x][y].setChessPiece(new Knight(false, x, y));
-                            case 2, 5 -> this.field[x][y].setChessPiece(new Bishop(false, x, y));
-                            case 3 -> this.field[x][y].setChessPiece(new Queen(false, x, y));
-                            case 4 -> this.field[x][y].setChessPiece(new King(false, x, y));
-                        }
                 }
             }
         }
@@ -55,10 +51,6 @@ public class ChessBoard {
         this.field[x][y] = field;
     }
 
-    public void setField(int x, int y) {
-        this.field[x][y] = null;
-    }
-
     public boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
         ChessField actualField = this.getField(numFromInputX, fromInputY);
         ChessField newField = this.getField(numToInputX, toInputY);
@@ -70,6 +62,7 @@ public class ChessBoard {
         int xNow = numFromInputX;
         int yNow = fromInputY;
         while (countFieldsOfX != 0 || countFieldsOfY != 0) {
+
             if (countFieldsOfX != 0) {
                 xNow = numFromInputX + (countFieldsOfX < 0 ? ++countFieldsOfX : --countFieldsOfX);
             }
