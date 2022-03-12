@@ -12,8 +12,8 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    public boolean canMove(int x, int y, boolean discard) {
-        if (super.canMove(x, y, discard)) {
+    public boolean canMove(int x, int y, boolean anotherPieceOnField) {
+        if (super.canMove(x, y, anotherPieceOnField)) {
             return (this.getX() == x ^ this.getY() == y);
         }
         return false;

@@ -4,7 +4,7 @@ import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
 
 public class ChessBoard {
 
-    // TODO Rochade, Bauer abwerfen, Verbotszone um König
+    // TODO Rochade, Verbotszone um König, Bauer auf dem letzten Feld
 
     private final ChessField[][] field;
     private boolean moveWhite;
@@ -84,11 +84,7 @@ public class ChessBoard {
             }
         }
 
-        /*
 
-TODO WORK HERE: does not work (Schräg abwerfen klappt nicht)
-
-         */
         if ((actualField.getChessPiece() != null) && // aktuelles Feld nicht leer
                 (!pieceInWay) && // Keine Figur im Weg
                 (actualField.getChessPiece().isWhite() == this.moveWhite) && // richtige Farbe ausgewählt?
@@ -96,30 +92,19 @@ TODO WORK HERE: does not work (Schräg abwerfen klappt nicht)
                 (newField.getChessPiece() == null ||
                         actualField.getChessPiece().isWhite() != newField.getChessPiece().isWhite())) {
 
-            if (actualField.getChessPiece().getName().equals(Pawn.CHESS_PIECE_PAWN_NAME) && newField.getChessPiece() != null) {
-                if ((actualField.getX() + (actualField.getChessPiece().isWhite() ? 1 : -1) == newField.getX() &&
-                        (actualField.getY() + 1 == newField.getY() ||
-                                actualField.getY() - 1 == newField.getY()))) {
-                    actualField.getChessPiece().move(numToInputX, toInputY, true);
-                } else {
-                    return false;
-                }
-            } else {
-                actualField.getChessPiece().move(numToInputX, toInputY, false);
-            }
-
-
-            // beschreibe die Felder
-            newField.setChessPiece(actualField.getChessPiece());
-            actualField.setChessPiece(null);
-            // erster Schritt der Figur beendet (z.B. für Bauer oder Rochade)
-            newField.getChessPiece().setFirstStep(false);
-            // nächste Farbe ist am Zug
-            this.moveWhite = !this.moveWhite;
-
-            return true;
-
+            actualField.getChessPiece().move(numToInputX, toInputY, (newField.getChessPiece() != null));
+        } else {
+            return false;
         }
-        return false;
+
+
+        // beschreibe die Felder
+        newField.setChessPiece(actualField.getChessPiece());
+        actualField.setChessPiece(null);
+        // erster Schritt der Figur beendet (z.B. für Bauer oder Rochade)
+        newField.getChessPiece().setFirstStep(false);
+        // nächste Farbe ist am Zug
+        this.moveWhite = !this.moveWhite;
+        return true;
     }
 }

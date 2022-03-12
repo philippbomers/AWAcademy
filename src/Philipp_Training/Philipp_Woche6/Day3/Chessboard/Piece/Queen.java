@@ -12,8 +12,8 @@ public class Queen extends ChessPiece {
     }
 
     @Override
-    public boolean canMove(int x, int y, boolean discard) {
-        if (super.canMove(x, y, discard)) {
+    public boolean canMove(int x, int y, boolean anotherPieceOnField) {
+        if (super.canMove(x, y, anotherPieceOnField)) {
             int CountFieldsOfX = Math.abs(x - this.getX());
             int CountFieldsOfY = Math.abs(y - this.getY());
             return ((CountFieldsOfX == CountFieldsOfY) || (this.getX() == x ^ this.getY() == y));

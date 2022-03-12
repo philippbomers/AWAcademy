@@ -11,36 +11,30 @@ public class Pawn extends ChessPiece {
         super(white, x, y);
     }
 
-
-    /*
-
-TODO WORK HERE: does not work (Schräg abwerfen klappt nicht)
-
- */
     @Override
-    public boolean canMove(int x, int y, boolean discard) {
+    public boolean canMove(int x, int y, boolean anotherPieceOnField) {
         if (super.canMove(x, y, false)) {
-            return ((this.isFirstStep() &&
-                    y == this.getY() + (isWhite() ? 2 : -2) ||          // First Step condition
-                    y == this.getY() + (isWhite() ? 1 : -1))
-
-                    ||
-
-                    (discard &&
-                            (this.getX() == x ||                                // Abwurf condition
+            return ((this.isFirstStep() && y == getY() &&
+                    (// First Step condition
+                            y == this.getY() + (isWhite() ? 2 : -2) ||
+                                    y == this.getY() + (isWhite() ? 1 : -1) &&
+                                            !anotherPieceOnField
+                    )) ^
+                    (// Abwurf condition
+                            anotherPieceOnField && (
                                     this.getX() + 1 == x ||
-                                    this.getX() - 1 == x) &&
-                            y == this.getY() + (isWhite() ? 1 : -1))
-
-                    ||
-                    (y == this.getY() + (isWhite() ? 1 : -1) && x == getX()));  // Standard condition
+                                            this.getX() - 1 == x) && (
+                                    y == this.getY() + (isWhite() ? 1 : -1))) ^
+                    (// Standard condition
+                            y == this.getY() + (isWhite() ? 1 : -1) &&
+                                    x == getX() && !anotherPieceOnField
+                    ));
         }
         return false;
     }
 
     @Override
     public boolean move(int x, int y, boolean discard) {
-        // Wenn die Figur sich bewegen kann, setze sie auf X, Y
         if (this.canMove(x, y, discard)) {
             this.x = x;
             this.y = y;

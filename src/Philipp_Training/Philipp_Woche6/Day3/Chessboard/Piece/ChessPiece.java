@@ -15,7 +15,7 @@ public abstract class ChessPiece {
 
     public abstract String getName();
 
-    public boolean canMove(int x, int y, boolean discard) {
+    public boolean canMove(int x, int y, boolean anotherPieceOnField) {
         // Ist die Figur auf dem Schachbrett?
         return x >= 0 && x < 8 && y >= 0 && y < 8 && !moveToSameField(x, y);
     }
@@ -29,6 +29,7 @@ public abstract class ChessPiece {
         if (canMove(x, y, discard)) {
             this.x = x;
             this.y = y;
+            if(this.firstStep) this.firstStep = false;
             return true;
         }
         return false;
