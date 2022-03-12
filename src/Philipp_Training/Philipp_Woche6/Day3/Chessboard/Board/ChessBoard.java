@@ -7,12 +7,12 @@ public class ChessBoard {
     // TODO Rochade, Verbotszone um König, Bauer auf dem letzten Feld
 
     private final ChessField[][] field;
-    private boolean moveWhite;
+    private boolean whiteTurn;
 
     public ChessBoard() {
 
         this.field = new ChessField[8][8];
-        this.moveWhite = true;
+        this.setWhiteTurn(true);
 
         /* creates a new chess field */
         for (int y = 0; y < 8; y++) {
@@ -84,10 +84,9 @@ public class ChessBoard {
             }
         }
 
-
         if ((actualField.getChessPiece() != null) && // aktuelles Feld nicht leer
                 (!pieceInWay) && // Keine Figur im Weg
-                (actualField.getChessPiece().isWhite() == this.moveWhite) && // richtige Farbe ausgewählt?
+                (actualField.getChessPiece().isWhite() == this.isWhiteTurn()) && // richtige Farbe ausgewählt?
                 // neues Feld muss leer sein oder eine Figur einer anderen Farbe beinhalten
                 (newField.getChessPiece() == null ||
                         actualField.getChessPiece().isWhite() != newField.getChessPiece().isWhite())) {
@@ -97,14 +96,21 @@ public class ChessBoard {
             return false;
         }
 
-
         // beschreibe die Felder
         newField.setChessPiece(actualField.getChessPiece());
         actualField.setChessPiece(null);
         // erster Schritt der Figur beendet (z.B. für Bauer oder Rochade)
         newField.getChessPiece().setFirstStep(false);
         // nächste Farbe ist am Zug
-        this.moveWhite = !this.moveWhite;
+        this.setWhiteTurn(!this.isWhiteTurn());
         return true;
+    }
+
+    public boolean isWhiteTurn() {
+        return whiteTurn;
+    }
+
+    public void setWhiteTurn(boolean whiteTurn) {
+        this.whiteTurn = whiteTurn;
     }
 }

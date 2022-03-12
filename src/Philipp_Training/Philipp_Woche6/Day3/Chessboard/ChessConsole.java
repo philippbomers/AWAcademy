@@ -60,8 +60,10 @@ public class ChessConsole {
 
     private void generateConsoleMovePieceDialog() {
         try {
+            System.out.println("\n\n"+ (chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz") + " ist am Zug.");
+
             Scanner scanner = new Scanner(System.in);
-            System.out.println("\n\nVon X (A-F):");
+            System.out.println("Von X (A-F):");
             char fromInputX = scanner.nextLine().charAt(0);
             int numFromInputX = ChessField.getNumber(fromInputX);
 
