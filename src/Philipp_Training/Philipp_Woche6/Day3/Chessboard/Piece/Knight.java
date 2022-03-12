@@ -12,8 +12,8 @@ public class Knight extends ChessPiece {
     }
 
     @Override
-    public boolean canMove(int x, int y) {
-        if (super.canMove(x, y)) {
+    public boolean canMove(int x, int y, boolean discard) {
+        if (super.canMove(x, y, discard)) {
             int CountFieldsOfX = Math.abs(x - this.getX());
             int CountFieldsOfY = Math.abs(y - this.getY());
             return (CountFieldsOfX == 1 && CountFieldsOfY == 2) ||

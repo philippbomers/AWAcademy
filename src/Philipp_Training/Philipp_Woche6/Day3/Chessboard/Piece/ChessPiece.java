@@ -2,8 +2,8 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece;
 
 public abstract class ChessPiece {
     final private boolean white;
-    private int x;
-    private int y;
+    int x;
+    int y;
     private boolean firstStep;
 
     public ChessPiece(boolean white, int x, int y) {
@@ -15,7 +15,7 @@ public abstract class ChessPiece {
 
     public abstract String getName();
 
-    public boolean canMove(int x, int y) {
+    public boolean canMove(int x, int y, boolean discard) {
         // Ist die Figur auf dem Schachbrett?
         return x >= 0 && x < 8 && y >= 0 && y < 8 && !moveToSameField(x, y);
     }
@@ -24,9 +24,9 @@ public abstract class ChessPiece {
         return x == this.x && y == this.y;
     }
 
-    public boolean move(int x, int y) {
+    public boolean move(int x, int y, boolean discard) {
         // Wenn die Figur sich bewegen kann, setze sie auf X, Y
-        if (canMove(x, y)) {
+        if (canMove(x, y, discard)) {
             this.x = x;
             this.y = y;
             return true;

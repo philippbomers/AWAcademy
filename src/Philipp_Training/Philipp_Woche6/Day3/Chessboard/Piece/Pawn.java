@@ -11,21 +11,40 @@ public class Pawn extends ChessPiece {
         super(white, x, y);
     }
 
+
+    /*
+
+TODO WORK HERE: does not work (Schräg abwerfen klappt nicht)
+
+ */
     @Override
-    public boolean canMove(int x, int y) {
-        if (super.canMove(x, y)) {
-            int CountFieldsOfY = y - this.getY();
-            if (this.isFirstStep()) {
-                return (((CountFieldsOfY == -1 && !this.isWhite()) ||
-                        (CountFieldsOfY == -2 && !this.isWhite())) ||
-                        ((CountFieldsOfY == 1 && this.isWhite()) ||
-                                (CountFieldsOfY == 2 && this.isWhite()))) &&
-                        (x == this.getX());
-            } else {
-                return (((CountFieldsOfY == -1 && !this.isWhite()) ||
-                        (CountFieldsOfY == 1 && this.isWhite())) &&
-                        (x == this.getX()));
-            }
+    public boolean canMove(int x, int y, boolean discard) {
+        if (super.canMove(x, y, false)) {
+            return ((this.isFirstStep() &&
+                    y == this.getY() + (isWhite() ? 2 : -2) ||          // First Step condition
+                    y == this.getY() + (isWhite() ? 1 : -1))
+
+                    ||
+
+                    (discard &&
+                            (this.getX() == x ||                                // Abwurf condition
+                                    this.getX() + 1 == x ||
+                                    this.getX() - 1 == x) &&
+                            y == this.getY() + (isWhite() ? 1 : -1))
+
+                    ||
+                    (y == this.getY() + (isWhite() ? 1 : -1) && x == getX()));  // Standard condition
+        }
+        return false;
+    }
+
+    @Override
+    public boolean move(int x, int y, boolean discard) {
+        // Wenn die Figur sich bewegen kann, setze sie auf X, Y
+        if (this.canMove(x, y, discard)) {
+            this.x = x;
+            this.y = y;
+            return true;
         }
         return false;
     }
