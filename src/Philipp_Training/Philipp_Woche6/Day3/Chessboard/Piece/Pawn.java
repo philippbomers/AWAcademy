@@ -16,8 +16,8 @@ public class Pawn extends ChessPiece {
         if (super.canMove(x, y, false)) {
             return ((this.isFirstStep() && y == getY() &&
                     (// First Step condition
-                            y == this.getY() + (isWhite() ? 2 : -2) ||
-                                    y == this.getY() + (isWhite() ? 1 : -1) &&
+                            (y == this.getY() + (isWhite() ? 2 : -2) ^
+                                    y == this.getY() + (isWhite() ? 1 : -1)) &&
                                             !anotherPieceOnField
                     )) ^
                     (// anotherPieceOnField condition
@@ -29,16 +29,6 @@ public class Pawn extends ChessPiece {
                             y == this.getY() + (isWhite() ? 1 : -1) &&
                                     x == getX() && !anotherPieceOnField
                     ));
-        }
-        return false;
-    }
-
-    @Override
-    public boolean move(int x, int y, boolean discard) {
-        if (this.canMove(x, y, discard)) {
-            this.x = x;
-            this.y = y;
-            return true;
         }
         return false;
     }

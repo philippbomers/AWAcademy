@@ -84,11 +84,11 @@ public class ChessSwing extends ChessBoard {
 
     private void getButtonAction(int newButtonNumber) {
 
-        if(buttons[newButtonNumber].getIcon() != null){
+        if(this.selectedButtonNumber == -1 && buttons[newButtonNumber].getIcon() != null){
             this.buttons[newButtonNumber].setBackground(Color.CYAN);
         }
 
-        if (this.selectedButtonNumber != -1 && this.buttons[newButtonNumber] != null && buttons[this.selectedButtonNumber].getIcon() != null) {
+        if (this.selectedButtonNumber != -1 && buttons[this.selectedButtonNumber].getIcon() != null) {
             String[] xyOld = this.buttons[this.selectedButtonNumber].getName().split(" ");
             int oldX = Integer.parseInt(xyOld[0]);
             int oldY = Integer.parseInt(xyOld[1]);
@@ -107,7 +107,14 @@ public class ChessSwing extends ChessBoard {
             }
         }
 
-        this.selectedButtonNumber = Objects.equals(selectedButtonNumber, -1) ? newButtonNumber : -1;
+        if(this.selectedButtonNumber == -1 && this.buttons[newButtonNumber].getIcon() != null) {
+            this.selectedButtonNumber = Objects.equals(selectedButtonNumber, -1) ? newButtonNumber : -1;
+        }else {
+            this.selectedButtonNumber = -1;
+        }
+
+
+
     }
 
     private String getPicutresPath() {

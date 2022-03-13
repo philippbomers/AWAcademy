@@ -64,22 +64,20 @@ public class ChessBoard {
         int xNow = numFromInputX;
         int yNow = fromInputY;
         while (countFieldsOfX != 0 || countFieldsOfY != 0) {
-
             if (countFieldsOfX != 0) {
                 xNow = numFromInputX + (countFieldsOfX < 0 ? ++countFieldsOfX : --countFieldsOfX);
             }
-
             if (countFieldsOfY != 0) {
                 yNow = fromInputY + (countFieldsOfY < 0 ? ++countFieldsOfY : --countFieldsOfY);
             }
-
             if (actualField.getChessPiece().canMove(xNow, yNow, false) &&
                     this.getField(xNow, yNow).getChessPiece() != null) {
                 pieceInWay = true;
             }
         }
 
-        if ((actualField.getChessPiece() != null) && // aktuelles Feld nicht leer
+        if ((actualField.getChessPiece() != null) &&
+                actualField.getChessPiece().canMove(numToInputX, toInputY, (newField.getChessPiece() != null)) && // aktuelles Feld nicht leer
                 (!pieceInWay) && // Keine Figur im Weg
                 (actualField.getChessPiece().isWhite() == this.isWhiteTurn()) && // richtige Farbe ausgewählt?
                 // neues Feld muss leer sein oder eine Figur einer anderen Farbe beinhalten

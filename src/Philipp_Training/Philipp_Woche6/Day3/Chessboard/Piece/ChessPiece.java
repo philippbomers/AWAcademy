@@ -4,13 +4,12 @@ public abstract class ChessPiece {
     final private boolean white;
     int x;
     int y;
-    private boolean firstStep;
+    private boolean firstStep = true;
 
     public ChessPiece(boolean white, int x, int y) {
         this.white = white;
         this.x = x;
         this.y = y;
-        this.firstStep = true;
     }
 
     public abstract String getName();
@@ -24,12 +23,14 @@ public abstract class ChessPiece {
         return x == this.x && y == this.y;
     }
 
-    public boolean move(int x, int y, boolean discard) {
+    public boolean move(int x, int y, boolean anotherPieceOnField) {
         // Wenn die Figur sich bewegen kann, setze sie auf X, Y
-        if (canMove(x, y, discard)) {
+        if (this.canMove(x, y, anotherPieceOnField)) {
             this.x = x;
             this.y = y;
-            if (this.firstStep) this.firstStep = false;
+            if (this.firstStep) {
+                this.firstStep = false;
+            }
             return true;
         }
         return false;
