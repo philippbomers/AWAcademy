@@ -59,10 +59,9 @@ public class ChessSwing extends ChessBoard {
         });
         jMenuBar.add(restartButton);
         jMenuBar.add(Box.createRigidArea(new Dimension(50, 0)));
-        this.turn = new JLabel(chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz");
-        turn.setBounds(this.turn.getX(), this.turn.getY(), 200, 50);
+        this.turn = new JLabel((chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz") + " ist am Zug");
+        this.turn.setBounds(this.turn.getX(), this.turn.getY(), 200, 50);
         jMenuBar.add(this.turn);
-        jMenuBar.add(new JLabel(" ist am Zug"));
         return jMenuBar;
     }
 
@@ -102,7 +101,7 @@ public class ChessSwing extends ChessBoard {
             if (chessBoard.movePieceOnBoard(oldX, oldY, newX, newY)) {
                 this.buttons[newButtonNumber].setIcon(buttons[selectedButtonNumber].getIcon());
                 this.buttons[selectedButtonNumber].setIcon(null);
-                this.turn.setText(chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz");
+                this.turn.setText((chessBoard.isWhiteTurn() ? "Weiß" : "Schwarz") + " ist am Zug");
             }
         }
 
@@ -113,7 +112,8 @@ public class ChessSwing extends ChessBoard {
         }
 
         if (chessBoard.checkWin()) {
-            JOptionPane.showMessageDialog(window, (chessBoard.isWhiteTurn() ? "Schwarz" : "Weiß") + " hat gewonnen!");
+            this.winningDialog();
+            this.turn.setText((chessBoard.isWhiteTurn() ? "Schwarz" : "Weiß") + " hat gewonnen!");
         }
     }
 
@@ -122,6 +122,17 @@ public class ChessSwing extends ChessBoard {
         path = path.replaceFirst("/", "");
         String fullPath = Objects.requireNonNull(ChessBoardMain.class.getResource(".")).getPath().substring(1);
         return "src/" + fullPath.replaceAll(path, "") + "Pictures/";
+    }
+
+    public JButton[] getButtons() {
+        return buttons;
+    }
+
+    private void winningDialog() {
+        JOptionPane.showMessageDialog(window, (chessBoard.isWhiteTurn() ? "Schwarz" : "Weiß") + " hat gewonnen!");
+        for (JButton button : this.getButtons()) {
+            button.setEnabled(false);
+        }
     }
 
 }
