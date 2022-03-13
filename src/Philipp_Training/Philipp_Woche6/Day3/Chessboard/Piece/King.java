@@ -16,7 +16,7 @@ public class King extends ChessPiece {
         if (super.canMove(x, y, anotherPieceOnField)) {
             int CountFieldsOfX = Math.abs(x - this.getX());
             int CountFieldsOfY = Math.abs(y - this.getY());
-            return ((CountFieldsOfX == 1) ^ (CountFieldsOfY == 1));
+            return ((CountFieldsOfX == 1) || (CountFieldsOfY == 1));
         }
         return false;
     }

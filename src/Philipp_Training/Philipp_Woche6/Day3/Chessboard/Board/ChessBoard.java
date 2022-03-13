@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 public class ChessBoard {
 
-    // TODO Rochade, Verbotszone um König, Bauer auf dem letzten Feld
+    // TODO Rochade, Verbotszone um König, Bauer auf dem letzten Feld umwandeln
 
     private final ChessField[][] field = new ChessField[8][8];
     private boolean whiteTurn = true;
