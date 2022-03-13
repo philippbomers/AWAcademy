@@ -14,7 +14,7 @@ public class Pawn extends ChessPiece {
     @Override
     public boolean canMove(int x, int y, boolean anotherPieceOnField) {
         if (super.canMove(x, y, false)) {
-            return ((this.isFirstStep() && y == getY() &&
+            return ((this.isFirstStep() && x == getX() &&
                     (// First Step condition
                             (y == this.getY() + (isWhite() ? 2 : -2) ^
                                     y == this.getY() + (isWhite() ? 1 : -1)) &&
