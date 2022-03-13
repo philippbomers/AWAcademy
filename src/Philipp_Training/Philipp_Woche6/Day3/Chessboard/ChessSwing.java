@@ -83,8 +83,7 @@ public class ChessSwing extends ChessBoard {
     }
 
     private void getButtonAction(int newButtonNumber) {
-
-        if(this.selectedButtonNumber == -1 && buttons[newButtonNumber].getIcon() != null){
+        if (this.selectedButtonNumber == -1 && buttons[newButtonNumber].getIcon() != null) {
             this.buttons[newButtonNumber].setBackground(Color.CYAN);
         }
 
@@ -107,14 +106,15 @@ public class ChessSwing extends ChessBoard {
             }
         }
 
-        if(this.selectedButtonNumber == -1 && this.buttons[newButtonNumber].getIcon() != null) {
+        if (this.selectedButtonNumber == -1 && this.buttons[newButtonNumber].getIcon() != null) {
             this.selectedButtonNumber = Objects.equals(selectedButtonNumber, -1) ? newButtonNumber : -1;
-        }else {
+        } else {
             this.selectedButtonNumber = -1;
         }
 
-
-
+        if (chessBoard.checkWin()) {
+            JOptionPane.showMessageDialog(window, (chessBoard.isWhiteTurn() ? "Schwarz" : "Weiß") + " hat gewonnen!");
+        }
     }
 
     private String getPicutresPath() {

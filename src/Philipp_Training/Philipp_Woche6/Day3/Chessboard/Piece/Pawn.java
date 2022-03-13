@@ -17,7 +17,7 @@ public class Pawn extends ChessPiece {
             return ((this.isFirstStep() && x == getX() && !anotherPieceOnField &&
                     (// First Step condition
                             y == this.getY() + (isWhite() ? 1 : -1) ^
-                            y == this.getY() + (isWhite() ? 2 : -2)
+                                    y == this.getY() + (isWhite() ? 2 : -2)
 
                     )) ||
                     (// anotherPieceOnField condition

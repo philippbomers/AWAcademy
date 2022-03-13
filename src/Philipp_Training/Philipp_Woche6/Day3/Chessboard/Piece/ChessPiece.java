@@ -45,11 +45,11 @@ public abstract class ChessPiece {
     }
 
     public boolean isWhite() {
-        return white;
+        return this.white;
     }
 
     public boolean isFirstStep() {
-        return firstStep;
+        return this.firstStep;
     }
 
     public void setFirstStep(boolean firstStep) {
