@@ -55,9 +55,9 @@ public class ChessBoard {
         this.field[x][y] = field;
     }
 
-    private boolean isPieceInWay(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
+    private boolean isNoPieceInWay(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
         // cannot jump over other figures
-        boolean pieceInWay = false;
+        boolean noPieceInWay = true;
         int countFieldsOfX = numToInputX - numFromInputX;
         int countFieldsOfY = toInputY - fromInputY;
         int xNow = numFromInputX;
@@ -71,10 +71,10 @@ public class ChessBoard {
             }
             if (this.getField(numFromInputX, fromInputY).getChessPiece().canMove(xNow, yNow, false) &&
                     this.getField(xNow, yNow).getChessPiece() != null) {
-                pieceInWay = true;
+                noPieceInWay = false;
             }
         }
-        return pieceInWay;
+        return noPieceInWay;
     }
 
     public boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
@@ -83,7 +83,7 @@ public class ChessBoard {
 
         if ((actualField.getChessPiece() != null) &&
                 actualField.getChessPiece().canMove(numToInputX, toInputY, (newField.getChessPiece() != null)) && // aktuelles Feld nicht leer
-                (!this.isPieceInWay(numFromInputX, fromInputY, numToInputX, toInputY)) && // Keine Figur im Weg
+                (this.isNoPieceInWay(numFromInputX, fromInputY, numToInputX, toInputY)) && // Keine Figur im Weg
                 (actualField.getChessPiece().isWhite() == this.isWhiteTurn()) && // richtige Farbe ausgewählt?
                 // neues Feld muss leer sein oder eine Figur einer anderen Farbe beinhalten
                 (newField.getChessPiece() == null ||
@@ -129,7 +129,7 @@ public class ChessBoard {
                 if (actualField.getChessPiece().canMove(chessField.getX(), chessField.getY(), (
                         chessField.getChessPiece() != null &&
                                 chessField.getChessPiece().isWhite() != actualField.getChessPiece().isWhite())) &&
-                        !this.isPieceInWay(x, y, chessField.getX(), chessField.getY()) &&
+                        this.isNoPieceInWay(x, y, chessField.getX(), chessField.getY()) &&
                         (chessField.getChessPiece() == null ||
                                 chessField.getChessPiece().isWhite() != actualField.getChessPiece().isWhite())) {
                     result.add(chessField);
