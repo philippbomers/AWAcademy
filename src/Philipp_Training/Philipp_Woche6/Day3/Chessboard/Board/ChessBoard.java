@@ -2,7 +2,9 @@ package Philipp_Training.Philipp_Woche6.Day3.Chessboard.Board;
 
 import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Generiert die Logik eines Schachbrettes zur externen Verwendung einer Oberfläche.
@@ -53,10 +55,7 @@ public class ChessBoard {
         this.field[x][y] = field;
     }
 
-    public boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
-        ChessField actualField = this.getField(numFromInputX, fromInputY);
-        ChessField newField = this.getField(numToInputX, toInputY);
-
+    private boolean isPieceInWay(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
         // cannot jump over other figures
         boolean pieceInWay = false;
         int countFieldsOfX = numToInputX - numFromInputX;
@@ -70,15 +69,21 @@ public class ChessBoard {
             if (countFieldsOfY != 0) {
                 yNow = fromInputY + (countFieldsOfY < 0 ? ++countFieldsOfY : --countFieldsOfY);
             }
-            if (actualField.getChessPiece().canMove(xNow, yNow, false) &&
+            if (this.getField(numFromInputX, fromInputY).getChessPiece().canMove(xNow, yNow, false) &&
                     this.getField(xNow, yNow).getChessPiece() != null) {
                 pieceInWay = true;
             }
         }
+        return pieceInWay;
+    }
+
+    public boolean movePieceOnBoard(int numFromInputX, int fromInputY, int numToInputX, int toInputY) {
+        ChessField actualField = this.getField(numFromInputX, fromInputY);
+        ChessField newField = this.getField(numToInputX, toInputY);
 
         if ((actualField.getChessPiece() != null) &&
                 actualField.getChessPiece().canMove(numToInputX, toInputY, (newField.getChessPiece() != null)) && // aktuelles Feld nicht leer
-                (!pieceInWay) && // Keine Figur im Weg
+                (!this.isPieceInWay(numFromInputX, fromInputY, numToInputX, toInputY)) && // Keine Figur im Weg
                 (actualField.getChessPiece().isWhite() == this.isWhiteTurn()) && // richtige Farbe ausgewählt?
                 // neues Feld muss leer sein oder eine Figur einer anderen Farbe beinhalten
                 (newField.getChessPiece() == null ||
@@ -114,5 +119,23 @@ public class ChessBoard {
     public boolean checkWin() {
         int count = (int) Arrays.stream(this.getField()).flatMap(Arrays::stream).filter(chessField -> chessField.getChessPiece() != null && chessField.getChessPiece().getName().equals(King.CHESS_PIECE_KING_NAME)).count();
         return (count == 1);
+    }
+
+    public List<ChessField> getFieldsOfPossibleMovements(int x, int y) {
+        List<ChessField> result = new ArrayList<>();
+        ChessField actualField = this.getField(x, y);
+        for (ChessField[] chessFields : this.getField()) {
+            for (ChessField chessField : chessFields) {
+                if (actualField.getChessPiece().canMove(chessField.getX(), chessField.getY(), (
+                        chessField.getChessPiece() != null &&
+                                chessField.getChessPiece().isWhite() != actualField.getChessPiece().isWhite())) &&
+                        !this.isPieceInWay(x, y, chessField.getX(), chessField.getY()) &&
+                        (chessField.getChessPiece() == null ||
+                                chessField.getChessPiece().isWhite() != actualField.getChessPiece().isWhite())) {
+                    result.add(chessField);
+                }
+            }
+        }
+        return result;
     }
 }

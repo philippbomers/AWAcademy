@@ -5,6 +5,7 @@ import Philipp_Training.Philipp_Woche6.Day3.Chessboard.Piece.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ChessSwing extends ChessBoard {
@@ -36,11 +37,7 @@ public class ChessSwing extends ChessBoard {
         for (int y = 0; y < 8; y++) {
             for (int x = 0; x < 8; x++) {
                 int finalButtonNumber = buttonNumber;
-                if (super.getField(x, y).getChessPiece() != null) {
-                    this.buttons[buttonNumber] = this.createFieldButton(x, y);
-                } else {
-                    this.buttons[buttonNumber] = new JButton();
-                }
+                this.buttons[buttonNumber] = super.getField(x, y).getChessPiece() != null ? this.createFieldButton(x, y) : new JButton();
                 this.buttons[buttonNumber].setName(x + " " + y);
                 this.buttons[buttonNumber].addActionListener(e -> this.getButtonAction(finalButtonNumber));
                 this.buttons[buttonNumber].setBackground(x % 2 == 0 ^ y % 2 == 0 ? Color.WHITE : Color.LIGHT_GRAY);
@@ -81,22 +78,42 @@ public class ChessSwing extends ChessBoard {
         return new JButton(newImageIcon);
     }
 
+    private int[] getXyFromButton(int buttonNumber){
+        int[] result = new int[2];
+        String[] buttonData = buttons[buttonNumber].getName().split(" ");
+        result[0] = Integer.parseInt(buttonData[0]);
+        result[1] = Integer.parseInt(buttonData[1]);
+        return result;
+    }
+
+    private int[] getXyFromButton(JButton button){
+        int[] result = new int[2];
+        String[] buttonData = button.getName().split(" ");
+        result[0] = Integer.parseInt(buttonData[0]);
+        result[1] = Integer.parseInt(buttonData[1]);
+        return result;
+    }
+
     private void getButtonAction(int newButtonNumber) {
         if (this.selectedButtonNumber == -1 && buttons[newButtonNumber].getIcon() != null) {
             this.buttons[newButtonNumber].setBackground(Color.CYAN);
+
+            int x = getXyFromButton(newButtonNumber)[0];
+            int y = getXyFromButton(newButtonNumber)[1];
+
+            chessBoard.getFieldsOfPossibleMovements(x, y).forEach(field -> Arrays.stream(this.getButtons())
+                    .filter(button -> button.getName().equals(field.getX() + " " + field.getY()))
+                    .forEach(button -> button.setBackground(Color.BLUE)));
         }
 
         if (this.selectedButtonNumber != -1 && buttons[this.selectedButtonNumber].getIcon() != null) {
-            String[] xyOld = this.buttons[this.selectedButtonNumber].getName().split(" ");
-            int oldX = Integer.parseInt(xyOld[0]);
-            int oldY = Integer.parseInt(xyOld[1]);
+            int oldX = getXyFromButton(this.selectedButtonNumber)[0];
+            int oldY = getXyFromButton(this.selectedButtonNumber)[1];
 
-            String[] xyNew = this.buttons[newButtonNumber].getName().split(" ");
-            int newX = Integer.parseInt(xyNew[0]);
-            int newY = Integer.parseInt(xyNew[1]);
+            int newX = getXyFromButton(newButtonNumber)[0];
+            int newY = getXyFromButton(newButtonNumber)[1];
 
-            this.buttons[selectedButtonNumber].setBackground(oldX % 2 == 0 ^ oldY % 2 == 0 ? Color.WHITE : Color.LIGHT_GRAY);
-            this.buttons[newButtonNumber].setBackground(newX % 2 == 0 ^ newY % 2 == 0 ? Color.WHITE : Color.LIGHT_GRAY);
+            this.setButtonStandardColor();
 
             if (chessBoard.movePieceOnBoard(oldX, oldY, newX, newY)) {
                 this.buttons[newButtonNumber].setIcon(buttons[selectedButtonNumber].getIcon());
@@ -117,6 +134,20 @@ public class ChessSwing extends ChessBoard {
         }
     }
 
+    private void setButtonStandardColor() {
+        int x;
+        int y;
+        Color color;
+
+        for (JButton button : this.getButtons()) {
+            x = getXyFromButton(button)[0];
+            y = getXyFromButton(button)[1];
+            color = x % 2 == 0 ^ y % 2 == 0 ? Color.WHITE : Color.LIGHT_GRAY;
+            if (button.getBackground() != color)
+                button.setBackground(color);
+        }
+    }
+
     private String getPicutresPath() {
         String path = ChessBoardMain.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         path = path.replaceFirst("/", "");
@@ -124,7 +155,7 @@ public class ChessSwing extends ChessBoard {
         return "src/" + fullPath.replaceAll(path, "") + "Pictures/";
     }
 
-    public JButton[] getButtons() {
+    private JButton[] getButtons() {
         return buttons;
     }
 
