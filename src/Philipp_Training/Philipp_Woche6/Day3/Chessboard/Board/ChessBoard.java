@@ -117,7 +117,12 @@ public class ChessBoard {
     }
 
     public boolean checkWin() {
-        int count = (int) Arrays.stream(this.getField()).flatMap(Arrays::stream).filter(chessField -> chessField.getChessPiece() != null && chessField.getChessPiece().getName().equals(King.CHESS_PIECE_KING_NAME)).count();
+        int count = (int) Arrays.stream(this.getField())
+                .flatMap(Arrays::stream)
+                .filter(
+                        chessField -> chessField.getChessPiece() != null &&
+                                chessField.getChessPiece().getName().equals(King.CHESS_PIECE_KING_NAME))
+                .count();
         return (count == 1);
     }
 
